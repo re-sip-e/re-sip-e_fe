@@ -1,4 +1,4 @@
-const cocktails = [
+export const cocktails = [
   {
     id: 1,
     name: "Negroni",
@@ -91,3 +91,5 @@ const cocktails = [
     ],
   },
 ];
+
+// export default cocktails;
