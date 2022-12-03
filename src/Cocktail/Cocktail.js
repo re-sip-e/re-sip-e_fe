@@ -1,12 +1,22 @@
-import './Cocktail.css'
+import { Link } from "react-router-dom";
+import "./Cocktail.css";
+
 const Cocktail = ({ cocktail }) => {
   return (
-    <div
-      className="cocktail"
-      style={{ backgroundImage: `url(${cocktail.imgUrl})` }}
+    <Link
+      to={`/${cocktail.name}`}
+      style={{ textDecoration: "none", color: "inherit" }}
     >
-      <h3>{cocktail.name}</h3>
-    </div>
+      <div
+        className="cocktail"
+        style={{
+          backgroundImage: `url(${cocktail.imgUrl})`,
+          backgroundSize: "cover",
+        }}
+      >
+        <h3>{cocktail.name}</h3>
+      </div>
+    </Link>
   );
 };
 

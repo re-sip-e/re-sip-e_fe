@@ -2,6 +2,7 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import { cocktails } from "../mockData";
+import CocktailInfo from "../CocktailInfo/CocktailInfo";
 
 const App = () => {
   return (
@@ -24,6 +25,15 @@ const App = () => {
                 <h2>2022's Favorite Drinks</h2>
                 <CocktailContainer cocktails={cocktails} />
               </div>
+            </div>
+          )}
+        ></Route>
+        <Route
+          exact
+          path="/:cocktail"
+          render={({ match }) => (
+            <div className="cocktail-info">
+              <CocktailInfo cocktail={match.params.cocktail} />
             </div>
           )}
         ></Route>

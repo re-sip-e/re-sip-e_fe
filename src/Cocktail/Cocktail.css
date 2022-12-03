@@ -3,7 +3,6 @@
     width: 20rem;
 }
 h3 {
- 
     background: #fff;
     opacity: 0.9;
     width: 100%;
@@ -12,3 +11,10 @@ h3 {
 h2 {
     text-align: center;
 }
+
+.cocktail:hover h3 {
+    background: black;
+    opacity: 0.9;
+    color: white;
+}
+
