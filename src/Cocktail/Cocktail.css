@@ -1,0 +1,20 @@
+.cocktail {
+    height: 25rem;
+    width: 20rem;
+}
+h3 {
+    background: #fff;
+    opacity: 0.9;
+    width: 100%;
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+
+.cocktail:hover h3 {
+    background: black;
+    opacity: 0.9;
+    color: white;
+}
+
