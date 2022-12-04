@@ -1,28 +1,32 @@
 import React from 'react';
 import "./NavBar.css";
-import { Heading, Avatar } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom"
+import { Heading, IconButton, Avatar } from "@chakra-ui/react";
+import { SearchIcon } from '@chakra-ui/icons';
+import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/joes-bar.png";
 
 const NavBar = () => {
   return (
     <section className='alt-header'>
-        <div className='alt-nav-box'>
+        <div className='alt-header-box head-2'>
         <Heading as="h4" size="md">
-          Re*sip*e
+            <Link to="/">
+                Re*sip*e
+            </Link>
         </Heading>
-        <nav className="second-nav head-2">
-          <div className="second-nav-list head-2">
-            <div className="nav-2-list">
+        <nav className="second-header head-2">
+          <div className="second-header-list head-2">
+            <div className="search-tab">
               <NavLink to="/search">
-                Browse
+              <IconButton aria-label='Search database' icon={<SearchIcon />} />
               </NavLink>
             </div>
-            <div className="nav-2-list">
-              <NavLink to="/drinks/1">
-                Joe's Bar
+            <div className="bar-tab">
+              <NavLink to="/drinks/1" className={"bar-icon-box"}>
+                <img src={logo} alt="joes-bar-logo" width={"30px"}/>
               </NavLink>
             </div>
-            <div className="nav-avatar">
+            <div className="header-avatar">
               <NavLink to="/profile">
                 <Avatar name="Joe Schmoe" src="https://bit.ly/code-beast" />
               </NavLink>
