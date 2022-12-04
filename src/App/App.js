@@ -3,6 +3,7 @@ import "./App.css";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import { cocktails } from "../mockData";
 import CocktailInfo from "../CocktailInfo/CocktailInfo";
+import Header from "../Header/Header";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
           path="/"
           render={() => (
             <div className="home-page">
+              <Header />
               <div className="welcome">
                 <h1>Welcome to Re*sip*e</h1>
                 <p className="story">
