@@ -15,12 +15,13 @@ import {
 import React from "react";
 
 const EditCocktail = ({ cocktail }) => {
-  console.log(cocktail);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
-
+  const combinedIngredients = cocktail.ingredients.map((ingredient) => {
+    return `${ingredient.quantity}  ${ingredient.name}`;
+  });
   return (
     <>
       <Button onClick={onOpen}>Make it my own!</Button>
@@ -42,7 +43,7 @@ const EditCocktail = ({ cocktail }) => {
 
             <FormControl mr={4}>
               <FormLabel>Ingredients</FormLabel>
-              <Input placeholder={`${cocktail.ingredients}`} />
+              <Input placeholder={`${combinedIngredients}`} />
             </FormControl>
             <FormControl mr={4}>
               <FormLabel>Steps</FormLabel>
