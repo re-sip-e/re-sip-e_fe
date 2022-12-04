@@ -3,6 +3,7 @@ import React from "react";
 import { Heading, Avatar } from "@chakra-ui/react";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
+import logo from "../assets/joes-bar.png";
 
 const Header = () => {
   return (
@@ -15,12 +16,12 @@ const Header = () => {
           <div className="main-nav-list head">
             <div className="nav-list">
               <NavLink to="/search">
-                Browse
+                Browse Cocktails
               </NavLink>
             </div>
             <div className="nav-list">
               <NavLink to="/drinks/1">
-                Joe's Bar
+              <img src={logo} alt="joes-bar-logo" width={"30px"}/>
               </NavLink>
             </div>
             <div className="nav-avatar">
