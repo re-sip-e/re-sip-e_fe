@@ -1,24 +1,23 @@
-/* eslint-disable react/jsx-no-undef */
-import React from "react";
+import React from 'react';
+import "./NavBar.css";
 import { Heading, Avatar } from "@chakra-ui/react";
-import "./Header.css";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom"
 
-const Header = () => {
+const NavBar = () => {
   return (
-    <header className="main-header">
-      <div className="header-container head">
+    <section className='alt-header'>
+        <div className='alt-nav-box'>
         <Heading as="h4" size="md">
           Re*sip*e
         </Heading>
-        <nav className="main-nav head">
-          <div className="main-nav-list head">
-            <div className="nav-list">
+        <nav className="second-nav head-2">
+          <div className="second-nav-list head-2">
+            <div className="nav-2-list">
               <NavLink to="/search">
                 Browse
               </NavLink>
             </div>
-            <div className="nav-list">
+            <div className="nav-2-list">
               <NavLink to="/drinks/1">
                 Joe's Bar
               </NavLink>
@@ -30,9 +29,9 @@ const Header = () => {
             </div>
           </div>
         </nav>
-      </div>
-    </header>
-  );
+        </div>
+    </section>
+  )
 }
 
-export default Header;
+export default NavBar;
