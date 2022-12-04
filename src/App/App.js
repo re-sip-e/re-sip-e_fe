@@ -3,6 +3,7 @@ import "./App.css";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import { cocktails } from "../mockData";
 import CocktailInfo from "../CocktailInfo/CocktailInfo";
+import { Heading } from '@chakra-ui/react'
 import Header from "../Header/Header";
 
 const App = () => {
@@ -16,7 +17,8 @@ const App = () => {
             <div className="home-page">
               <Header />
               <div className="welcome">
-                <h1>Welcome to Re*sip*e</h1>
+                {/* <h1>Welcome to Re*sip*e</h1> */}
+                <Heading as="h1" size="4xl">Welcome to Re*sip*e</Heading>
                 <p className="story">
                   We are here to help bars and bartender have easy access to
                   their cocktails recipe making it fast and efficient to find
