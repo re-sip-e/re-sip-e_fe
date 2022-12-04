@@ -7,24 +7,28 @@ import { NavLink } from "react-router-dom";
 function Header() {
   return (
     <header className="main-header">
-      <div className="header-container">
-        <Heading as="h2" size="2xl">
+      <div className="header-container head">
+        <Heading as="h4" size="md">
           Re*sip*e
         </Heading>
-        <nav className="main-nav">
-          <ul className="main-nav-list">
-            <li>
-              <NavLink to="/search">Browse</NavLink>
-            </li>
-            <li>
-              <NavLink to="/drinks/1">Joe's Bar</NavLink>
-            </li>
-            <li>
+        <nav className="main-nav head">
+          <div className="main-nav-list head">
+            <div className="nav-list">
+              <NavLink to="/search">
+                Browse
+              </NavLink>
+            </div>
+            <div className="nav-list">
+              <NavLink to="/drinks/1">
+                Joe's Bar
+              </NavLink>
+            </div>
+            <div className="nav-avatar">
               <NavLink to="/profile">
                 <Avatar name="Joe Schmoe" src="https://bit.ly/code-beast" />
               </NavLink>
-            </li>
-          </ul>
+            </div>
+          </div>
         </nav>
       </div>
     </header>
@@ -32,12 +36,3 @@ function Header() {
 }
 
 export default Header;
-
-// <section className="header-view">
-//   <Heading as="h2" size="2xl">Re*sip*e</Heading>
-//   <div className="nav-btns">
-//   {/* <IconButton aria-label='Search database' icon={<SearchIcon />} /> */}
-//     <button>Joe's Bar</button>
-//     <Avatar name="Joe Schmoe" src="https://bit.ly/code-beast" />
-//   </div>
-// </section>

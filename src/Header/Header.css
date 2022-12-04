@@ -1,3 +1,24 @@
-.header-view {
+.head {
     display: flex;
+}
+
+.header-container {
+    justify-content: space-between;
+}
+
+.main-nav {
+    align-items: flex-end;
+    padding: 2rem;
+}
+
+.main-nav-list {
+    /* margin-right: 2rem; */
+}
+
+.nav-list {
+    border: 1px solid black;
+    width: fit-content;
+    padding: .75rem;
+    border-radius: .5rem;
+    margin-right: .75rem;
 }
