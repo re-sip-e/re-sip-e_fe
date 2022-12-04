@@ -17,7 +17,6 @@ const App = () => {
             <div className="home-page">
               <Header />
               <div className="welcome">
-                {/* <h1>Welcome to Re*sip*e</h1> */}
                 <Heading as="h1" size="4xl">Welcome to Re*sip*e</Heading>
                 <p className="story">
                   We are here to help bars and bartender have easy access to
@@ -26,7 +25,7 @@ const App = () => {
                 </p>
               </div>
               <div className="favorite-drinks">
-                <h2>2022's Favorite Drinks</h2>
+                <Heading as="h2" size="2xl">2022's Favorite Drinks</Heading>
                 <CocktailContainer cocktails={cocktails} />
               </div>
             </div>
