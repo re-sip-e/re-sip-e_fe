@@ -33,7 +33,7 @@ const App = () => {
           path="/:cocktail"
           render={({ match }) => (
             <div className="cocktail-info">
-              <CocktailInfo cocktail={match.params.cocktail} />
+              <CocktailInfo cocktail={match.params.cocktail} cocktailData={cocktails.filter((cocktail) => { return cocktail.name === match.params.cocktail })} />
             </div>
           )}
         ></Route>
