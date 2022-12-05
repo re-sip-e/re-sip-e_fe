@@ -1,31 +1,28 @@
 import { cocktails } from "../mockData";
-import {
-  useDisclosure,
-  Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalCloseButton,
-  ModalHeader,
-  ModalBody,
-  FormControl,
-  FormLabel,
-  Input,
-  ModalFooter,
-} from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import EditCocktail from "../EditCocktail/EditCocktail";
-// import { cocktails } from "../mockData";
 const CocktailInfo = ({ cocktail }) => {
-  console.log(cocktails);
   const indCocktail = cocktails.find(
     (oneCocktail) => oneCocktail.name === cocktail
   );
+
   console.log(indCocktail);
+  const [choosenCocktail, setCocktail] = useState(indCocktail);
+
+  const updateCocktail = (id) => {
+    const ingredientIndex = indCocktail.ingredients.map((ingredient) => {
+      return ingredient.id;
+    });
+    indCocktail.ingredients.splice(ingredientIndex.indexOf(id), 1);
+    setCocktail({ indCocktail });
+  };
   return (
     <div>
       <h1>{cocktail}</h1>
-      <EditCocktail cocktail={indCocktail} />
+      <EditCocktail
+        choosenCocktail={choosenCocktail}
+        updateCocktail={updateCocktail}
+      />
     </div>
   );
 };

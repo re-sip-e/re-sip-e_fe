@@ -1,6 +1,5 @@
-.chakra-modal__content-container {
+.chakra-modal__body {
     display: flex;
     flex-direction: column;
-   
     align-items: center;
 }

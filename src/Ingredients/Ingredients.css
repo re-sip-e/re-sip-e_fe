@@ -1,0 +1,19 @@
+.ingredients-container {
+    border: 1px solid;
+    margin: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.saved-ingredients {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.new-ingredient {
+    display: flex;
+    background: pink;
+    align-items: center;
+}
