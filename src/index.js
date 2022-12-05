@@ -5,21 +5,21 @@ import App from "./App/App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-// import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client"
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
-// const client = new ApolloClient({
-//   uri: "https://re-sip-e-be.fly.dev/graphql",
-//   cache: new InMemoryCache()
-// })
+const client = new ApolloClient({
+  uri: "https://re-sip-e-be.fly.dev/graphql",
+  cache: new InMemoryCache()
+})
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-  {/* <ApolloClient client={client}> */}
+  <ApolloClient client={client}>
     <ChakraProvider>
       <App />
     </ChakraProvider>
-  {/* </ApolloClient> */}
+  </ApolloClient>
   </BrowserRouter>
 );
 
