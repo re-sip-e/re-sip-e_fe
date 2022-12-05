@@ -14,6 +14,7 @@ const CocktailInfo = ({ cocktail }) => {
       return ingredient.id;
     });
     indCocktail.ingredients.splice(ingredientIndex.indexOf(id), 1);
+    console.log(choosenCocktail);
     setCocktail({ indCocktail });
   };
   return (
