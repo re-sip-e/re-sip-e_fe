@@ -5,12 +5,10 @@ import React, { useEffect, useState } from "react";
 import EditCocktail from "../EditCocktail/EditCocktail";
 
 const CocktailInfo = ({ cocktail, cocktailData }) => {
-  console.log(cocktailData[0])
   const indCocktail = cocktails.find(
     (oneCocktail) => oneCocktail.name === cocktail
   );
 
-  console.log(indCocktail);
   const [choosenCocktail, setCocktail] = useState(indCocktail);
 
   const updateCocktail = (id) => {
@@ -18,23 +16,36 @@ const CocktailInfo = ({ cocktail, cocktailData }) => {
       return ingredient.id;
     });
     indCocktail.ingredients.splice(ingredientIndex.indexOf(id), 1);
-    console.log(choosenCocktail);
     setCocktail({ indCocktail });
+  };
+
+  const updateSteps = (steps) => {
+    const stepsString = steps.join(", ");
+    console.log(choosenCocktail.steps);
+    choosenCocktail.steps = stepsString;
+    setCocktail({ choosenCocktail });
+    console.log(choosenCocktail);
   };
   return (
     <div>
       <NavBar />
-      <Heading as="h1" size="4xl">{cocktail[0].name}</Heading>
+      <Heading as="h1" size="4xl">
+        {cocktail[0].name}
+      </Heading>
       <h2>{`Steps: ${cocktailData[0].steps.toLowerCase()}`}</h2>
-      <img
-        src={cocktailData.imgUrl} />
-      <h3>{cocktailData[0].ingredients.map((ingredient) => { return `  ${ingredient.quantity} ${ingredient.unit} of ${ingredient.name} ` })}</h3>
-     < EditCocktail
+      <img src={cocktailData.imgUrl} />
+      <h3>
+        {cocktailData[0].ingredients.map((ingredient) => {
+          return `  ${ingredient.quantity} ${ingredient.unit} of ${ingredient.name} `;
+        })}
+      </h3>
+      <EditCocktail
         choosenCocktail={choosenCocktail}
         updateCocktail={updateCocktail}
+        updateSteps={updateSteps}
       />
     </div>
-  )
-}
+  );
+};
 
 export default CocktailInfo;

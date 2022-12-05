@@ -17,7 +17,7 @@ import "./EditCocktail.css";
 import Ingredients from "../Ingredients/Ingredients";
 import Steps from "../Steps/Steps";
 
-const EditCocktail = ({ choosenCocktail, updateCocktail }) => {
+const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const initialRef = React.useRef(null);
@@ -65,7 +65,13 @@ const EditCocktail = ({ choosenCocktail, updateCocktail }) => {
     setIngredients(ingredients);
   };
 
-  const deleteStep = (step) => {};
+  const deleteStep = (step) => {
+    steps.splice(steps.indexOf(step), 1);
+    setSteps(steps);
+    console.log(steps);
+    console.log("hello");
+    updateSteps(steps);
+  };
 
   return (
     <>
@@ -101,7 +107,7 @@ const EditCocktail = ({ choosenCocktail, updateCocktail }) => {
               <Input placeholder={`${combinedIngredients}`} /> */}
             </FormControl>
             <FormControl mr={4}>
-              <Steps steps={steps} deleteStep={deleteStep}/>
+              <Steps steps={steps} deleteStep={deleteStep} />
               {/* <FormLabel>Steps</FormLabel>
               <Input placeholder={`${choosenCocktail.steps}`} name="newStep" /> */}
             </FormControl>
