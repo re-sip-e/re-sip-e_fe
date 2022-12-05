@@ -1,4 +1,4 @@
-.ingredients-container {
+.steps-container {
     border: 1px solid;
     border-color: var(--chakra-colors-chakra-border-color);
     padding: 1rem;
@@ -8,13 +8,13 @@
     border-radius: var(--chakra-radii-md);
 }
 
-.saved-ingredients {
+.saved-steps {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 }
 
-.new-ingredient {
+.new-step {
     display: flex;
     background: pink;
     align-items: center;

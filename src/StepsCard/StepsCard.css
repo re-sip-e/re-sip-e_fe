@@ -1,10 +1,12 @@
-.ingredient {
+.step {
     border: 1px solid;
     border-color: var(--chakra-colors-chakra-border-color);
     display: flex;
     align-items: center;
     padding: 0.3rem;
-    margin: 0.5rem
+    margin: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .chakra-icon {

@@ -15,6 +15,7 @@ import {
 import React, { useEffect, useState } from "react";
 import "./EditCocktail.css";
 import Ingredients from "../Ingredients/Ingredients";
+import Steps from "../Steps/Steps";
 
 const EditCocktail = ({ choosenCocktail, updateCocktail }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -25,8 +26,9 @@ const EditCocktail = ({ choosenCocktail, updateCocktail }) => {
   const [coctailName, setCocktailName] = useState("");
   const [newIngredient, setNewIngredient] = useState("");
   const [newStep, setNewStep] = useState("");
-  const [ingredients, setIngredients] = useState({});
-  console.log(choosenCocktail);
+  const [ingredients, setIngredients] = useState([]);
+  const [steps, setSteps] = useState([]);
+
   useEffect(() => {
     const combinedIngredients = choosenCocktail.ingredients.map(
       (ingredient) => {
@@ -37,7 +39,13 @@ const EditCocktail = ({ choosenCocktail, updateCocktail }) => {
       }
     );
     setIngredients(combinedIngredients);
+    const stepsArray = choosenCocktail.steps
+      .split(" and")
+      .join(",")
+      .split(", ");
+    setSteps(stepsArray);
   }, []);
+
   const handleChange = (event) => {
     if (event.target.name === "cocktailName") {
       setCocktailName(event.target.value);
@@ -47,6 +55,7 @@ const EditCocktail = ({ choosenCocktail, updateCocktail }) => {
       setNewStep(event.target.value);
     }
   };
+
   const deleteIngredient = (id) => {
     updateCocktail(id);
     const idIndex = ingredients.map((ingredient) => {
@@ -54,8 +63,9 @@ const EditCocktail = ({ choosenCocktail, updateCocktail }) => {
     });
     ingredients.splice(idIndex.indexOf(id), 1);
     setIngredients(ingredients);
-    console.log(ingredients);
   };
+
+  const deleteStep = (step) => {};
 
   return (
     <>
@@ -91,8 +101,9 @@ const EditCocktail = ({ choosenCocktail, updateCocktail }) => {
               <Input placeholder={`${combinedIngredients}`} /> */}
             </FormControl>
             <FormControl mr={4}>
-              <FormLabel>Steps</FormLabel>
-              <Input placeholder={`${choosenCocktail.steps}`} name="newStep" />
+              <Steps steps={steps} deleteStep={deleteStep}/>
+              {/* <FormLabel>Steps</FormLabel>
+              <Input placeholder={`${choosenCocktail.steps}`} name="newStep" /> */}
             </FormControl>
           </ModalBody>
 
