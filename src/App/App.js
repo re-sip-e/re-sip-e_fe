@@ -5,11 +5,15 @@ import { cocktails } from "../mockData";
 import CocktailInfo from "../CocktailInfo/CocktailInfo";
 import { Heading } from '@chakra-ui/react'
 import Header from "../Header/Header";
+import SearchPage from "../SearchPage/SearchPage";
 
 const App = () => {
   return (
     <Router>
       <main className="main">
+        <Route exact path="/search" render={() => {
+          <SearchPage cocktails={cocktails}/>
+        }}></Route>
         <Route
           exact
           path="/"
