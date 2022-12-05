@@ -18,7 +18,7 @@ const Ingredients = ({ ingredients, deleteIngredient, handleChange }) => {
   });
   return (
     <div className="ingredients-container">
-      <h4>Ingredients</h4>
+      <h5 className="ingredients-header">Ingredients</h5>
       <div className="saved-ingredients">{allIngredients}</div>
       <div className="new-ingredient">
         <Input

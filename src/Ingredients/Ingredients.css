@@ -10,6 +10,7 @@
 .saved-ingredients {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .new-ingredient {

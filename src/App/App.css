@@ -14,6 +14,9 @@ h1 {
   margin: 4rem;
   font-size: 7.5rem;
 }
+.chakra-heading {
+  margin: 3rem;
+}
 
 .story {
   border: solid 2px;
