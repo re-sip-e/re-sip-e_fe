@@ -1,4 +1,4 @@
-import { HashRouter as Router, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import { cocktails } from "../mockData";
@@ -9,11 +9,11 @@ import SearchPage from "../SearchPage/SearchPage";
 
 const App = () => {
   return (
-    <Router>
-      <main className="main">
-        <Route exact path="/search" render={() => {
+    <main className="main">
+      <Switch>
+        <Route exact path="/search">
           <SearchPage cocktails={cocktails}/>
-        }}></Route>
+        </Route>
         <Route
           exact
           path="/"
@@ -44,8 +44,8 @@ const App = () => {
             </div>
           )}
         ></Route>
+    </Switch>
       </main>
-    </Router>
   );
 };
 

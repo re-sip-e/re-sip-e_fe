@@ -1,67 +1,66 @@
-import { Heading } from "@chakra-ui/react";
 import React, { useState } from "react";
-import NavBar from "../NavBar/NavBar";
-import { Link } from "react-router-dom";
 import "./SearchPage.css";
+import CocktailInfo from "../CocktailInfo/CocktailInfo";
 
-const SearchPage = ({ cocktails }) => {
-    console.log("hello, why you don't work?")
-  const [value, setValue] = useState("");
+const SearchPage = ({ findDrinks, results }) => {
+  const [query, setQuery] = useState("");
+  const [searchMsg, setSearchMsg] = useState(
+    "Type in the name of a cocktail and get mixing"
+  );
+  const [queryResult, setQueryResult] = useState({});
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setQuery(value);
   };
 
-  const onSearch = (query) => {
-    setValue(query);
+  const handleClick = (e) => {
+    e.preventDefault();
+    findDrinks(query);
+    if (!results) {
+      setQueryResult({});
+      setSearchMsg(
+          "Sorry, we don't serve that cocktail here. Search for another..."
+        );
+      clearInput();
+ 
+    } else {
+      setQueryResult(results);
+      setSearchMsg("");
+    //   return (
+    //     <div>
+    //       <img src={results.imgUrl} alt="drink-search-img" />
+    //       <h3>{results.name}</h3>
+    //     </div>
+    //   );
+    }
   };
+
+  const clearInput = () => {
+    setQuery("");
+  };
+
+  let result = queryResult.length ? <CocktailInfo drink={results} /> : null;
 
   return (
     <section className="search-page">
-      <NavBar />
-      <div className="search-form">
-        <Heading as="h2" size="3xl">
-          {" "}
-          Search for your favorite cocktails!
-        </Heading>
+      <article className="search-form-container">
+        <h1>Search for your favorite cocktails!</h1>
+        <div className="search-results">
+          {searchMsg}
+          {result}
+        </div>
         <form>
-          <div className="message-box">
-            Type the name of a cocktail and get mixing
-          </div>
           <input
             type="text"
             placeholder="search"
-            name="cocktail-search"
-            value={value}
-            onChange={handleChange}
+            name="cocktail"
+            value={query}
+            onChange={(e) => handleChange(e)}
           />
-          <Link to={`/:${cocktails}`}>
-          <button onClick={() => onSearch(value)}>go</button>
-          </Link>
+          <button onClick={(e) => handleClick(e)}>go</button>
         </form>
-      </div>
-      <div className="dropdown">
-        {cocktails
-          .filter((drink) => {
-            const query = value.toLowerCase();
-            const cocktailName = drink.name.toLowerCase();
-
-            return (
-              query && cocktailName.startsWith(query) && cocktailName !== query
-            );
-          }).slice(0, 10)
-          .map((drink) => {
-            return (
-              <div
-                onClick={() => onSearch(drink.name)}
-                className="drop-down-row"
-                key={drink.id}
-              >
-                {drink.name}
-              </div>
-            );
-          })}
-      </div>
+      </article>
     </section>
   );
 };
