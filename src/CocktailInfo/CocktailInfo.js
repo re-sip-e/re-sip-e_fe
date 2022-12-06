@@ -105,6 +105,7 @@ const CocktailInfo = ({ cocktailId, cocktailData }) => {
   //     return <h1>Error occured</h1>;
   //   }
   //   console.log(choosenCocktail);
+  console.log(data);
   return loading ? (
     <Spinner />
   ) : (
@@ -115,11 +116,11 @@ const CocktailInfo = ({ cocktailId, cocktailData }) => {
       </Heading>
       <h2>{`Steps: ${data.apiDrink.steps}`}</h2>
       <img src={data.apiDrink.imgUrl} />
-      {/* <h3>
-        {data.ingredients.map((ingredient) => {
-          return `  ${ingredient.quantity} ${ingredient.unit} of ${ingredient.name} `;
+      <h3>
+        {data.apiDrink.ingredients.map((ingredient) => {
+          return `  ${ingredient.quantity} of ${ingredient.name} `;
         })}
-      </h3> */}
+      </h3>
       <EditCocktail
         choosenCocktail={data.apiDrink}
         updateCocktail={updateCocktail}

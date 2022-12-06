@@ -6,10 +6,9 @@ import { AddIcon } from "@chakra-ui/icons";
 const Ingredients = ({ ingredients, deleteIngredient, handleChange }) => {
   const allIngredients = ingredients.map((ingredient) => {
     return (
-      <div key={ingredient.id}>
+      <div key={ingredient}>
         <IngredientCard
-          id={ingredient.id}
-          ingredient={ingredient.ingredients}
+          ingredient={ingredient}
           deleteIngredient={deleteIngredient}
         />
       </div>

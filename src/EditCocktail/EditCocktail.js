@@ -32,10 +32,7 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
   useEffect(() => {
     const combinedIngredients = choosenCocktail.ingredients.map(
       (ingredient) => {
-        return {
-          id: ingredient.id,
-          ingredients: `${ingredient.quantity}  ${ingredient.name}`,
-        };
+        return `${ingredient.quantity} ${ingredient.name}`;
       }
     );
     setIngredients(combinedIngredients);
@@ -56,13 +53,10 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
     }
   };
 
-  const deleteIngredient = (id) => {
-    updateCocktail(id);
-    const idIndex = ingredients.map((ingredient) => {
-      return ingredient.id;
-    });
-    ingredients.splice(idIndex.indexOf(id), 1);
+  const deleteIngredient = (ingredient) => {
+    ingredients.splice(ingredients.indexOf(ingredient), 1);
     setIngredients(ingredients);
+    console.log(ingredients);
   };
 
   const deleteStep = (step) => {
@@ -70,9 +64,9 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
     setSteps(steps);
     console.log(steps);
     console.log("hello");
-    updateSteps(steps);
   };
-
+  console.log(ingredients);
+  console.log(steps);
   return (
     <>
       <Button onClick={onOpen}>Make it my own!</Button>
@@ -103,13 +97,9 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
                 deleteIngredient={deleteIngredient}
                 handleChange={handleChange}
               />
-              {/* <FormLabel>Ingredients</FormLabel>
-              <Input placeholder={`${combinedIngredients}`} /> */}
             </FormControl>
             <FormControl mr={4}>
               <Steps steps={steps} deleteStep={deleteStep} />
-              {/* <FormLabel>Steps</FormLabel>
-              <Input placeholder={`${choosenCocktail.steps}`} name="newStep" /> */}
             </FormControl>
           </ModalBody>
 
