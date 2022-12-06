@@ -67,12 +67,12 @@ const App = () => {
         ></Route>
         <Route
           exact
-          path="/:cocktail"
+          path="/:id"
           render={({ match }) => (
             <div className="cocktail-info">
               <CocktailInfo
-                cocktail={match.params.cocktail}
-                // cocktailData={cocktails.filter((cocktail) => {
+                cocktailId={match.params.id}
+                // cocktailData={threeDrinks.find((cocktail) => {
                 //   return cocktail.name === match.params.cocktail;
                 // })}
               />

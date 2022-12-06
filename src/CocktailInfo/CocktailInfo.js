@@ -1,37 +1,83 @@
 import { cocktails } from "../mockData";
 import NavBar from "../NavBar/NavBar";
-import { Heading } from "@chakra-ui/react";
-import { useQuery, gql } from "@apollo/client";
+import { Heading, Spinner } from "@chakra-ui/react";
+import { useQuery, gql, useLazyQuery } from "@apollo/client";
 import React, { useEffect, useState } from "react";
 import EditCocktail from "../EditCocktail/EditCocktail";
+import axios from "axios";
+import { from } from "@apollo/client";
+import { RefetchQueriesFunction } from "@apollo/client";
+import { RefetchQueriesResult } from "@apollo/client";
 
-const CocktailInfo = ({ cocktail, cocktailData }) => {
+const CocktailInfo = ({ cocktailId, cocktailData }) => {
   //   const indCocktail = cocktails.find(
-  //     (oneCocktail) => oneCocktail.name === cocktail
+  //     (oneCocktail) => oneCocktail.id === cocktailId
   //   );
+
   const [choosenCocktail, setCocktail] = useState({});
-  console.log(cocktail);
+
   const getOneCocktail = gql`
-  query {
-    apiDrink(id: ${cocktail.id}){
-      id
-      name
-      steps
-      imgUrl
-      ingredients {
+    query {
+      apiDrink(id: ${cocktailId}){
+        id
         name
-        quantity
+        steps
+        imgUrl
+        ingredients {
+          name
+          quantity
+        }
       }
     }
-  }
-    `;
-  const { error, data, loading } = useQuery(getOneCocktail);
-  console.log({ error, data, loading });
+      `;
+  //   const client = new ApolloClient({
+  //     uri: "https://re-sip-e-be.fly.dev/graphql",
+  //     cache: new InMemoryCache(),
+  //   });
+  //   console.log(useQuery(getOneCocktail));
+  const { loading, error, data } = useQuery(getOneCocktail);
+
+  //   console.log(data);
+  //   console.log(loading);
+  //   console.log(error);
+  //   console.log({ error, data, loading });
   //   console.log(oneCocktail);
-  useEffect(() => {
-    console.log({ error, data, loading });
-    setCocktail(data);
-  }, {});
+  //   useQuery(getOneCocktail)
+  //     .then((result) => {
+  //       console.log(result.data);
+  //     })
+  //     .catch((err) => console.log(err.message));
+  //   const fetchData = async () => {};
+  //   const { error, data, loading } = useQuery(getOneCocktail);
+  //   const getData = async () => {
+  //     const { data } = await client.query({
+  //       query: gql`
+  //         query {
+  //           apiDrink(id: ${cocktailId}){
+  //             id
+  //             name
+  //             steps
+  //             imgUrl
+  //             ingredients {
+  //               name
+  //               quantity
+  //             }
+  //           }
+  //         }
+  //           `,
+  //     });
+  //     console.log(data);
+  //     setCocktail(data);
+  //   };
+
+  //   useEffect(() => {
+  //     if (!loading && data.apiDrink?.length > 0) {
+  //       console.log(data, "this is the data");
+  //       setCocktail(data.apiDrink);
+  //     } else {
+  //       console.log("no data yet");
+  //     }
+  //   }, [data]);
 
   const updateCocktail = (id) => {
     const ingredientIndex = choosenCocktail.ingredients.map((ingredient) => {
@@ -46,23 +92,36 @@ const CocktailInfo = ({ cocktail, cocktailData }) => {
     console.log(choosenCocktail.steps);
     choosenCocktail.steps = stepsString;
     setCocktail({ choosenCocktail });
-    console.log(choosenCocktail);
   };
-  return (
+
+  //   return
+  //   const { loading, error, data } = useQuery(getOneCocktail);
+  //   console.log(data);
+  //   console.log(error);
+  //   if (loading) {
+  //     return <Spinner />;
+  //   }
+  //   if (error) {
+  //     return <h1>Error occured</h1>;
+  //   }
+  //   console.log(choosenCocktail);
+  return loading ? (
+    <Spinner />
+  ) : (
     <div>
       <NavBar />
       <Heading as="h1" size="4xl">
-        {cocktail[0].name}
+        {/* {cocktail[0].name} */}
       </Heading>
-      <h2>{`Steps: ${cocktailData[0].steps.toLowerCase()}`}</h2>
-      <img src={cocktailData.imgUrl} />
-      <h3>
-        {cocktailData[0].ingredients.map((ingredient) => {
+      <h2>{`Steps: ${data.apiDrink.steps}`}</h2>
+      <img src={data.apiDrink.imgUrl} />
+      {/* <h3>
+        {data.ingredients.map((ingredient) => {
           return `  ${ingredient.quantity} ${ingredient.unit} of ${ingredient.name} `;
         })}
-      </h3>
+      </h3> */}
       <EditCocktail
-        choosenCocktail={choosenCocktail}
+        choosenCocktail={data.apiDrink}
         updateCocktail={updateCocktail}
         updateSteps={updateSteps}
       />
