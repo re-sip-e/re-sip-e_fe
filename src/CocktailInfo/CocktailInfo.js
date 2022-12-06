@@ -1,22 +1,44 @@
 import { cocktails } from "../mockData";
 import NavBar from "../NavBar/NavBar";
 import { Heading } from "@chakra-ui/react";
+import { useQuery, gql } from "@apollo/client";
 import React, { useEffect, useState } from "react";
 import EditCocktail from "../EditCocktail/EditCocktail";
 
 const CocktailInfo = ({ cocktail, cocktailData }) => {
-  const indCocktail = cocktails.find(
-    (oneCocktail) => oneCocktail.name === cocktail
-  );
-
-  const [choosenCocktail, setCocktail] = useState(indCocktail);
+  //   const indCocktail = cocktails.find(
+  //     (oneCocktail) => oneCocktail.name === cocktail
+  //   );
+  const [choosenCocktail, setCocktail] = useState({});
+  console.log(cocktail);
+  const getOneCocktail = gql`
+  query {
+    apiDrink(id: ${cocktail.id}){
+      id
+      name
+      steps
+      imgUrl
+      ingredients {
+        name
+        quantity
+      }
+    }
+  }
+    `;
+  const { error, data, loading } = useQuery(getOneCocktail);
+  console.log({ error, data, loading });
+  //   console.log(oneCocktail);
+  useEffect(() => {
+    console.log({ error, data, loading });
+    setCocktail(data);
+  }, {});
 
   const updateCocktail = (id) => {
-    const ingredientIndex = indCocktail.ingredients.map((ingredient) => {
+    const ingredientIndex = choosenCocktail.ingredients.map((ingredient) => {
       return ingredient.id;
     });
-    indCocktail.ingredients.splice(ingredientIndex.indexOf(id), 1);
-    setCocktail({ indCocktail });
+    choosenCocktail.ingredients.splice(ingredientIndex.indexOf(id), 1);
+    setCocktail({ choosenCocktail });
   };
 
   const updateSteps = (steps) => {
