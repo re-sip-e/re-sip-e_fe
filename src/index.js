@@ -9,15 +9,17 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
   uri: "https://re-sip-e-be.fly.dev/graphql",
-  cache: new InMemoryCache()
-})
+  cache: new InMemoryCache(),
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
   <ApolloProvider client={client}>
     <ChakraProvider>
-      <App />
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
     </ChakraProvider>
   </ApolloProvider>
   </BrowserRouter>

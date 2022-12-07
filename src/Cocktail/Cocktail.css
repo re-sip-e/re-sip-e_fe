@@ -8,9 +8,7 @@ h3 {
     width: 100%;
     text-align: center;
 }
-h2 {
-    text-align: center;
-}
+
 
 .cocktail:hover h3 {
     background: black;

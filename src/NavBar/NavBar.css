@@ -37,3 +37,8 @@ h4 {
     border: 2px solid black;
     padding: .75rem;
 }
+
+.nav-list:hover {
+    background-color: black;
+    color: white;
+}
