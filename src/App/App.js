@@ -1,12 +1,16 @@
-import { HashRouter as Router, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import { useState } from "react";
 import "./App.css";
 import { useQuery, gql } from "@apollo/client";
-import { useEffect, useState } from "react";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import { cocktails } from "../mockData";
 import CocktailInfo from "../CocktailInfo/CocktailInfo";
 import { Heading, Spinner } from "@chakra-ui/react";
 import Header from "../Header/Header";
+import SearchPage from "../SearchPage/SearchPage";
+import BarPage from "../BarPage/BarPage";
+
+
 
 const App = () => {
   const threeFavorites = gql`
@@ -26,6 +30,16 @@ const App = () => {
     <h1>Sorry thre was an error</h1>
   ) : (
     <main className="main">
+      <Switch>
+      <Route exact path="/search">
+        <SearchPage/>
+      </Route>
+      <Route exact path="/bar/:id"
+      render={({ match }) => {
+        return <BarPage id={parseInt(match.params.id)}/>
+      }}
+      >
+      </Route>
       <Route
         exact
         path="/"
@@ -48,8 +62,8 @@ const App = () => {
               </Heading>
               <CocktailContainer cocktails={data.threeRandomApiDrinks} />
             </div>
-          </div>
-        )}
+      </div>
+      )}
       ></Route>
       <Route
         exact
@@ -59,7 +73,8 @@ const App = () => {
             <CocktailInfo cocktailId={match.params.id} />
           </div>
         )}
-      ></Route>
+        ></Route>
+        </Switch>
     </main>
   );
 };
