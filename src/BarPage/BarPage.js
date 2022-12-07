@@ -1,44 +1,37 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import NavBar from "../NavBar/NavBar";
 import { useBarData } from "../hooks/useBarData";
+import { Heading, Button } from "@chakra-ui/react";
+import "./BarPage.css";
+
 
 const BarPage = ({ id }) => {
+  const { loading, error, data } = useBarData(id);
 
- 
-    const { loading, error, data } = useBarData(id);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-    if (loading) {
-        return <div>Loading...</div>
-      }
-  
-      if (error) {
-        return <div>Oops! Something went wrong</div>
-      }
+  if (error) {
+    return <div>Oops! Something went wrong</div>;
+  }
 
-    // const { id } = useParams();
-    console.log({loading, error, data})
-
-  const getBarDrinks = <CocktailContainer cocktails={data.bar.drinks}/>
-
-
-//   const getBarData = data.bar.drinks.map((bar) => {
-//     return (
-//       <section className="bar-info" key={bar.id}>
-//         <h1>{bar.name}</h1>
-//         <div className="add-btn-box">
-//           <button>Add your own</button>
-//           <button>Add by searching</button>
-//         </div>
-//       </section>
-//     );
-//   });
+  const getBarDrinks = <CocktailContainer cocktails={data.bar.drinks} />;
 
   return (
     <section className="bar-page">
       <NavBar />
-      {/* {getBarData} */}
+      <Heading as={"h2"} size="3xl">
+        {data.bar.name}
+      </Heading>
+      <div className="add-btn-box">
+        <Button colorScheme="gray">Add your own</Button>
+        <Link to="/search">
+        <Button colorScheme="gray">Add by searching</Button>
+        </Link>
+      </div>
       {getBarDrinks}
     </section>
   );

@@ -18,14 +18,14 @@ const SearchPage = () => {
     const [results, setResults] = useState("")
     const { loading, error, data } = useSearch(search);
     
-    if (loading) {
-      setResults("Loading...")
-    } else if (error) {
-      setResults("Oops! Something went wrong")
-    } else if (data.apiDrinks.length !== 25) {
-      let filteredResults = data.apiDrinks.map((drink) => <Cocktail cocktail={drink} key={drink.id}/>)
-      setResults(filteredResults)
-    }
+    // if (loading) {
+    //   setResults("Loading...")
+    // } else if (error) {
+    //   setResults("Oops! Something went wrong")
+    // } else if (data.apiDrinks.length !== 25) {
+    //   let filteredResults = data.apiDrinks.map((drink) => <Cocktail cocktail={drink} key={drink.id}/>)
+    //   setResults(filteredResults)
+    // }
 
     // if (error) {
     //   return <div>Oops! Something went wrong</div>

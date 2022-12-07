@@ -13,13 +13,6 @@ import BarPage from "../BarPage/BarPage";
 
 const App = () => {
 
-  // const findDrinks = (name) => {
-  //   let drinkResult = data.apiDrinks.find(cocktail => {
-  //     return cocktail.name === name;
-  //   })
-  //   return drinkResult;
-  // }
-
   return (
     <main className="main">
       <Switch>
