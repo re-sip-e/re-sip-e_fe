@@ -1,18 +1,45 @@
 import { Switch, Route } from "react-router-dom";
+import { useState } from "react";
 import "./App.css";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import { cocktails } from "../mockData";
 import CocktailInfo from "../CocktailInfo/CocktailInfo";
-import { Heading } from '@chakra-ui/react'
+import { Heading } from '@chakra-ui/react';
 import Header from "../Header/Header";
 import SearchPage from "../SearchPage/SearchPage";
+import { gql, useQuery } from "@apollo/client";
+
+const GET_SEARCH_QUERY = gql`
+query {
+  apiDrinks(query: "negroni") {
+    id
+    name
+    imgUrl
+  }
+}
+`;
 
 const App = () => {
+
+  const [results, setResults] = useState([]);
+
+  const { loading, error, data } = useQuery(GET_SEARCH_QUERY);
+
+
+  const findDrinks = (name) => {
+    let drinkResult = data.apiDrinks.find(cocktail => {
+      return cocktail.name === name;
+    })
+    return drinkResult;
+  }
+
+  console.log(results)
+
   return (
     <main className="main">
       <Switch>
         <Route exact path="/search">
-          <SearchPage cocktails={cocktails}/>
+          <SearchPage findDrinks={findDrinks} setResults={setResults}/>
         </Route>
         <Route
           exact
