@@ -26,3 +26,12 @@ h1 {
   margin-top: 12rem;
   margin-bottom: 12rem;
 }
+
+h2 {
+  display: flex;
+  border: solid black;
+    border-radius: 2.5rem;
+    width: 24rem;
+    text-align: center;
+   align-content: center;
+}

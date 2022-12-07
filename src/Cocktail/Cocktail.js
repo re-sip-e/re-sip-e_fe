@@ -4,7 +4,7 @@ import "./Cocktail.css";
 const Cocktail = ({ cocktail }) => {
   return (
     <Link
-      to={`/${cocktail.name}`}
+      to={`/${cocktail.id}`}
       style={{ textDecoration: "none", color: "inherit" }}
     >
       <div
@@ -17,6 +17,7 @@ const Cocktail = ({ cocktail }) => {
         <h3>{cocktail.name}</h3>
       </div>
     </Link>
+
   );
 };
 
