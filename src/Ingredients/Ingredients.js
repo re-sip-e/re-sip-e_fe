@@ -1,12 +1,41 @@
 import IngredientCard from "../IngredientsCard/IngredientsCard";
 import "./Ingredients.css";
-import { Input } from "@chakra-ui/react";
+import {
+  Input,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+  Select,
+} from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 
-const Ingredients = ({ ingredients, deleteIngredient, handleChange }) => {
+const Ingredients = ({
+  ingredients,
+  deleteIngredient,
+  handleChange,
+  addIngredient,
+  handleUnitChange,
+}) => {
+  //   const unitArray = [];
+  //   const splitIngredients = ingredients.flatMap((ingredient) => {
+  //     return ingredient.quantity.split(" ").forEach((quantity) => {
+  //       if (
+  //         isNaN(quantity) &&
+  //         quantity != "" &&
+  //         !parseFloat(quantity) &&
+  //         !unitArray.includes(quantity)
+  //       ) {
+  //         unitArray.push(quantity);
+  //       }
+  //     });
+  //   });
+
+  //   console.log(unitArray);
   const allIngredients = ingredients.map((ingredient) => {
     return (
-      <div key={ingredient}>
+      <div key={ingredient.name}>
         <IngredientCard
           ingredient={ingredient}
           deleteIngredient={deleteIngredient}
@@ -20,12 +49,29 @@ const Ingredients = ({ ingredients, deleteIngredient, handleChange }) => {
       <div className="ingredients-container">
         <div className="saved-ingredients">{allIngredients}</div>
         <div className="new-ingredient">
+          <NumberInput
+            precision={2}
+            step={0.05}
+            name="newQuantity"
+            onChange={(event) => handleUnitChange(event)}
+          >
+            <NumberInputField />
+            <NumberInputStepper>
+              <NumberIncrementStepper />
+              <NumberDecrementStepper />
+            </NumberInputStepper>
+          </NumberInput>
+          <Input
+            name="newUnit"
+            placeholder="Add Unit"
+            onChange={(event) => handleChange(event)}
+          />
           <Input
             placeholder="Add New Ingredient"
             name="newIngredient"
             onChange={(event) => handleChange(event)}
           />
-          <AddIcon />
+          <AddIcon onClick={() => addIngredient()} />
         </div>
       </div>
     </div>

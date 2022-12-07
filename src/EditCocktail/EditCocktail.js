@@ -25,17 +25,14 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
 
   const [coctailName, setCocktailName] = useState("");
   const [newIngredient, setNewIngredient] = useState("");
+  const [newQuantity, setNewQuantity] = useState("");
+  const [newUnit, setNewUnit] = useState("");
   const [newStep, setNewStep] = useState("");
-  const [ingredients, setIngredients] = useState([]);
+  const [allIngredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
 
   useEffect(() => {
-    const combinedIngredients = choosenCocktail.ingredients.map(
-      (ingredient) => {
-        return `${ingredient.quantity} ${ingredient.name}`;
-      }
-    );
-    setIngredients(combinedIngredients);
+    setIngredients(choosenCocktail.ingredients);
     const stepsArray = choosenCocktail.steps
       .split(" and")
       .join(",")
@@ -44,29 +41,69 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
   }, []);
 
   const handleChange = (event) => {
+    console.log(event);
     if (event.target.name === "cocktailName") {
       setCocktailName(event.target.value);
     } else if (event.target.name === "newIngredient") {
       setNewIngredient(event.target.value);
+    } else if (event.target.name === "newUnit") {
+      setNewUnit(event.target.value);
     } else {
       setNewStep(event.target.value);
     }
   };
 
+  const handleUnitChange = (event) => {
+    setNewQuantity(event);
+  };
+
   const deleteIngredient = (ingredient) => {
-    ingredients.splice(ingredients.indexOf(ingredient), 1);
-    setIngredients(ingredients);
-    console.log(ingredients);
+    const newArray = [...allIngredients];
+    newArray.splice(allIngredients.indexOf(ingredient), 1);
+    setIngredients(newArray);
   };
 
   const deleteStep = (step) => {
-    steps.splice(steps.indexOf(step), 1);
-    setSteps(steps);
-    console.log(steps);
+    const allSteps = [...steps];
+    allSteps.splice(steps.indexOf(step), 1);
     console.log("hello");
+    setSteps(allSteps);
   };
-  console.log(ingredients);
-  console.log(steps);
+
+  const addStep = () => {
+    setSteps([...steps, newStep]);
+    clearInputs();
+  };
+
+  const clearInputs = () => {
+    setNewStep("");
+  };
+
+  const addIngredient = () => {
+    setIngredients([
+      ...allIngredients,
+      {
+        __typename: "Ingredient",
+        name: newIngredient,
+        quantity: `${newQuantity} ${newUnit}`,
+      },
+    ]);
+    console.log(allIngredients);
+  };
+
+  const submitEdit = () => {
+    console.log(allIngredients);
+    console.log(steps);
+    // const edditedDrink = {
+    //   id: choosenCocktail.id,
+    //   imgUrl: choosenCocktail.imgUrl,
+    //   ingredients: allIngredients,
+    // name: cocktailName,
+    // steps: steps.join(', ')
+    // __typename: "Drink"
+    // };
+  };
+
   return (
     <>
       <Button onClick={onOpen}>Make it my own!</Button>
@@ -93,18 +130,30 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
 
             <FormControl mr={4}>
               <Ingredients
-                ingredients={ingredients}
+                ingredients={allIngredients}
                 deleteIngredient={deleteIngredient}
                 handleChange={handleChange}
+                addIngredient={addIngredient}
+                handleUnitChange={handleUnitChange}
               />
             </FormControl>
             <FormControl mr={4}>
-              <Steps steps={steps} deleteStep={deleteStep} />
+              <Steps
+                steps={steps}
+                deleteStep={deleteStep}
+                handleChange={handleChange}
+                addStep={addStep}
+              />
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} variant="outline">
+            <Button
+              colorScheme="blue"
+              mr={3}
+              variant="outline"
+              onClick={() => submitEdit()}
+            >
               Save
             </Button>
             <Button onClick={onClose} colorScheme="blue" variant="outline">

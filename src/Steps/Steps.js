@@ -3,7 +3,7 @@ import "./Steps.css";
 import { Input } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 
-const Steps = ({ steps, deleteStep }) => {
+const Steps = ({ steps, deleteStep, handleChange, addStep }) => {
   const allSteps = steps.map((step) => {
     return (
       <div key={step}>
@@ -20,9 +20,9 @@ const Steps = ({ steps, deleteStep }) => {
           <Input
             placeholder="Add New Step"
             name="newStep"
-            //   onChange={(event) => handleChange(event)}
+            onChange={(event) => handleChange(event)}
           />
-          <AddIcon />
+          <AddIcon onClick={() => addStep()} />
         </div>
       </div>
     </div>
