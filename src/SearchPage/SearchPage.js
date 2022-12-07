@@ -12,7 +12,6 @@ const SearchPage = () => {
     "Type in the name of a cocktail and get mixing!"
     );
   const { loading, error, data } = useSearch(search);
-  console.log({error})
 
      
 const handleChange = (event) => {
