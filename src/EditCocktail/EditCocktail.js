@@ -11,6 +11,10 @@ import {
   FormLabel,
   Input,
   ModalFooter,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import "./EditCocktail.css";
@@ -30,6 +34,8 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
   const [newStep, setNewStep] = useState("");
   const [allIngredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     setIngredients(choosenCocktail.ingredients);
@@ -92,8 +98,13 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
   };
 
   const submitEdit = () => {
-    console.log(allIngredients);
-    console.log(steps);
+    if (allIngredients.length === 0 || steps.length === 0) {
+      setError(true)
+      setMessage("Please fill out all fields!");
+    } else {
+      setMessage("Saved Successfully!")
+      setError(false)
+    }
     // const edditedDrink = {
     //   id: choosenCocktail.id,
     //   imgUrl: choosenCocktail.imgUrl,
@@ -129,6 +140,14 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
             </FormControl>
 
             <FormControl mr={4}>
+              {error ? 
+              <Alert status="error">
+                <AlertIcon />
+                <AlertTitle>Error!</AlertTitle>
+                <AlertDescription>
+                 {message}
+                </AlertDescription>
+              </Alert> : null}
               <Ingredients
                 ingredients={allIngredients}
                 deleteIngredient={deleteIngredient}

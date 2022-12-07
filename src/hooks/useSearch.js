@@ -16,13 +16,13 @@ query GetSearchQuery($name: String!){
 `;
 
 export const useSearch = (name) => {
-    console.log(name)
+    // console.log(name)
 
     const { loading, error, data } = useQuery(GET_SEARCH_QUERY, {
         variables: {
             name,
         }
     })
-console.log({loading, error, data })
+// console.log({loading, error, data })
     return { data, error, loading };
 };
