@@ -7,39 +7,30 @@ import CocktailInfo from "../CocktailInfo/CocktailInfo";
 import { Heading } from '@chakra-ui/react';
 import Header from "../Header/Header";
 import SearchPage from "../SearchPage/SearchPage";
-import { gql, useQuery } from "@apollo/client";
+import BarPage from "../BarPage/BarPage";
 
-const GET_SEARCH_QUERY = gql`
-query {
-  apiDrinks(query: "negroni") {
-    id
-    name
-    imgUrl
-  }
-}
-`;
+
 
 const App = () => {
 
-  const [results, setResults] = useState([]);
-
-  const { loading, error, data } = useQuery(GET_SEARCH_QUERY);
-
-
-  const findDrinks = (name) => {
-    let drinkResult = data.apiDrinks.find(cocktail => {
-      return cocktail.name === name;
-    })
-    return drinkResult;
-  }
-
-  console.log(results)
+  // const findDrinks = (name) => {
+  //   let drinkResult = data.apiDrinks.find(cocktail => {
+  //     return cocktail.name === name;
+  //   })
+  //   return drinkResult;
+  // }
 
   return (
     <main className="main">
       <Switch>
         <Route exact path="/search">
-          <SearchPage findDrinks={findDrinks} setResults={setResults}/>
+          <SearchPage/>
+        </Route>
+        <Route exact path="/bar/:id"
+        render={({ match }) => {
+          return <BarPage id={parseInt(match.params.id)}/>
+        }}
+        >
         </Route>
         <Route
           exact

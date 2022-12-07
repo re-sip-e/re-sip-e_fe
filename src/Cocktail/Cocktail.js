@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import "./Cocktail.css";
 
 const Cocktail = ({ cocktail }) => {
-  console.log(cocktail)
   return (
     <Link
       to={`/${cocktail.name}`}
