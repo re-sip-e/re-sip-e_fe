@@ -7,6 +7,7 @@ import { Heading } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useSearch } from "../hooks/useSearch";
 import Cocktail from "../Cocktail/Cocktail";
+import CocktailContainer from "../CocktailContainer/CocktailContainer";
 
 const SearchPage = () => {
  
@@ -17,6 +18,7 @@ const SearchPage = () => {
     );
     const [results, setResults] = useState("")
     const { loading, error, data } = useSearch(search);
+    
     
     // if (loading) {
     //   setResults("Loading...")
@@ -53,6 +55,7 @@ const handleChange = (event) => {
         setSearch("");
       }
     };
+    console.log(results)
 
 
   return (
@@ -73,9 +76,11 @@ const handleChange = (event) => {
           />
           <button onClick={(e) => handleClick(e)} className="go-btn">go</button>
         </form>
+        {loading ? <div>Loading...</div> : null}
+        {data ? 
         <div className="search-results">
-        {results}
-        </div>
+        <CocktailContainer cocktails={data.apiDrinks}/>
+        </div> : null}
       </article>
     </section>
   );
