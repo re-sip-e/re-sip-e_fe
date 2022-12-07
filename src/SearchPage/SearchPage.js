@@ -18,20 +18,14 @@ const handleChange = (event) => {
   event.preventDefault();
   setSearch(event.target.value)
 }
-
   const handleClick = (e) => {
     e.preventDefault();
     if (error) {
       setSearchMsg(
         "Sorry, we don't serve that drink here. Search for another..."
         )
-      } else {
-        setSearchMsg("Type in the name of a cocktail and get mixing!")
-        setSearch(search)
-      }
-    };
-    
-
+    } 
+  };
 
   return (
     <section className="search-page">
