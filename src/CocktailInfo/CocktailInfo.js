@@ -22,8 +22,7 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
             steps
             imgUrl
             ingredients {
-              name
-              quantity
+             description 
             }
           }
         }
@@ -31,30 +30,27 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
   const barDrink = gql`
     query {
       drink(id: ${cocktailId}) {
-        id
-        name
-        imgUrl
-        steps
-        createdAt
-        updatedAt
-        bar {
-          id
-          name
-        }
-        ingredients {
-          name
-          quantity
-          createdAt
-          updatedAt
+            id
+            name
+            imgUrl
+            steps
+            bar {
+              id
+              name
+            }
+            ingredients {
+              id
+              description
+            }
         }
       }
-    }
+    
           `;
 
   const { loading, error, data } = useQuery(checkBar ? barDrink : apiDrink);
   console.log(checkBar);
   //   const { loading, error, data } = useQuery(barDrink);
-
+  console.log(useQuery(barDrink));
   const updateCocktail = (id) => {
     const ingredientIndex = choosenCocktail.ingredients.map((ingredient) => {
       return ingredient.id;
@@ -78,18 +74,24 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
       <NavBar />
       <div className="cocktail-details">
         <Heading as="h1" size="4xl">
-          {data.apiDrink.name}
+          {data.apiDrink ? data.apiDrink.name : data.drink.name}
         </Heading>
-        <h2>{`Steps: ${data.apiDrink.steps}`}</h2>
-        <img src={data.apiDrink.imgUrl} />
+        <h2>{`Steps: ${
+          data.apiDrink ? data.apiDrink.steps : data.drink.steps
+        }`}</h2>
+        <img src={data.apiDrink ? data.apiDrink.imgUrl : data.drink.imgUrl} />
         <h3>
-          {data.apiDrink.ingredients.map((ingredient) => {
-            return `  ${ingredient.quantity} of ${ingredient.name} `;
-          })}
+          {data.apiDrink
+            ? data.apiDrink.ingredients.map((ingredient) => {
+                return ingredient.description;
+              })
+            : data.drink.ingredients.map((ingredient) => {
+                return ingredient.description;
+              })}
         </h3>
         {checkBar ? (
           <EditCocktail
-            choosenCocktail={data.apiDrink}
+            choosenCocktail={data.drink}
             updateCocktail={updateCocktail}
             updateSteps={updateSteps}
           />

@@ -11,6 +11,7 @@ import BarPage from "../BarPage/BarPage";
 
 const App = () => {
   const [checkBar, setCheckBar] = useState(false);
+  const [drinkInBar, setDrinkInBar] = useState(true);
   const threeFavorites = gql`
     query {
       threeRandomApiDrinks {
@@ -28,7 +29,7 @@ const App = () => {
   return loading ? (
     <Spinner size="xl" speed=".8s" />
   ) : error ? (
-    <h1>Sorry thre was an error</h1>
+    <Heading>Sorry there was an error</Heading>
   ) : (
     <main className="main">
       <Switch>
@@ -76,7 +77,7 @@ const App = () => {
           path="/:id"
           render={({ match }) => (
             <div className="cocktail-info">
-              <CocktailInfo cocktailId={match.params.id} />
+              <CocktailInfo cocktailId={match.params.id} checkBar={checkBar} />
             </div>
           )}
         ></Route>
@@ -85,7 +86,10 @@ const App = () => {
           path="/bar/1/:id"
           render={({ match }) => (
             <div className="cocktail-info">
-              <CocktailInfo cocktailId={match.params.id} />
+              <CocktailInfo
+                cocktailId={match.params.id}
+                checkBar={drinkInBar}
+              />
             </div>
           )}
         ></Route>
