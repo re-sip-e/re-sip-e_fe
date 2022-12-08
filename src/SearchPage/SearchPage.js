@@ -13,7 +13,7 @@ const SearchPage = () => {
     );
   const { loading, error, data } = useSearch(search);
 
-     
+  
 const handleChange = (event) => {
   event.preventDefault();
   setSearch(event.target.value)

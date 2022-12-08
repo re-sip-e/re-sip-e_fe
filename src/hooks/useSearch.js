@@ -6,11 +6,6 @@ query GetSearchQuery($name: String!){
       id
       name
       imgUrl
-      steps
-      ingredients {
-        name
-        quantity
-      }
     }
   }
 `;
