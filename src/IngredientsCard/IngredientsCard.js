@@ -7,8 +7,8 @@ const IngredientCard = ({ ingredient, deleteIngredient, editIngredient }) => {
     <div className="ingredient">
       <p>
         <Input
-          value={`${ingredient.quantity} ${ingredient.name}`}
-          onChange={(event) => editIngredient(event)}
+          value={ingredient.description}
+          onChange={(event) => editIngredient(event, ingredient.id)}
         />
       </p>
       <CloseIcon onClick={() => deleteIngredient(ingredient)} />

@@ -19,7 +19,7 @@ import Steps from "../Steps/Steps";
 
 const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  console.log(choosenCocktail);
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
 
@@ -33,11 +33,7 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
 
   useEffect(() => {
     setIngredients(choosenCocktail.ingredients);
-    const stepsArray = choosenCocktail.steps
-      .split(" and")
-      .join(",")
-      .split(", ");
-    setSteps(stepsArray);
+    setSteps(choosenCocktail.steps);
   }, []);
 
   const handleChange = (event) => {
@@ -46,15 +42,9 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
       setCocktailName(event.target.value);
     } else if (event.target.name === "newIngredient") {
       setNewIngredient(event.target.value);
-    } else if (event.target.name === "newUnit") {
-      setNewUnit(event.target.value);
     } else {
       setNewStep(event.target.value);
     }
-  };
-
-  const handleUnitChange = (event) => {
-    setNewQuantity(event);
   };
 
   const deleteIngredient = (ingredient) => {
@@ -79,7 +69,15 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
     setNewStep("");
   };
 
-  const editIngredient = (event) => {
+  const editIngredient = (event, id) => {
+    const ingredientIndex = allIngredients.find(
+      (ingredient) => ingredient.id === id
+    );
+    console.log(
+      allIngredients[allIngredients.indexOf(ingredientIndex)].description
+    );
+    allIngredients[allIngredients.indexOf(ingredientIndex)].description =
+      event.target.value;
     console.log(event.target.value);
     console.log(allIngredients);
   };
@@ -142,7 +140,6 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
                 deleteIngredient={deleteIngredient}
                 handleChange={handleChange}
                 addIngredient={addIngredient}
-                handleUnitChange={handleUnitChange}
                 editIngredient={editIngredient}
               />
             </FormControl>

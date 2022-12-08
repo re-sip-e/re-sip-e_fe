@@ -51,23 +51,6 @@ const Ingredients = ({
       <div className="ingredients-container">
         <div className="saved-ingredients">{allIngredients}</div>
         <div className="new-ingredient">
-          <NumberInput
-            precision={2}
-            step={0.05}
-            name="newQuantity"
-            onChange={(event) => handleUnitChange(event)}
-          >
-            <NumberInputField />
-            <NumberInputStepper>
-              <NumberIncrementStepper />
-              <NumberDecrementStepper />
-            </NumberInputStepper>
-          </NumberInput>
-          <Input
-            name="newUnit"
-            placeholder="Add Unit"
-            onChange={(event) => handleChange(event)}
-          />
           <Input
             placeholder="Add New Ingredient"
             name="newIngredient"

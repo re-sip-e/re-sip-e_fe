@@ -1,7 +1,7 @@
 import { cocktails } from "../mockData";
 import NavBar from "../NavBar/NavBar";
 import "./CocktailInfo.css";
-import { Heading, Spinner } from "@chakra-ui/react";
+import { Button, Heading, Spinner } from "@chakra-ui/react";
 import { useQuery, gql, useLazyQuery } from "@apollo/client";
 import React, { useEffect, useState } from "react";
 import EditCocktail from "../EditCocktail/EditCocktail";
@@ -89,13 +89,16 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
                 return ingredient.description;
               })}
         </h3>
+
         {checkBar ? (
           <EditCocktail
             choosenCocktail={data.drink}
             updateCocktail={updateCocktail}
             updateSteps={updateSteps}
           />
-        ) : null}
+        ) : (
+          <Button>Add to my bar!</Button>
+        )}
       </div>
     </div>
   );
