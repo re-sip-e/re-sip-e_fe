@@ -17,6 +17,7 @@ const Ingredients = ({
   handleChange,
   addIngredient,
   handleUnitChange,
+  editIngredient,
 }) => {
   //   const unitArray = [];
   //   const splitIngredients = ingredients.flatMap((ingredient) => {
@@ -35,10 +36,11 @@ const Ingredients = ({
   //   console.log(unitArray);
   const allIngredients = ingredients.map((ingredient) => {
     return (
-      <div key={ingredient.name}>
+      <div key={ingredient.id}>
         <IngredientCard
           ingredient={ingredient}
           deleteIngredient={deleteIngredient}
+          editIngredient={editIngredient}
         />
       </div>
     );

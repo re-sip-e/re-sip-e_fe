@@ -1,34 +1,16 @@
-import { cocktails } from "../mockData";
+// import "./BarCocktailInfo.css";
+import { useState } from "react";
+import { gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import NavBar from "../NavBar/NavBar";
-import "./CocktailInfo.css";
 import { Heading, Spinner } from "@chakra-ui/react";
-import { useQuery, gql, useLazyQuery } from "@apollo/client";
-import React, { useEffect, useState } from "react";
 import EditCocktail from "../EditCocktail/EditCocktail";
-import axios from "axios";
-import { from } from "@apollo/client";
-import { RefetchQueriesFunction } from "@apollo/client";
-import { RefetchQueriesResult } from "@apollo/client";
 
-const CocktailInfo = ({ cocktailId, checkBar }) => {
+const BarCocktailInfo = ({ cocktailId, checkBar }) => {
   const [choosenCocktail, setCocktail] = useState({});
-  const [query, setQuery] = useState();
-  console.log(cocktailId);
-  const apiDrink = gql`
-        query {
-          apiDrink(id: ${cocktailId}){
-            id
-            name
-            steps
-            imgUrl
-            ingredients {
-              name
-              quantity
-            }
-          }
-        }
-          `;
-  const barDrink = gql`
+    // const getOneCocktail;
+//   if (checkBar !== "") {
+    const getOneCocktail = gql`
     query {
       drink(id: ${cocktailId}) {
         id
@@ -50,10 +32,10 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
       }
     }
           `;
+//   } else {
 
-  const { loading, error, data } = useQuery(checkBar ? barDrink : apiDrink);
-  console.log(checkBar);
-  //   const { loading, error, data } = useQuery(barDrink);
+//   }
+  const { loading, error, data } = useQuery(getOneCocktail);
 
   const updateCocktail = (id) => {
     const ingredientIndex = choosenCocktail.ingredients.map((ingredient) => {
@@ -70,7 +52,7 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
     setCocktail({ choosenCocktail });
   };
 
-  console.log(loading);
+  console.log(data);
   return loading ? (
     <Spinner />
   ) : (
@@ -87,16 +69,14 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
             return `  ${ingredient.quantity} of ${ingredient.name} `;
           })}
         </h3>
-        {checkBar ? (
-          <EditCocktail
-            choosenCocktail={data.apiDrink}
-            updateCocktail={updateCocktail}
-            updateSteps={updateSteps}
-          />
-        ) : null}
+        <EditCocktail
+          choosenCocktail={data.apiDrink}
+          updateCocktail={updateCocktail}
+          updateSteps={updateSteps}
+        />
       </div>
     </div>
   );
 };
 
-export default CocktailInfo;
+export default BarCocktailInfo;

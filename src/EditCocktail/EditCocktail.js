@@ -23,7 +23,7 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
 
-  const [coctailName, setCocktailName] = useState("");
+  const [cocktailName, setCocktailName] = useState("");
   const [newIngredient, setNewIngredient] = useState("");
   const [newQuantity, setNewQuantity] = useState("");
   const [newUnit, setNewUnit] = useState("");
@@ -66,7 +66,7 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
   const deleteStep = (step) => {
     const allSteps = [...steps];
     allSteps.splice(steps.indexOf(step), 1);
-    console.log("hello");
+
     setSteps(allSteps);
   };
 
@@ -79,10 +79,16 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
     setNewStep("");
   };
 
+  const editIngredient = (event) => {
+    console.log(event.target.value);
+    console.log(allIngredients);
+  };
+
   const addIngredient = () => {
     setIngredients([
       ...allIngredients,
       {
+        id: null,
         __typename: "Ingredient",
         name: newIngredient,
         quantity: `${newQuantity} ${newUnit}`,
@@ -94,14 +100,16 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
   const submitEdit = () => {
     console.log(allIngredients);
     console.log(steps);
-    // const edditedDrink = {
-    //   id: choosenCocktail.id,
-    //   imgUrl: choosenCocktail.imgUrl,
-    //   ingredients: allIngredients,
-    // name: cocktailName,
-    // steps: steps.join(', ')
-    // __typename: "Drink"
-    // };
+    const edditedDrink = {
+      id: null,
+      imgUrl: choosenCocktail.imgUrl,
+      ingredients: allIngredients,
+      name: cocktailName,
+      steps: steps.join(", "),
+      __typename: "Drink",
+    };
+    setIngredients([...allIngredients, edditedDrink]);
+    console.log(edditedDrink);
   };
 
   return (
@@ -135,6 +143,7 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
                 handleChange={handleChange}
                 addIngredient={addIngredient}
                 handleUnitChange={handleUnitChange}
+                editIngredient={editIngredient}
               />
             </FormControl>
             <FormControl mr={4}>
