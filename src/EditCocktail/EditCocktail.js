@@ -97,13 +97,16 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
     console.log(allIngredients);
   };
 
-  const submitEdit = () => {
+  const submitEdit = (event) => {
     if (allIngredients.length === 0 || steps.length === 0) {
       setError(true)
       setMessage("Please fill out all fields!");
+    } else if (event.target.name === "cocktailName" && event.target.value < 1) {
+      setError(true)
+      setMessage("Please fill out all fields completely!");
     } else {
-      setMessage("Saved Successfully!")
       setError(false)
+      setMessage("Saved Successfully!")
     }
     // const edditedDrink = {
     //   id: choosenCocktail.id,
