@@ -1,14 +1,6 @@
 import IngredientCard from "../IngredientsCard/IngredientsCard";
 import "./Ingredients.css";
-import {
-  Input,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-  Select,
-} from "@chakra-ui/react";
+import { Input } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 
 const Ingredients = ({
@@ -16,27 +8,11 @@ const Ingredients = ({
   deleteIngredient,
   handleChange,
   addIngredient,
-  handleUnitChange,
   editIngredient,
 }) => {
-  //   const unitArray = [];
-  //   const splitIngredients = ingredients.flatMap((ingredient) => {
-  //     return ingredient.quantity.split(" ").forEach((quantity) => {
-  //       if (
-  //         isNaN(quantity) &&
-  //         quantity != "" &&
-  //         !parseFloat(quantity) &&
-  //         !unitArray.includes(quantity)
-  //       ) {
-  //         unitArray.push(quantity);
-  //       }
-  //     });
-  //   });
-
-  //   console.log(unitArray);
   const allIngredients = ingredients.map((ingredient) => {
     return (
-      <div key={ingredient}>
+      <div key={ingredient.id}>
         <IngredientCard
           ingredient={ingredient}
           deleteIngredient={deleteIngredient}

@@ -66,7 +66,7 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
     setCocktail({ choosenCocktail });
   };
 
-  console.log(loading);
+
   return loading ? (
     <Spinner />
   ) : (

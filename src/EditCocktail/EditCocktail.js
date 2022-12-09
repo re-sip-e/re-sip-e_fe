@@ -97,6 +97,7 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
     const foundIngredient =
       updateIngredients[updateIngredients.indexOf(ingredientIndex)];
     const addDestroy = updateIngredients.map((ingredient) => {
+      console.log(ingredient.id);
       if (ingredient.id === id) {
         return {
           ...foundIngredient,
@@ -110,9 +111,6 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
   };
 
   const editIngredient = (event, id) => {
-    // const ingredientIndex = updateIngredients.find(
-    //   (ingredient) => ingredient.id === id
-    // );
     const setChange = updateIngredients.map((ingredient) => {
       if (ingredient.id === id) {
         return { ...ingredient, description: event.target.value };

@@ -11,7 +11,7 @@ const IngredientCard = ({ ingredient, deleteIngredient, editIngredient }) => {
           onChange={(event) => editIngredient(event, ingredient.id)}
         />
       </p>
-      <CloseIcon onClick={() => deleteIngredient(ingredient, ingredient.id)} />
+      <CloseIcon onClick={() => deleteIngredient(ingredient.id)} />
     </div>
   ) : null;
 };
