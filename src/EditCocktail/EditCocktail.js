@@ -4,7 +4,6 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalCloseButton,
   ModalHeader,
   ModalBody,
   FormControl,
@@ -16,7 +15,6 @@ import React, { useEffect, useState } from "react";
 import "./EditCocktail.css";
 import Ingredients from "../Ingredients/Ingredients";
 import Steps from "../Steps/Steps";
-// import { useEditedCocktail } from "../hooks/useEditedDrink";
 import { useMutation, gql } from "@apollo/client";
 
 const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
@@ -26,10 +24,6 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
   const [editedDrink, setEditedDrink] = useState({});
   const [cocktailName, setCocktailName] = useState("");
   const [newIngredient, setNewIngredient] = useState("");
-  const [newQuantity, setNewQuantity] = useState("");
-  const [newUnit, setNewUnit] = useState("");
-  const [newStep, setNewStep] = useState("");
-  const [allIngredients, setIngredients] = useState([]);
   const [updateIngredients, setUpdatedIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
   const [newImgUrl, setNewImgUrl] = useState("");
@@ -67,24 +61,11 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
     }
   `;
 
-  // econst useEditedCocktail = (id, editedDrink) => {
-  //     console.log(id, editedDrink);
-  //     const input = {
-  //       id: id,
-  //       drinkInput: editedDrink,
-  //     };
   const [drinkUpdate, { loading, error, data }] = useMutation(
     choosenCocktail ? SEND_DRINK_UPDATE : SEND_NEW_DRINK
   );
-  //     console.log(data);
-  //   };
-  //   useEditedCocktail(choosenCocktail.id, editedDrink);
-  console.log(data);
-  console.log(updateIngredients);
-  useEffect(() => {
-    // setIngredients(choosenCocktail.ingredients)
 
-    // setUpdatedIngredients(choosenCocktail.ingredients);
+  useEffect(() => {
     if (choosenCocktail) {
       const removeTypeName = choosenCocktail.ingredients.map((ingredient) => {
         return {
@@ -112,9 +93,7 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
     }
   };
 
-  const deleteIngredient = (ingredient, id) => {
-    // const newArray = [...allIngredients];
-    // newArray.splice(allIngredients.indexOf(ingredient), 1);
+  const deleteIngredient = (id) => {
     const ingredientIndex = updateIngredients.find(
       (ingredient) => ingredient.id === id
     );
@@ -130,32 +109,13 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
         return ingredient;
       }
     });
-    // console.log(allIngredients[allIngredients.indexOf(ingredientIndex)]);
-    console.log(addDestroy);
     setUpdatedIngredients(addDestroy);
-
-    // setIngredients(newArray);
-  };
-
-  //   const deleteStep = (step) => {
-  //     const allSteps = [...steps];
-  //     allSteps.splice(steps.indexOf(step), 1);
-  //     setSteps(allSteps);
-  //   };
-
-  //   const addStep = () => {
-  //     setSteps([...steps, newStep]);
-  //     clearInputs();
-  //   };
-
-  const clearInputs = () => {
-    setNewStep("");
   };
 
   const editIngredient = (event, id) => {
-    const ingredientIndex = updateIngredients.find(
-      (ingredient) => ingredient.id === id
-    );
+    // const ingredientIndex = updateIngredients.find(
+    //   (ingredient) => ingredient.id === id
+    // );
     const setChange = updateIngredients.map((ingredient) => {
       if (ingredient.id === id) {
         return { ...ingredient, description: event.target.value };
@@ -163,25 +123,10 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
         return ingredient;
       }
     });
-    console.log(setChange);
-    // updateIngredients[updateIngredients.indexOf(ingredientIndex)].description =
-    //   event.target.value;
-    // console.log(event.target.value);
     setUpdatedIngredients(setChange);
-    console.log(updateIngredients);
   };
 
   const addIngredient = () => {
-    console.log(updateIngredients);
-    // setIngredients([
-    //   ...allIngredients,
-    //   {
-    //     id: null,
-    //     __typename: "Ingredient",
-    //     name: choosenCocktail.name,
-    //     description: newIngredient,
-    //   },
-    // ]);
     if (!choosenCocktail) {
       setUpdatedIngredients([
         ...updateIngredients,
@@ -196,29 +141,22 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
         },
       ]);
     }
-    console.log(updateIngredients);
   };
 
   const submitEdit = () => {
-    console.log(allIngredients);
-    console.log(steps);
-
     if (choosenCocktail) {
       const editedDrink = {
         imgUrl: choosenCocktail.imgUrl,
         ingredients: updateIngredients,
         name: cocktailName,
         steps: steps,
-        //   __typename: "Drink",
       };
-      // setIngredients([...allIngredients, edditedDrink]);
       setEditedDrink(editedDrink);
       drinkUpdate({
         variables: {
           input: { id: choosenCocktail.id, drinkInput: editedDrink },
         },
       });
-      // sendMutation(editedDrink);
     } else {
       const newDrink = {
         name: cocktailName,
@@ -228,17 +166,13 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
         ingredients: updateIngredients,
       };
       console.log(newDrink);
-      //   drinkUpdate({
-      //     variables: {
-      //       input: { drinkInput: newDrink },
-      //     },
-      //   });
     }
-    console.log(editedDrink);
   };
   return (
     <>
-      <Button onClick={onOpen}>Make it my own!</Button>
+      <Button onClick={onOpen}>
+        {choosenCocktail ? "Make it my own!" : "Add New Drink"}
+      </Button>
 
       <Modal
         initialFocusRef={initialRef}
@@ -283,11 +217,7 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
             </FormControl>
 
             <FormControl mr={4}>
-              <Steps
-                steps={steps}
-                // deleteStep={deleteStep}
-                handleChange={handleChange}
-              />
+              <Steps steps={steps} handleChange={handleChange} />
             </FormControl>
           </ModalBody>
 
@@ -298,7 +228,7 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
               variant="outline"
               onClick={() => submitEdit()}
             >
-              Save
+              {choosenCocktail ? "Save" : "Add drink"}
             </Button>
             <Button onClick={onClose} colorScheme="blue" variant="outline">
               Cancel
