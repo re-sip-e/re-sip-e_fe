@@ -3,7 +3,7 @@ import { CloseIcon } from "@chakra-ui/icons";
 import { Input } from "@chakra-ui/react";
 
 const IngredientCard = ({ ingredient, deleteIngredient, editIngredient }) => {
-  return (
+  return !ingredient._destroy ? (
     <div className="ingredient">
       <p>
         <Input
@@ -11,9 +11,9 @@ const IngredientCard = ({ ingredient, deleteIngredient, editIngredient }) => {
           onChange={(event) => editIngredient(event, ingredient.id)}
         />
       </p>
-      <CloseIcon onClick={() => deleteIngredient(ingredient)} />
+      <CloseIcon onClick={() => deleteIngredient(ingredient, ingredient.id)} />
     </div>
-  );
+  ) : null;
 };
 
 export default IngredientCard;

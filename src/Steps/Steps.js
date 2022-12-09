@@ -3,7 +3,7 @@ import "./Steps.css";
 import { Input, Textarea } from "@chakra-ui/react";
 import { AddIcon, CloseIcon } from "@chakra-ui/icons";
 
-const Steps = ({ steps, deleteStep, handleChange, addStep }) => {
+const Steps = ({ steps, handleChange }) => {
   //   const allSteps = steps.map((step) => {
   //     return (
   //       <div key={step}>
@@ -16,8 +16,12 @@ const Steps = ({ steps, deleteStep, handleChange, addStep }) => {
       <h5 className="steps-header">Steps</h5>
       <div className="steps-container">
         <div className="saved-steps">
-          <Textarea value={steps} />
-          <CloseIcon onClick={() => deleteStep(steps)} />
+          <Textarea
+            name="steps"
+            value={steps}
+            onChange={(event) => handleChange(event)}
+          />
+          {/* <CloseIcon onClick={() => deleteStep(steps)} /> */}
         </div>
         {/* <div className="new-step">
           <Input
