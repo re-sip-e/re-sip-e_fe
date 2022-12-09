@@ -33,7 +33,7 @@ const App = () => {
           path="/profile"
         >
           <div className="user-page">
-            <User users={users} />
+            <User />
           </div>
         </Route>
         <Route

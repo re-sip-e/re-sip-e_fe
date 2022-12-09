@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import { useQuery, gql } from "@apollo/client";
+import { useUserData } from "../profileHooks";
 
 
-const User = ({ users }) => {
-    const singleProfile = users.map((profile) => {
-        return (
-            <div key={profile.id}>
-                <h1>Welcome {profile.name}!</h1>
-                <h2>Let's take a look at {profile.bars[0].name}</h2>
-                <h3>You have {profile.barCount} bars</h3>
-                <h4>The {profile.bars[0].name} has {profile.bars[0].drinkCount}  drinks</h4>
-            </div>
-        )
-    })
+
+const User = ({ id }) => {
+    const { loading, error, data } = useUserData(id)
+    if (loading) {
+        return <div>Finding the user...</div>
+    }
+    if (error) {
+        return <div>No User Found</div>
+    }
+
     return (
-        <div className="single-user">
-            {singleProfile}
+        <div key={data.user.id}>
+            <h1>Welcome {data.user.name}!</h1>
+            <h2>Let's take a look at {data.user.bars[0].name}</h2>
+            <h3>You have {data.user.barCount} bars</h3>
+            <h4>The {data.user.bars[0].name} has {data.user.bars[0].drinkCount}  drinks</h4>
         </div>
     )
 }
+
 
 export default User;
