@@ -36,7 +36,7 @@ const Ingredients = ({
   //   console.log(unitArray);
   const allIngredients = ingredients.map((ingredient) => {
     return (
-      <div key={ingredient.id}>
+      <div key={ingredient}>
         <IngredientCard
           ingredient={ingredient}
           deleteIngredient={deleteIngredient}

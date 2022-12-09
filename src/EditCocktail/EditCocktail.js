@@ -32,10 +32,27 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
   const [allIngredients, setIngredients] = useState([]);
   const [updateIngredients, setUpdatedIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
+  const [newImgUrl, setNewImgUrl] = useState("");
 
   const SEND_DRINK_UPDATE = gql`
     mutation ($input: DrinkUpdateInput!) {
       drinkUpdate(input: $input) {
+        drink {
+          id
+          name
+          steps
+          imgUrl
+          ingredients {
+            id
+            description
+          }
+        }
+      }
+    }
+  `;
+  const SEND_NEW_DRINK = gql`
+    mutation ($input: DrinkCreateInput!) {
+      drinkCreate(input: $input) {
         drink {
           id
           name
@@ -56,8 +73,9 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
   //       id: id,
   //       drinkInput: editedDrink,
   //     };
-  const [drinkUpdate, { loading, error, data }] =
-    useMutation(SEND_DRINK_UPDATE);
+  const [drinkUpdate, { loading, error, data }] = useMutation(
+    choosenCocktail ? SEND_DRINK_UPDATE : SEND_NEW_DRINK
+  );
   //     console.log(data);
   //   };
   //   useEditedCocktail(choosenCocktail.id, editedDrink);
@@ -67,15 +85,17 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
     // setIngredients(choosenCocktail.ingredients)
 
     // setUpdatedIngredients(choosenCocktail.ingredients);
-    const removeTypeName = choosenCocktail.ingredients.map((ingredient) => {
-      return {
-        ...ingredient,
-        __typename: undefined,
-      };
-    });
-    console.log(removeTypeName);
-    setUpdatedIngredients(removeTypeName);
-    setSteps(choosenCocktail.steps);
+    if (choosenCocktail) {
+      const removeTypeName = choosenCocktail.ingredients.map((ingredient) => {
+        return {
+          ...ingredient,
+          __typename: undefined,
+        };
+      });
+      console.log(removeTypeName);
+      setUpdatedIngredients(removeTypeName);
+      setSteps(choosenCocktail.steps);
+    }
   }, []);
 
   const handleChange = (event) => {
@@ -84,6 +104,8 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
       setCocktailName(event.target.value);
     } else if (event.target.name === "newIngredient") {
       setNewIngredient(event.target.value);
+    } else if (event.target.name === "imgURL") {
+      setNewImgUrl(event.target.value);
     } else {
       setSteps(event.target.value);
       console.log(steps);
@@ -160,34 +182,58 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
     //     description: newIngredient,
     //   },
     // ]);
-    setUpdatedIngredients([
-      ...updateIngredients,
-      {
-        id: null,
-        description: newIngredient,
-      },
-    ]);
+    if (!choosenCocktail) {
+      setUpdatedIngredients([
+        ...updateIngredients,
+        { description: newIngredient },
+      ]);
+    } else {
+      setUpdatedIngredients([
+        ...updateIngredients,
+        {
+          id: null,
+          description: newIngredient,
+        },
+      ]);
+    }
     console.log(updateIngredients);
   };
 
   const submitEdit = () => {
     console.log(allIngredients);
     console.log(steps);
-    const editedDrink = {
-      imgUrl: choosenCocktail.imgUrl,
-      ingredients: updateIngredients,
-      name: cocktailName,
-      steps: steps,
-      //   __typename: "Drink",
-    };
 
-    // setIngredients([...allIngredients, edditedDrink]);
-    setEditedDrink(editedDrink);
-    drinkUpdate({
-      variables: { input: { id: choosenCocktail.id, drinkInput: editedDrink } },
-    });
-    // sendMutation(editedDrink);
-
+    if (choosenCocktail) {
+      const editedDrink = {
+        imgUrl: choosenCocktail.imgUrl,
+        ingredients: updateIngredients,
+        name: cocktailName,
+        steps: steps,
+        //   __typename: "Drink",
+      };
+      // setIngredients([...allIngredients, edditedDrink]);
+      setEditedDrink(editedDrink);
+      drinkUpdate({
+        variables: {
+          input: { id: choosenCocktail.id, drinkInput: editedDrink },
+        },
+      });
+      // sendMutation(editedDrink);
+    } else {
+      const newDrink = {
+        name: cocktailName,
+        steps: steps,
+        imgUrl: newImgUrl,
+        barId: 1,
+        ingredients: updateIngredients,
+      };
+      console.log(newDrink);
+      //   drinkUpdate({
+      //     variables: {
+      //       input: { drinkInput: newDrink },
+      //     },
+      //   });
+    }
     console.log(editedDrink);
   };
   return (
@@ -208,12 +254,24 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
               <FormLabel>Cocktail</FormLabel>
               <Input
                 ref={initialRef}
-                placeholder={`${choosenCocktail.name}`}
+                placeholder={
+                  choosenCocktail ? `${choosenCocktail.name}` : "Cocktail Name"
+                }
                 name="cocktailName"
                 onChange={(event) => handleChange(event)}
               />
             </FormControl>
-
+            {!choosenCocktail ? (
+              <FormControl>
+                <FormLabel>Cocktail</FormLabel>
+                <Input
+                  ref={initialRef}
+                  placeholder={"Image URL"}
+                  name="imgURL"
+                  onChange={(event) => handleChange(event)}
+                />
+              </FormControl>
+            ) : null}
             <FormControl mr={4}>
               <Ingredients
                 ingredients={updateIngredients}
@@ -223,6 +281,7 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
                 editIngredient={editIngredient}
               />
             </FormControl>
+
             <FormControl mr={4}>
               <Steps
                 steps={steps}

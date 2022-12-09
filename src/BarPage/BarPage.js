@@ -5,6 +5,7 @@ import NavBar from "../NavBar/NavBar";
 import { useBarData } from "../hooks/useBarData";
 import { Heading, Button } from "@chakra-ui/react";
 import "./BarPage.css";
+import EditCocktail from "../EditCocktail/EditCocktail";
 
 const BarPage = ({ id }) => {
   const { loading, error, data } = useBarData(id);
@@ -28,7 +29,7 @@ const BarPage = ({ id }) => {
         {data.bar.name}
       </Heading>
       <div className="add-btn-box">
-        <Button colorScheme="gray">Add your own</Button>
+        <EditCocktail />
         <Link to="/search">
           <Button colorScheme="gray">Add by searching</Button>
         </Link>
