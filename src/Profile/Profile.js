@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { useUserData } from "../profileHooks";
+import NavBar from '../NavBar/NavBar'
 
 
 
@@ -15,6 +16,7 @@ const User = ({ id }) => {
 
     return (
         <div key={data.user.id}>
+            <NavBar />
             <h1>Welcome {data.user.name}!</h1>
             <h2>Let's take a look at {data.user.bars[0].name}</h2>
             <h3>You have {data.user.barCount} bars</h3>
