@@ -73,14 +73,12 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
           __typename: undefined,
         };
       });
-      console.log(removeTypeName);
       setUpdatedIngredients(removeTypeName);
       setSteps(choosenCocktail.steps);
     }
   }, []);
 
   const handleChange = (event) => {
-    console.log(event.target.name);
     if (event.target.name === "cocktailName") {
       setCocktailName(event.target.value);
     } else if (event.target.name === "newIngredient") {
@@ -89,7 +87,6 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
       setNewImgUrl(event.target.value);
     } else {
       setSteps(event.target.value);
-      console.log(steps);
     }
   };
 
@@ -165,7 +162,11 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
         barId: 1,
         ingredients: updateIngredients,
       };
-      console.log(newDrink);
+      drinkUpdate({
+        variables: {
+          input: { drinkInput: newDrink },
+        },
+      });
     }
   };
   return (
