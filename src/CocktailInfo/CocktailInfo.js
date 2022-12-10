@@ -1,19 +1,13 @@
-import { cocktails } from "../mockData";
 import NavBar from "../NavBar/NavBar";
 import "./CocktailInfo.css";
 import { Button, Heading, Spinner } from "@chakra-ui/react";
-import { useQuery, gql, useLazyQuery } from "@apollo/client";
-import React, { useEffect, useState } from "react";
+import { useQuery, gql } from "@apollo/client";
+import React, { useState } from "react";
 import EditCocktail from "../EditCocktail/EditCocktail";
-import axios from "axios";
-import { from } from "@apollo/client";
-import { RefetchQueriesFunction } from "@apollo/client";
-import { RefetchQueriesResult } from "@apollo/client";
 
 const CocktailInfo = ({ cocktailId, checkBar }) => {
   const [choosenCocktail, setCocktail] = useState({});
-  const [query, setQuery] = useState();
-  console.log(cocktailId);
+
   const apiDrink = gql`
         query {
           apiDrink(id: ${cocktailId}){
@@ -48,24 +42,6 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
           `;
 
   const { loading, error, data } = useQuery(checkBar ? barDrink : apiDrink);
-  console.log(checkBar);
-  //   const { loading, error, data } = useQuery(barDrink);
-  console.log(useQuery(barDrink));
-  const updateCocktail = (id) => {
-    const ingredientIndex = choosenCocktail.ingredients.map((ingredient) => {
-      return ingredient.id;
-    });
-    choosenCocktail.ingredients.splice(ingredientIndex.indexOf(id), 1);
-    setCocktail({ choosenCocktail });
-  };
-
-  const updateSteps = (steps) => {
-    const stepsString = steps.join(", ");
-    console.log(choosenCocktail.steps);
-    choosenCocktail.steps = stepsString;
-    setCocktail({ choosenCocktail });
-  };
-
 
   return loading ? (
     <Spinner />
@@ -91,11 +67,7 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
         </h3>
 
         {checkBar ? (
-          <EditCocktail
-            choosenCocktail={data.drink}
-            updateCocktail={updateCocktail}
-            updateSteps={updateSteps}
-          />
+          <EditCocktail choosenCocktail={data.drink} />
         ) : (
           <Button>Add to my bar!</Button>
         )}

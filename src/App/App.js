@@ -22,7 +22,7 @@ const App = () => {
     }
   `;
   const { error, data, loading } = useQuery(threeFavorites);
-  console.log(loading);
+
   const setBarToTrue = () => {
     setCheckBar(true);
   };

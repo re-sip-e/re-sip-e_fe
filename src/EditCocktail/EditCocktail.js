@@ -17,7 +17,7 @@ import Ingredients from "../Ingredients/Ingredients";
 import Steps from "../Steps/Steps";
 import { useMutation, gql } from "@apollo/client";
 
-const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
+const EditCocktail = ({ choosenCocktail}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
@@ -97,7 +97,6 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
     const foundIngredient =
       updateIngredients[updateIngredients.indexOf(ingredientIndex)];
     const addDestroy = updateIngredients.map((ingredient) => {
-      console.log(ingredient.id);
       if (ingredient.id === id) {
         return {
           ...foundIngredient,
