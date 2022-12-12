@@ -3,6 +3,7 @@
     width: 20rem;
     display: flex;
     align-items: center;
+    margin: 3rem;
 }
 h3 {
     background: #fff;

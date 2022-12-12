@@ -35,3 +35,9 @@ h2 {
     text-align: center;
    align-content: center;
 }
+
+.favorite-drinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
