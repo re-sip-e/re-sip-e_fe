@@ -25,7 +25,6 @@ const SearchPage = () => {
       setSearch("");
     }
   };
-  // console.log(results)
 
   return (
     <section className="search-page">

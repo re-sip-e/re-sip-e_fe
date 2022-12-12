@@ -3,7 +3,6 @@ import { CloseIcon } from "@chakra-ui/icons";
 import { Input } from "@chakra-ui/react";
 
 const IngredientCard = ({ ingredient, deleteIngredient, editIngredient }) => {
-  console.log(ingredient);
   return !ingredient._destroy ? (
     <div className="ingredient">
       <p>
