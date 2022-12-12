@@ -6,23 +6,18 @@ query GetSearchQuery($name: String!){
       id
       name
       imgUrl
-      steps
-      ingredients {
-        name
-        quantity
-      }
     }
   }
 `;
 
 export const useSearch = (name) => {
-    console.log(name)
+    // console.log(name)
 
     const { loading, error, data } = useQuery(GET_SEARCH_QUERY, {
         variables: {
             name,
         }
     })
-console.log({loading, error, data })
+// console.log({loading, error, data })
     return { data, error, loading };
 };
