@@ -1,10 +1,10 @@
 import Cocktail from "../Cocktail/Cocktail";
 import "./CocktailContainer.css";
-const CocktailContainer = ({ cocktails }) => {
+const CocktailContainer = ({ cocktails, checkBar }) => {
   const allCocktails = cocktails.map((cocktail) => {
     return (
       <div key={cocktail.id}>
-        <Cocktail cocktail={cocktail} />
+        <Cocktail cocktail={cocktail} checkBar={checkBar} />
       </div>
     );
   });

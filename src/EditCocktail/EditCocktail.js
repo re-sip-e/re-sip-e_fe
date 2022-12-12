@@ -4,7 +4,6 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalCloseButton,
   ModalHeader,
   ModalBody,
   FormControl,
@@ -20,107 +19,182 @@ import React, { useEffect, useState } from "react";
 import "./EditCocktail.css";
 import Ingredients from "../Ingredients/Ingredients";
 import Steps from "../Steps/Steps";
+import { useMutation, gql } from "@apollo/client";
 
-const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
+const EditCocktail = ({ choosenCocktail }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
-
-  const [coctailName, setCocktailName] = useState("");
+  const [editedDrink, setEditedDrink] = useState({});
+  const [cocktailName, setCocktailName] = useState("");
   const [newIngredient, setNewIngredient] = useState("");
-  const [newQuantity, setNewQuantity] = useState("");
-  const [newUnit, setNewUnit] = useState("");
-  const [newStep, setNewStep] = useState("");
-  const [allIngredients, setIngredients] = useState([]);
+  const [updateIngredients, setUpdatedIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
+  const [newImgUrl, setNewImgUrl] = useState("");
   const [message, setMessage] = useState("");
-  const [error, setError] = useState(false)
+  const [errorMessage, setError] = useState(false);
+
+  const SEND_DRINK_UPDATE = gql`
+    mutation ($input: DrinkUpdateInput!) {
+      drinkUpdate(input: $input) {
+        drink {
+          id
+          name
+          steps
+          imgUrl
+          ingredients {
+            id
+            description
+          }
+        }
+      }
+    }
+  `;
+  const SEND_NEW_DRINK = gql`
+    mutation ($input: DrinkCreateInput!) {
+      drinkCreate(input: $input) {
+        drink {
+          id
+          name
+          steps
+          imgUrl
+          ingredients {
+            id
+            description
+          }
+        }
+      }
+    }
+  `;
+
+  const [drinkUpdate, { loading, error, data }] = useMutation(
+    choosenCocktail ? SEND_DRINK_UPDATE : SEND_NEW_DRINK
+  );
 
   useEffect(() => {
-    setIngredients(choosenCocktail.ingredients);
-    const stepsArray = choosenCocktail.steps
-      .split(" and")
-      .join(",")
-      .split(", ");
-    setSteps(stepsArray);
+    if (choosenCocktail) {
+      const removeTypeName = choosenCocktail.ingredients.map((ingredient) => {
+        return {
+          ...ingredient,
+          __typename: undefined,
+        };
+      });
+      setUpdatedIngredients(removeTypeName);
+      setSteps(choosenCocktail.steps);
+    }
   }, []);
 
   const handleChange = (event) => {
-    console.log(event);
     if (event.target.name === "cocktailName") {
       setCocktailName(event.target.value);
     } else if (event.target.name === "newIngredient") {
       setNewIngredient(event.target.value);
-    } else if (event.target.name === "newUnit") {
-      setNewUnit(event.target.value);
+    } else if (event.target.name === "imgURL") {
+      setNewImgUrl(event.target.value);
     } else {
-      setNewStep(event.target.value);
+      setSteps(event.target.value);
     }
   };
 
-  const handleUnitChange = (event) => {
-    setNewQuantity(event);
+  const deleteIngredient = (id) => {
+    const ingredientIndex = updateIngredients.find(
+      (ingredient) => ingredient.id === id
+    );
+    const foundIngredient =
+      updateIngredients[updateIngredients.indexOf(ingredientIndex)];
+    const addDestroy = updateIngredients.map((ingredient) => {
+      if (ingredient.id === id) {
+        return {
+          ...foundIngredient,
+          _destroy: true,
+        };
+      } else {
+        return ingredient;
+      }
+    });
+    setUpdatedIngredients(addDestroy);
   };
 
-  const deleteIngredient = (ingredient) => {
-    const newArray = [...allIngredients];
-    newArray.splice(allIngredients.indexOf(ingredient), 1);
-    setIngredients(newArray);
-  };
-
-  const deleteStep = (step) => {
-    const allSteps = [...steps];
-    allSteps.splice(steps.indexOf(step), 1);
-    console.log("hello");
-    setSteps(allSteps);
-  };
-
-  const addStep = () => {
-    setSteps([...steps, newStep]);
-    clearInputs();
-  };
-
-  const clearInputs = () => {
-    setNewStep("");
+  const editIngredient = (event, id) => {
+    const setChange = updateIngredients.map((ingredient) => {
+      if (ingredient.id === id) {
+        return { ...ingredient, description: event.target.value };
+      } else {
+        return ingredient;
+      }
+    });
+    setUpdatedIngredients(setChange);
   };
 
   const addIngredient = () => {
-    setIngredients([
-      ...allIngredients,
-      {
-        __typename: "Ingredient",
-        name: newIngredient,
-        quantity: `${newQuantity} ${newUnit}`,
-      },
-    ]);
-    console.log(allIngredients);
+    if (!choosenCocktail) {
+      setUpdatedIngredients([
+        ...updateIngredients,
+        { description: newIngredient },
+      ]);
+    } else {
+      setUpdatedIngredients([
+        ...updateIngredients,
+        {
+          id: null,
+          description: newIngredient,
+        },
+      ]);
+    }
   };
 
-  const submitEdit = (event) => {
-    if (allIngredients.length === 0 || steps.length === 0) {
-      setError(true)
+  const submitEdit = () => {
+    if (choosenCocktail) {
+      const editedDrink = {
+        imgUrl: choosenCocktail.imgUrl,
+        ingredients: updateIngredients,
+        name: cocktailName,
+        steps: steps,
+      };
+      setEditedDrink(editedDrink);
+      drinkUpdate({
+        variables: {
+          input: { id: choosenCocktail.id, drinkInput: editedDrink },
+        },
+      });
+    } else {
+      const newDrink = {
+        name: cocktailName,
+        steps: steps,
+        imgUrl: newImgUrl,
+        barId: 1,
+        ingredients: updateIngredients,
+      };
+      drinkUpdate({
+        variables: {
+          input: { drinkInput: newDrink },
+        },
+      });
+      setError(false);
+      setMessage("Saved Successfully!");
+    }
+  };
+
+  const checkInputField = (event) => {
+    if (updateIngredients.length === 0 || steps.length === 0) {
+      setError(true);
       setMessage("Please fill out all fields!");
-    } else if (event.target.name === "cocktailName" && event.target.value < 1) {
-      setError(true)
+    } else if (!cocktailName) {
+      setError(true);
+      setMessage("Please fill out all fields completely!");
+    } else if (!newImgUrl) {
+      setError(true);
       setMessage("Please fill out all fields completely!");
     } else {
-      setError(false)
-      setMessage("Saved Successfully!")
+      submitEdit();
     }
-    // const edditedDrink = {
-    //   id: choosenCocktail.id,
-    //   imgUrl: choosenCocktail.imgUrl,
-    //   ingredients: allIngredients,
-    // name: cocktailName,
-    // steps: steps.join(', ')
-    // __typename: "Drink"
-    // };
   };
 
   return (
     <>
-      <Button onClick={onOpen}>Make it my own!</Button>
+      <Button onClick={onOpen}>
+        {choosenCocktail ? "Make it my own!" : "Add New Drink"}
+      </Button>
 
       <Modal
         initialFocusRef={initialRef}
@@ -136,36 +210,43 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
               <FormLabel>Cocktail</FormLabel>
               <Input
                 ref={initialRef}
-                placeholder={`${choosenCocktail.name}`}
+                placeholder={
+                  choosenCocktail ? `${choosenCocktail.name}` : "Cocktail Name"
+                }
                 name="cocktailName"
                 onChange={(event) => handleChange(event)}
               />
             </FormControl>
-
+            {!choosenCocktail ? (
+              <FormControl>
+                <FormLabel>Image URL</FormLabel>
+                <Input
+                  ref={initialRef}
+                  placeholder={"Image URL"}
+                  name="imgURL"
+                  onChange={(event) => handleChange(event)}
+                />
+              </FormControl>
+            ) : null}
             <FormControl mr={4}>
-              {error ? 
-              <Alert status="error">
-                <AlertIcon />
-                <AlertTitle>Error!</AlertTitle>
-                <AlertDescription>
-                 {message}
-                </AlertDescription>
-              </Alert> : null}
               <Ingredients
-                ingredients={allIngredients}
+                ingredients={updateIngredients}
                 deleteIngredient={deleteIngredient}
                 handleChange={handleChange}
                 addIngredient={addIngredient}
-                handleUnitChange={handleUnitChange}
+                editIngredient={editIngredient}
               />
             </FormControl>
+
             <FormControl mr={4}>
-              <Steps
-                steps={steps}
-                deleteStep={deleteStep}
-                handleChange={handleChange}
-                addStep={addStep}
-              />
+              <Steps steps={steps} handleChange={handleChange} />
+              {errorMessage || error ? (
+                <Alert status="error">
+                  <AlertIcon />
+                  <AlertTitle>Error!</AlertTitle>
+                  <AlertDescription>{message}</AlertDescription>
+                </Alert>
+              ) : null}
             </FormControl>
           </ModalBody>
 
@@ -174,9 +255,9 @@ const EditCocktail = ({ choosenCocktail, updateCocktail, updateSteps }) => {
               colorScheme="blue"
               mr={3}
               variant="outline"
-              onClick={() => submitEdit()}
+              onClick={(event) => checkInputField(event)}
             >
-              Save
+              {choosenCocktail ? "Save" : "Add drink"}
             </Button>
             <Button onClick={onClose} colorScheme="blue" variant="outline">
               Cancel

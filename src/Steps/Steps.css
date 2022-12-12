@@ -31,3 +31,8 @@ h5 {
     transition-duration: var(--chakra-transition-duration-normal);
     opacity: 1;
 }
+
+.chakra-textarea {
+    width: 20rem;
+    height: 20rem
+}

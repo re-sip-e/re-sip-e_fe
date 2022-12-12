@@ -6,25 +6,24 @@ import { useSearch } from "../hooks/useSearch";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 
 const SearchPage = () => {
- 
   const [search, setSearch] = useState("");
   const [searchMsg, setSearchMsg] = useState(
     "Type in the name of a cocktail and get mixing!"
-    );
+  );
   const { loading, error, data } = useSearch(search);
 
-  
-const handleChange = (event) => {
-  event.preventDefault();
-  setSearch(event.target.value)
-}
+  const handleChange = (event) => {
+    event.preventDefault();
+    setSearch(event.target.value);
+  };
   const handleClick = (e) => {
     e.preventDefault();
     if (error) {
       setSearchMsg(
         "Sorry, we don't serve that drink here. Search for another..."
-        )
-    } 
+      );
+      setSearch("");
+    }
   };
 
   return (
@@ -43,13 +42,16 @@ const handleChange = (event) => {
             value={search}
             onChange={(event) => handleChange(event)}
           />
-          <button onClick={(e) => handleClick(e)} className="go-btn">go</button>
+          <button onClick={(e) => handleClick(e)} className="go-btn">
+            go
+          </button>
         </form>
         {loading ? <div>Loading...</div> : null}
-        {data ? 
-        <div className="search-results">
-        <CocktailContainer cocktails={data.apiDrinks}/>
-        </div> : null}
+        {data ? (
+          <div className="search-results">
+            <CocktailContainer cocktails={data.apiDrinks} />
+          </div>
+        ) : null}
       </article>
     </section>
   );
