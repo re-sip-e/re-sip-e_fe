@@ -29,6 +29,7 @@ const CocktailInfo = ({ cocktailId }) => {
       `;
 
   const { loading, error, data } = useQuery(getOneCocktail);
+  console.log(data)
 
   const updateCocktail = (id) => {
     const ingredientIndex = choosenCocktail.ingredients.map((ingredient) => {

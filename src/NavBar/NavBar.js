@@ -22,7 +22,7 @@ const NavBar = () => {
               </NavLink>
             </div>
             <div className="bar-tab">
-              <NavLink to="/drinks/1" className={"bar-icon-box"}>
+              <NavLink to="/bar/1" className={"bar-icon-box"}>
                 <img src={logo} alt="joes-bar-logo" width={"30px"}/>
               </NavLink>
             </div>

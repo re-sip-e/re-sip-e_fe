@@ -20,7 +20,7 @@ const Header = () => {
               </NavLink>
             </div>
             <div className="nav-list">
-              <NavLink to="/drinks/1">
+              <NavLink to="/bar/1">
               <img src={logo} alt="joes-bar-logo" width={"30px"}/>
               </NavLink>
             </div>
