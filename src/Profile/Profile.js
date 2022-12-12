@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useQuery, gql } from "@apollo/client";
+import React from "react";
 import { useUserData } from "../profileHooks";
 import NavBar from '../NavBar/NavBar'
 
@@ -13,14 +12,13 @@ const User = ({ id }) => {
     if (error) {
         return <div>No User Found</div>
     }
-
     return (
         <div key={data.user.id}>
-            <NavBar />
+            <NavBar className="navigation-bar" />
             <h1>Welcome {data.user.name}!</h1>
             <h2>Let's take a look at {data.user.bars[0].name}</h2>
             <h3>You have {data.user.barCount} bars</h3>
-            <h4>The {data.user.bars[0].name} has {data.user.bars[0].drinkCount}  drinks</h4>
+            <p>The {data.user.bars[0].name} has {data.user.bars[0].drinkCount}  drinks</p>
         </div>
     )
 }
