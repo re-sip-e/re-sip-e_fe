@@ -1,12 +1,12 @@
 import NavBar from "../NavBar/NavBar";
 import "./CocktailInfo.css";
 import { Button, Heading, Spinner } from "@chakra-ui/react";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery, gql, useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import EditCocktail from "../EditCocktail/EditCocktail";
 
 const CocktailInfo = ({ cocktailId, checkBar }) => {
-  const [choosenCocktail, setCocktail] = useState({});
+  //   const [choosenCocktail, setCocktail] = useState({});
 
   const apiDrink = gql`
         query {
@@ -41,8 +41,47 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
     
           `;
 
+  const SEND_NEW_DRINK = gql`
+    mutation ($input: DrinkCreateInput!) {
+      drinkCreate(input: $input) {
+        drink {
+          id
+          name
+          steps
+          imgUrl
+          ingredients {
+            id
+            description
+          }
+        }
+      }
+    }
+  `;
+
   const { loading, error, data } = useQuery(checkBar ? barDrink : apiDrink);
 
+  const [addDrink] = useMutation(SEND_NEW_DRINK);
+  const addToBar = () => {
+    const removeTypeName = data.apiDrink.ingredients.map((ingredient) => {
+      return {
+        ...ingredient,
+        __typename: undefined,
+      };
+    });
+    const newDrinkToAdd = {
+      name: data.apiDrink.name,
+      steps: data.apiDrink.steps,
+      imgUrl: data.apiDrink.imgUrl,
+      barId: 1,
+      ingredients: removeTypeName,
+    };
+    addDrink({
+      variables: {
+        input: { drinkInput: newDrinkToAdd },
+      },
+    });
+    console.log(data.apiDrink);
+  };
   return loading ? (
     <Spinner />
   ) : (
@@ -69,7 +108,7 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
         {checkBar ? (
           <EditCocktail choosenCocktail={data.drink} />
         ) : (
-          <Button>Add to my bar!</Button>
+          <Button onClick={() => addToBar()}>Add to my bar!</Button>
         )}
       </div>
     </div>
