@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./SearchPage.css";
 import NavBar from "../NavBar/NavBar";
 import { Heading } from "@chakra-ui/react";
-// import { useSearch } from "../hooks/useSearch";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import { gql, useQuery } from "@apollo/client";
 
@@ -32,6 +31,8 @@ const SearchPage = () => {
     },
   });
 
+  console.log({loading, data, error})
+
   const handleChange = (event) => {
     event.preventDefault();
     setSearch(event.target.value);
@@ -40,12 +41,13 @@ const SearchPage = () => {
   const handleClick = (e) => {
     e.preventDefault();
     setDrinkToFind(search);
-    if (error || data === undefined || drinkToFind === '' || drinkToFind === "_" || drinkToFind === "!") {
-      setSearchMsg(
-        "Sorry, we don't serve that drink here. Search for another..."
-      );
+    
+    if (error || !drinkToFind.charAt(0).toUpperCase() || data === undefined || drinkToFind === "_" || drinkToFind === '' || drinkToFind === "") {
+      setSearchMsg("Sorry we don't serve that drink here. Search for another!")
     } else {
-      setSearchMsg("Type in the name of a cocktail and get mixing!")
+      setSearchMsg(
+        "Nice! Choose your drink!"
+      );
     }
   };
 
@@ -64,7 +66,7 @@ const SearchPage = () => {
             name="cocktail"
             value={search}
             onChange={(event) => handleChange(event)}
-            pattern="[a-z0-9]" 
+            pattern="[A-Za-z0-9]{1,}" 
             title="search input"
           />
           <button onClick={(e) => handleClick(e)} className="go-btn">
