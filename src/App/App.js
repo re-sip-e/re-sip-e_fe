@@ -7,11 +7,8 @@ import { cocktails } from "../mockData";
 import CocktailInfo from "../CocktailInfo/CocktailInfo";
 import { Heading, Spinner } from "@chakra-ui/react";
 import Header from "../Header/Header";
-import User from "../Profile/Profile";
-import { users } from "../mockUsers";
 import SearchPage from "../SearchPage/SearchPage";
 import BarPage from "../BarPage/BarPage";
-
 
 const App = () => {
   const threeFavorites = gql`
@@ -32,16 +29,6 @@ const App = () => {
   ) : (
     <main className="main">
       <Switch>
-
-        <Route
-          path="/profile"
-        >
-          <div className="user-page">
-            <User />
-          </div>
-        </Route>
-        <Route
-          exact
         <Route exact path="/search">
           <SearchPage />
         </Route>
@@ -63,9 +50,9 @@ const App = () => {
                   Welcome to Re*sip*e
                 </Heading>
                 <p className="story">
-                  We are here to help bars and bartender have easy access to their
-                  cocktails recipe making it fast and efficient to find the right
-                  drink!
+                  We are here to help bars and bartender have easy access to
+                  their cocktails recipe making it fast and efficient to find
+                  the right drink!
                 </p>
               </div>
               <div className="favorite-drinks">
