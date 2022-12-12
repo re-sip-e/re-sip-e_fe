@@ -1,12 +1,12 @@
 .cocktail {
     height: 25rem;
     width: 20rem;
+    display: flex;
+    align-items: center;
 }
 h3 {
     background: #fff;
-    opacity: 0.9;
-    width: 100%;
-    text-align: center;
+   width: 3rem;
 }
 
 
@@ -16,3 +16,13 @@ h3 {
     color: white;
 }
 
+.cocktail-name {
+    background: #fff;
+    opacity: 0.9;
+    width: 100%;
+    /* text-align: center; */
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

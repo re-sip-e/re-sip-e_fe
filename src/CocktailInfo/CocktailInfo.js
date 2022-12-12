@@ -104,36 +104,39 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
   ) : (
     <div>
       <NavBar />
-      <div className="cocktail-details">
-        <Heading as="h1" size="4xl">
-          {!checkBar ? data.apiDrink.name : data.drink.name}
-        </Heading>
-        {drinkAdded.data ? <Alert>Added!</Alert> : null}
-        {deleteSuccess.data ? <Alert>Deleted!</Alert> : null}
-        <h2>{`Steps: ${
-          !checkBar ? data.apiDrink.steps : data.drink.steps
-        }`}</h2>
+      <div className="cocktail-details-container">
         <img src={!checkBar ? data.apiDrink.imgUrl : data.drink.imgUrl} />
-        <h3>
-          {data.apiDrink
-            ? data.apiDrink.ingredients.map((ingredient) => {
-                return `${ingredient.description} `;
-              })
-            : data.drink.ingredients.map((ingredient) => {
-                return `${ingredient.description} `;
-              })}
-        </h3>
-
-        {checkBar ? (
-          <div>
-            <EditCocktail choosenCocktail={data.drink} />
-            <a href="/bar/1">
-              <Button onClick={() => deleteBarDrink()}>Delete Drink</Button>
-            </a>
+        <div className="cocktail-details">
+          <Heading as="h1" size="4xl">
+            {!checkBar ? data.apiDrink.name : data.drink.name}
+          </Heading>
+          {drinkAdded.data ? <Alert>Added!</Alert> : null}
+          {deleteSuccess.data ? <Alert>Deleted!</Alert> : null}
+          <div className="ingredients-info">
+            <h3>Ingredients:</h3>
+            {data.apiDrink
+              ? data.apiDrink.ingredients.map((ingredient) => {
+                  return <p>{ingredient.description}</p>;
+                })
+              : data.drink.ingredients.map((ingredient) => {
+                  return <p>{ingredient.description}</p>;
+                })}
           </div>
-        ) : (
-          <Button onClick={() => addToBar()}>Add to my bar!</Button>
-        )}
+          <Heading as="h2" size="1xl" className="steps">{`Steps: ${
+            !checkBar ? data.apiDrink.steps : data.drink.steps
+          }`}</Heading>
+
+          {checkBar ? (
+            <div>
+              <EditCocktail choosenCocktail={data.drink} />
+              <a href="/bar/1">
+                <Button onClick={() => deleteBarDrink()}>Delete Drink</Button>
+              </a>
+            </div>
+          ) : (
+            <Button onClick={() => addToBar()}>Add to my bar!</Button>
+          )}
+        </div>
       </div>
     </div>
   );
