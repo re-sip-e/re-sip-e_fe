@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import EditCocktail from "../EditCocktail/EditCocktail";
 
 const CocktailInfo = ({ cocktailId, checkBar }) => {
-  //   const [choosenCocktail, setCocktail] = useState({});
+
 
   const apiDrink = gql`
         query {
@@ -80,7 +80,6 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
         input: { drinkInput: newDrinkToAdd },
       },
     });
-    console.log(data.apiDrink);
   };
   return loading ? (
     <Spinner />
