@@ -29,7 +29,7 @@ const BarPage = ({ id }) => {
         {data.bar.name}
       </Heading>
       <div className="add-btn-box">
-        <EditCocktail />
+        <EditCocktail choosenCocktail={null} />
         <Link to="/search">
           <Button colorScheme="gray">Add by searching</Button>
         </Link>

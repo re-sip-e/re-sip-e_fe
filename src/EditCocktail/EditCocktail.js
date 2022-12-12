@@ -10,6 +10,10 @@ import {
   FormLabel,
   Input,
   ModalFooter,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import "./EditCocktail.css";
@@ -17,7 +21,7 @@ import Ingredients from "../Ingredients/Ingredients";
 import Steps from "../Steps/Steps";
 import { useMutation, gql } from "@apollo/client";
 
-const EditCocktail = ({ choosenCocktail}) => {
+const EditCocktail = ({ choosenCocktail }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
@@ -27,6 +31,8 @@ const EditCocktail = ({ choosenCocktail}) => {
   const [updateIngredients, setUpdatedIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
   const [newImgUrl, setNewImgUrl] = useState("");
+  const [message, setMessage] = useState("");
+  const [errorMessage, setError] = useState(false);
 
   const SEND_DRINK_UPDATE = gql`
     mutation ($input: DrinkUpdateInput!) {
@@ -164,8 +170,26 @@ const EditCocktail = ({ choosenCocktail}) => {
           input: { drinkInput: newDrink },
         },
       });
+      setError(false);
+      setMessage("Saved Successfully!");
     }
   };
+
+  const checkInputField = (event) => {
+    if (updateIngredients.length === 0 || steps.length === 0) {
+      setError(true);
+      setMessage("Please fill out all fields!");
+    } else if (!cocktailName) {
+      setError(true);
+      setMessage("Please fill out all fields completely!");
+    } else if (!newImgUrl) {
+      setError(true);
+      setMessage("Please fill out all fields completely!");
+    } else {
+      submitEdit();
+    }
+  };
+
   return (
     <>
       <Button onClick={onOpen}>
@@ -195,7 +219,7 @@ const EditCocktail = ({ choosenCocktail}) => {
             </FormControl>
             {!choosenCocktail ? (
               <FormControl>
-                <FormLabel>Cocktail</FormLabel>
+                <FormLabel>Image URL</FormLabel>
                 <Input
                   ref={initialRef}
                   placeholder={"Image URL"}
@@ -216,6 +240,13 @@ const EditCocktail = ({ choosenCocktail}) => {
 
             <FormControl mr={4}>
               <Steps steps={steps} handleChange={handleChange} />
+              {errorMessage || error ? (
+                <Alert status="error">
+                  <AlertIcon />
+                  <AlertTitle>Error!</AlertTitle>
+                  <AlertDescription>{message}</AlertDescription>
+                </Alert>
+              ) : null}
             </FormControl>
           </ModalBody>
 
@@ -224,7 +255,7 @@ const EditCocktail = ({ choosenCocktail}) => {
               colorScheme="blue"
               mr={3}
               variant="outline"
-              onClick={() => submitEdit()}
+              onClick={(event) => checkInputField(event)}
             >
               {choosenCocktail ? "Save" : "Add drink"}
             </Button>

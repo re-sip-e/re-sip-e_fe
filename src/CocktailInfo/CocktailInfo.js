@@ -6,8 +6,7 @@ import React, { useState } from "react";
 import EditCocktail from "../EditCocktail/EditCocktail";
 
 const CocktailInfo = ({ cocktailId, checkBar }) => {
-
-
+  console.log(checkBar);
   const apiDrink = gql`
         query {
           apiDrink(id: ${cocktailId}){
@@ -81,6 +80,7 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
       },
     });
   };
+  console.log(checkBar);
   return loading ? (
     <Spinner />
   ) : (
@@ -88,12 +88,12 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
       <NavBar />
       <div className="cocktail-details">
         <Heading as="h1" size="4xl">
-          {data.apiDrink ? data.apiDrink.name : data.drink.name}
+          {!checkBar ? data.apiDrink.name : data.drink.name}
         </Heading>
         <h2>{`Steps: ${
-          data.apiDrink ? data.apiDrink.steps : data.drink.steps
+          !checkBar ? data.apiDrink.steps : data.drink.steps
         }`}</h2>
-        <img src={data.apiDrink ? data.apiDrink.imgUrl : data.drink.imgUrl} />
+        <img src={!checkBar ? data.apiDrink.imgUrl : data.drink.imgUrl} />
         <h3>
           {data.apiDrink
             ? data.apiDrink.ingredients.map((ingredient) => {

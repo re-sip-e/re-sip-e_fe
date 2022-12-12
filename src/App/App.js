@@ -6,12 +6,15 @@ import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import CocktailInfo from "../CocktailInfo/CocktailInfo";
 import { Heading, Spinner } from "@chakra-ui/react";
 import Header from "../Header/Header";
+import User from "../Profile/Profile";
+import { users } from "../mockUsers";
 import SearchPage from "../SearchPage/SearchPage";
 import BarPage from "../BarPage/BarPage";
 
 const App = () => {
   const [checkBar, setCheckBar] = useState(false);
-  const [drinkInBar, setDrinkInBar] = useState(true);
+  const [inBar, setInBar] = useState(true);
+  // const [drinkInBar, setDrinkInBar] = useState(true);
   const threeFavorites = gql`
     query {
       threeRandomApiDrinks {
@@ -33,6 +36,11 @@ const App = () => {
   ) : (
     <main className="main">
       <Switch>
+        <Route path="/profile">
+          <div className="user-page">
+            <User />
+          </div>
+        </Route>
         <Route exact path="/search">
           <SearchPage />
         </Route>
@@ -65,7 +73,6 @@ const App = () => {
                 </Heading>
                 <CocktailContainer
                   cocktails={data.threeRandomApiDrinks}
-                  setBarToTrue={setBarToTrue}
                   checkBar={checkBar}
                 />
               </div>
@@ -86,10 +93,7 @@ const App = () => {
           path="/bar/1/:id"
           render={({ match }) => (
             <div className="cocktail-info">
-              <CocktailInfo
-                cocktailId={match.params.id}
-                checkBar={drinkInBar}
-              />
+              <CocktailInfo cocktailId={match.params.id} checkBar={inBar} />
             </div>
           )}
         ></Route>

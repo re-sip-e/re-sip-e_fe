@@ -5,6 +5,7 @@ import "./Cocktail.css";
 const Cocktail = ({ cocktail, checkBar }) => {
   const [link, setLink] = useState("");
   useEffect(() => {
+    console.log(checkBar);
     if (checkBar) {
       setLink(`/bar/1/${cocktail.id}`);
     } else {
