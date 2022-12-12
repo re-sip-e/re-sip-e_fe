@@ -1,0 +1,9 @@
+.bar-page {
+ height: 100%;
+ width: 100%;
+}
+.add-btn-box {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 4rem;
+}

@@ -1,7 +1,7 @@
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import { useState } from "react";
 import "./App.css";
 import { useQuery, gql } from "@apollo/client";
-import { useEffect, useState } from "react";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import { cocktails } from "../mockData";
 import CocktailInfo from "../CocktailInfo/CocktailInfo";
@@ -9,6 +9,9 @@ import { Heading, Spinner } from "@chakra-ui/react";
 import Header from "../Header/Header";
 import User from "../Profile/Profile";
 import { users } from "../mockUsers";
+import SearchPage from "../SearchPage/SearchPage";
+import BarPage from "../BarPage/BarPage";
+
 
 const App = () => {
   const threeFavorites = gql`
@@ -29,6 +32,7 @@ const App = () => {
   ) : (
     <main className="main">
       <Switch>
+
         <Route
           path="/profile"
         >
@@ -36,6 +40,18 @@ const App = () => {
             <User />
           </div>
         </Route>
+        <Route
+          exact
+        <Route exact path="/search">
+          <SearchPage />
+        </Route>
+        <Route
+          exact
+          path="/bar/:id"
+          render={({ match }) => {
+            return <BarPage id={parseInt(match.params.id)} />;
+          }}
+        ></Route>
         <Route
           exact
           path="/"
