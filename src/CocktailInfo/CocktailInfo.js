@@ -127,7 +127,9 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
         {checkBar ? (
           <div>
             <EditCocktail choosenCocktail={data.drink} />
-            <Button onClick={() => deleteBarDrink()}>Delete Drink</Button>
+            <a href="/bar/1">
+              <Button onClick={() => deleteBarDrink()}>Delete Drink</Button>
+            </a>
           </div>
         ) : (
           <Button onClick={() => addToBar()}>Add to my bar!</Button>
