@@ -40,7 +40,7 @@ const SearchPage = () => {
   const handleClick = (e) => {
     e.preventDefault();
     setDrinkToFind(search);
-    if (error || data === undefined || drinkToFind === '') {
+    if (error || data === undefined || drinkToFind === '' || drinkToFind === "_" || drinkToFind === "!") {
       setSearchMsg(
         "Sorry, we don't serve that drink here. Search for another..."
       );
@@ -64,6 +64,8 @@ const SearchPage = () => {
             name="cocktail"
             value={search}
             onChange={(event) => handleChange(event)}
+            pattern="[a-z0-9]" 
+            title="search input"
           />
           <button onClick={(e) => handleClick(e)} className="go-btn">
             go

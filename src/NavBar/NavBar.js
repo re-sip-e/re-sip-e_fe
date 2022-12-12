@@ -18,7 +18,7 @@ const NavBar = () => {
           <div className="second-header-list head-2">
             <div className="search-tab">
               <NavLink to="/search">
-              <IconButton aria-label='Search database' icon={<SearchIcon />} />
+              <IconButton aria-label='Search database' icon={<SearchIcon boxSize={10} />} />
               </NavLink>
             </div>
             <div className="bar-tab">
