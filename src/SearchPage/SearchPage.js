@@ -2,27 +2,50 @@ import React, { useState } from "react";
 import "./SearchPage.css";
 import NavBar from "../NavBar/NavBar";
 import { Heading } from "@chakra-ui/react";
-import { useSearch } from "../hooks/useSearch";
+// import { useSearch } from "../hooks/useSearch";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
+import { gql, useQuery } from "@apollo/client";
+
+const GET_SEARCH_QUERY = gql`
+  query ($query: String!) {
+    apiDrinks(query: $query) {
+      id
+      name
+      imgUrl
+      steps
+      ingredients {
+        description
+      }
+    }
+  }
+`;
 
 const SearchPage = () => {
+  const [drinkToFind, setDrinkToFind] = useState(null);
   const [search, setSearch] = useState("");
   const [searchMsg, setSearchMsg] = useState(
     "Type in the name of a cocktail and get mixing!"
   );
-  const { loading, error, data } = useSearch(search);
+  const { loading, error, data } = useQuery(GET_SEARCH_QUERY, {
+    variables: {
+      query: drinkToFind,
+    },
+  });
 
   const handleChange = (event) => {
     event.preventDefault();
     setSearch(event.target.value);
   };
+
   const handleClick = (e) => {
     e.preventDefault();
-    if (error) {
+    setDrinkToFind(search);
+    if (error || data === undefined || drinkToFind === '') {
       setSearchMsg(
         "Sorry, we don't serve that drink here. Search for another..."
       );
-      setSearch("");
+    } else {
+      setSearchMsg("Type in the name of a cocktail and get mixing!")
     }
   };
 
