@@ -23,7 +23,7 @@ const NavBar = () => {
               </NavLink>
             </div>
             <div className="bar-tab">
-              <a href="/bar/1">
+              <a href="https://re-sip-e.netlify.app/bar/1">
                 <img src={logo} alt="joes-bar-logo" width={"30px"} />
               </a>
             </div>
