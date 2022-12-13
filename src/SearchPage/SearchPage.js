@@ -30,25 +30,28 @@ const SearchPage = () => {
       query: drinkToFind,
     },
   });
+  console.log({error, data, loading})
 
-  console.log({loading, data, error})
 
-  const handleChange = (event) => {
-    event.preventDefault();
-    setSearch(event.target.value);
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearch(e.target.value);
   };
+
+  const handleError = () => {
+    if (data.apiDrinks.length === 0) {
+      setSearchMsg("Sorry we don't serve that drink here. Search for another!")
+    } else {
+      setSearchMsg(
+        "Type in the name of a cocktail and get mixing!"
+      );
+    }
+  }
 
   const handleClick = (e) => {
     e.preventDefault();
     setDrinkToFind(search);
-    
-    if (error || !drinkToFind.charAt(0).toUpperCase() || data === undefined || drinkToFind === "_" || drinkToFind === '' || drinkToFind === "") {
-      setSearchMsg("Sorry we don't serve that drink here. Search for another!")
-    } else {
-      setSearchMsg(
-        "Nice! Choose your drink!"
-      );
-    }
+    handleError();
   };
 
   return (
@@ -65,9 +68,7 @@ const SearchPage = () => {
             placeholder="search"
             name="cocktail"
             value={search}
-            onChange={(event) => handleChange(event)}
-            pattern="[A-Za-z0-9]{1,}" 
-            title="search input"
+            onChange={(e) => handleChange(e)}
           />
           <button onClick={(e) => handleClick(e)} className="go-btn">
             go
