@@ -1,6 +1,7 @@
 import NavBar from "../NavBar/NavBar";
+import { Link } from "react-router-dom";
 import "./CocktailInfo.css";
-import { Button, Heading, Spinner } from "@chakra-ui/react";
+import { Alert, Button, Heading, Spinner } from "@chakra-ui/react";
 import { useQuery, gql, useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import EditCocktail from "../EditCocktail/EditCocktail";
@@ -56,9 +57,19 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
     }
   `;
 
-  const { loading, error, data } = useQuery(checkBar ? barDrink : apiDrink);
+  const DELETE_DRINK = gql`
+    mutation ($input: DeleteDrinkInput!) {
+      deleteDrink(input: $input) {
+        success
+        errors
+      }
+    }
+  `;
 
-  const [addDrink] = useMutation(SEND_NEW_DRINK);
+  const { loading, error, data } = useQuery(checkBar ? barDrink : apiDrink);
+  const [addDrink, drinkAdded] = useMutation(SEND_NEW_DRINK);
+  const [deleteDrink, deleteSuccess] = useMutation(DELETE_DRINK);
+  console.log(drinkAdded.data);
   const addToBar = () => {
     const removeTypeName = data.apiDrink.ingredients.map((ingredient) => {
       return {
@@ -79,34 +90,53 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
       },
     });
   };
+
+  const deleteBarDrink = () => {
+    deleteDrink({
+      variables: {
+        input: { id: data.drink.id },
+      },
+    });
+  };
+
   return loading ? (
     <Spinner />
   ) : (
     <div>
       <NavBar />
-      <div className="cocktail-details">
-        <Heading as="h1" size="4xl">
-          {!checkBar ? data.apiDrink.name : data.drink.name}
-        </Heading>
-        <h2>{`Steps: ${
-          !checkBar ? data.apiDrink.steps : data.drink.steps
-        }`}</h2>
+      <div className="cocktail-details-container">
         <img src={!checkBar ? data.apiDrink.imgUrl : data.drink.imgUrl} />
-        <h3>
-          {data.apiDrink
-            ? data.apiDrink.ingredients.map((ingredient) => {
-                return ingredient.description;
-              })
-            : data.drink.ingredients.map((ingredient) => {
-                return ingredient.description;
-              })}
-        </h3>
+        <div className="cocktail-details">
+          <Heading as="h1" size="4xl">
+            {!checkBar ? data.apiDrink.name : data.drink.name}
+          </Heading>
+          {drinkAdded.data ? <Alert>Added!</Alert> : null}
+          {deleteSuccess.data ? <Alert>Deleted!</Alert> : null}
+          <div className="ingredients-info">
+            <h3>Ingredients:</h3>
+            {data.apiDrink
+              ? data.apiDrink.ingredients.map((ingredient) => {
+                  return <p>{ingredient.description}</p>;
+                })
+              : data.drink.ingredients.map((ingredient) => {
+                  return <p>{ingredient.description}</p>;
+                })}
+          </div>
+          <Heading as="h2" size="1xl" className="steps">{`Steps: ${
+            !checkBar ? data.apiDrink.steps : data.drink.steps
+          }`}</Heading>
 
-        {checkBar ? (
-          <EditCocktail choosenCocktail={data.drink} />
-        ) : (
-          <Button onClick={() => addToBar()}>Add to my bar!</Button>
-        )}
+          {checkBar ? (
+            <div>
+              <EditCocktail choosenCocktail={data.drink} />
+              <a href="/bar/1">
+                <Button onClick={() => deleteBarDrink()}>Delete Drink</Button>
+              </a>
+            </div>
+          ) : (
+            <Button onClick={() => addToBar()}>Add to my bar!</Button>
+          )}
+        </div>
       </div>
     </div>
   );
