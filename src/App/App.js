@@ -10,6 +10,7 @@ import User from "../Profile/Profile";
 import { users } from "../mockUsers";
 import SearchPage from "../SearchPage/SearchPage";
 import BarPage from "../BarPage/BarPage";
+import NavBar from "../NavBar/NavBar";
 
 const App = () => {
   const [checkBar, setCheckBar] = useState(false);
@@ -56,19 +57,18 @@ const App = () => {
           path="/"
           render={() => (
             <div className="home-page">
-              <Header />
+              <NavBar />
+              {/* <Header /> */}
               <div className="welcome">
                 <Heading as="h1" size="4xl">
                   Welcome to Re*sip*e
                 </Heading>
-                <p className="story">
-                  We are here to help bars and bartender have easy access to
-                  their cocktails recipe making it fast and efficient to find
-                  the right drink!
+                <p className="story"> 
+                  Your bar's new go-to black book solution. <b><i>Re-sip-e</i></b> collects and stores your bar's drink program for seamless connectivity within your team.
                 </p>
               </div>
               <div className="favorite-drinks">
-                <Heading as="h2" size="2xl">
+                <Heading as="h2" size="2xl" className="fav-drinks">
                   2022's Favorite Drinks
                 </Heading>
                 <CocktailContainer
