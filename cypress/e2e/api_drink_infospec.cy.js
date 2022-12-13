@@ -1,13 +1,13 @@
 import data from "../fixtures/apiDrink.json";
-describe("empty spec", () => {
-  // beforeEach(() => {
-
-  // });
-  it("it should display the drink image", () => {
+import gql from "@apollo/client";
+describe("api drink info spec", () => {
+  beforeEach(() => {
     cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
       fixture: "../fixtures/apiDrink.json",
     });
     cy.visit("http://localhost:3000/11003");
+  });
+  it("it should display the drink image", () => {
     cy.get(".cocktail-details-container > img")
       .should("have.attr", "src")
       .should(
@@ -16,10 +16,6 @@ describe("empty spec", () => {
       );
   });
   it("it should display the drink name, ingredients and steps", () => {
-    cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
-      fixture: "../fixtures/apiDrink.json",
-    });
-    cy.visit("http://localhost:3000/11003");
     cy.get(".css-1i61012").contains("Negroni");
     cy.get("h3").contains("Ingredients:");
     cy.get(".ingredients-info > :nth-child(2)").contains("1 oz Gin");
@@ -30,31 +26,34 @@ describe("empty spec", () => {
     );
   });
   it("should have a button that can add the drink to a bar", () => {
-    cy.request({
-      method: "POST",
-      url: "https://re-sip-e-be.fly.dev/graphql",
-      body: {
-        operationName: "drinkCreate",
-        query: `
-      mutation($input: DrinkCreateInput!){
-        drinkCreate(input: ${data}){
-          drink{
-            id
-            name
-            steps
-            imgUrl
-            ingredients{
-              id
-              description
-            }
-          }
-        }
-      }
-      `,
-      },
-    }).as("addToBar");
     cy.get(".cocktail-details > .chakra-button").click();
+    cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
+      operationName: "drinkCreate",
+      input: data,
+    }).as("addToBar");
     cy.get(".chakra-alert").contains("Added");
   });
-  // cy.visit("http://localhost:3000/11003");
+});
+
+describe("api drink error handling spec", () => {
+  it("it should show error if the drink info was not sent back", () => {
+    cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
+      forceNetworkRequest: true,
+    });
+    cy.visit("http://localhost:3000/11003");
+    cy.get(".cocktail-info-error").contains(
+      "Sorry, couldn't load this drink. Return home."
+    );
+  });
+  // it.only("should show an error if failed to add to your bar", () => {
+  //   cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
+  //     fixture: "../fixtures/apiDrink.json",
+  //   });
+  //   cy.visit("http://localhost:3000/11003");
+  //   cy.get(".cocktail-details > .chakra-button").click();
+  //   cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
+  //     error: "error occured",
+  //   });
+  //   cy.get(".chakra-alert").contains("Error occured, try again later!");
+  // });
 });

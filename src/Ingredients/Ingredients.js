@@ -32,7 +32,7 @@ const Ingredients = ({
             name="newIngredient"
             onChange={(event) => handleChange(event)}
           />
-          <AddIcon onClick={() => addIngredient()} />
+          <AddIcon className="add-icon" onClick={() => addIngredient()} />
         </div>
       </div>
     </div>

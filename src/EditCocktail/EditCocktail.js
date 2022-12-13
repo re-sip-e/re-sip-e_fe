@@ -268,6 +268,7 @@ const EditCocktail = ({ choosenCocktail }) => {
               mr={3}
               variant="outline"
               onClick={(event) => checkInputField(event)}
+              className="save-add-button"
             >
               {choosenCocktail ? "Save" : "Add drink"}
             </Button>
