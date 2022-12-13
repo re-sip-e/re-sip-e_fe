@@ -1,0 +1,32 @@
+.users-name {
+    margin: 4rem;
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+.users-barCount {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    font-size: 1.5rem;
+    align-items: center;
+    flex-direction: column;
+}
+
+.users-barInfo {
+    border: solid 2px;
+    width: 15rem;
+    height: 18rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 42%;
+}
+
+.users-bar {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    font-size: 1.5rem;
+    align-items: center;
+    flex-direction: column;
+}

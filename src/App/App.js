@@ -28,20 +28,18 @@ const App = () => {
   return loading ? (
     <Spinner size="xl" speed=".8s" />
   ) : error ? (
-    <h1>Sorry thre was an error</h1>
+    <h1>Sorry there was an error</h1>
   ) : (
     <main className="main">
       <Switch>
-
         <Route
+          exact
           path="/profile"
         >
           <div className="user-page">
             <User />
           </div>
         </Route>
-        <Route
-          exact
         <Route exact path="/search">
           <SearchPage />
         </Route>
@@ -69,7 +67,7 @@ const App = () => {
                 </p>
               </div>
               <div className="favorite-drinks">
-                <Heading as="h2" size="2xl">
+                <Heading className="heading" as="h2" size="2xl">
                   2022's Favorite Drinks
                 </Heading>
                 <CocktailContainer cocktails={data.threeRandomApiDrinks} />
