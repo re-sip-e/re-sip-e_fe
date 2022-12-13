@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import "./NavBar.css";
 import { IconButton, Avatar } from "@chakra-ui/react";
 import { SearchIcon } from '@chakra-ui/icons';
@@ -21,9 +21,9 @@ const NavBar = () => {
               </NavLink>
             </div>
             <div className="bar-tab">
-              <NavLink to="/bar/1" className={"bar-icon-box"}>
+              <a href="https://re-sip-e.netlify.app/bar/1">
                 <img src={barLogo} alt="joes-bar-logo" width={"45rem"}/>
-              </NavLink>
+               </a>
             </div>
             <div className="header-avatar">
               <NavLink to="/profile">
@@ -32,9 +32,9 @@ const NavBar = () => {
             </div>
           </div>
         </nav>
-        </div>
+      </div>
     </section>
-  )
-}
+  );
+};
 
 export default NavBar;

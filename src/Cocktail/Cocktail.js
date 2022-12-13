@@ -20,7 +20,9 @@ const Cocktail = ({ cocktail, checkBar }) => {
           backgroundSize: "cover",
         }}
       >
-        <h3>{cocktail.name}</h3>
+
+          <h3 className="cocktail-name">{cocktail.name}</h3>
+    
       </div>
     </Link>
   );

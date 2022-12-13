@@ -14,6 +14,7 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  ModalCloseButton,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import "./EditCocktail.css";
@@ -29,7 +30,7 @@ const EditCocktail = ({ choosenCocktail }) => {
   const [cocktailName, setCocktailName] = useState("");
   const [newIngredient, setNewIngredient] = useState("");
   const [updateIngredients, setUpdatedIngredients] = useState([]);
-  const [steps, setSteps] = useState([]);
+  const [steps, setSteps] = useState("");
   const [newImgUrl, setNewImgUrl] = useState("");
   const [message, setMessage] = useState("");
   const [errorMessage, setError] = useState(false);
@@ -80,7 +81,9 @@ const EditCocktail = ({ choosenCocktail }) => {
         };
       });
       setUpdatedIngredients(removeTypeName);
+      setCocktailName(choosenCocktail.name);
       setSteps(choosenCocktail.steps);
+      setNewImgUrl(choosenCocktail.imgUrl);
     }
   }, []);
 
@@ -170,13 +173,13 @@ const EditCocktail = ({ choosenCocktail }) => {
           input: { drinkInput: newDrink },
         },
       });
-      setError(false);
-      setMessage("Saved Successfully!");
     }
+    setError(false);
+    setMessage("Saved Successfully!");
   };
 
   const checkInputField = (event) => {
-    if (updateIngredients.length === 0 || steps.length === 0) {
+    if (updateIngredients.length === 0 || steps === "") {
       setError(true);
       setMessage("Please fill out all fields!");
     } else if (!cocktailName) {
@@ -189,7 +192,7 @@ const EditCocktail = ({ choosenCocktail }) => {
       submitEdit();
     }
   };
-
+  console.log(message);
   return (
     <>
       <Button onClick={onOpen}>
@@ -205,6 +208,7 @@ const EditCocktail = ({ choosenCocktail }) => {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Edit Cocktail</ModalHeader>
+          <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
               <FormLabel>Cocktail</FormLabel>
@@ -217,17 +221,17 @@ const EditCocktail = ({ choosenCocktail }) => {
                 onChange={(event) => handleChange(event)}
               />
             </FormControl>
-            {!choosenCocktail ? (
-              <FormControl>
-                <FormLabel>Image URL</FormLabel>
-                <Input
-                  ref={initialRef}
-                  placeholder={"Image URL"}
-                  name="imgURL"
-                  onChange={(event) => handleChange(event)}
-                />
-              </FormControl>
-            ) : null}
+            <FormControl>
+              <FormLabel>Image URL</FormLabel>
+              <Input
+                ref={initialRef}
+                placeholder={
+                  choosenCocktail ? `${choosenCocktail.imgUrl}` : "Image URL"
+                }
+                name="imgURL"
+                onChange={(event) => handleChange(event)}
+              />
+            </FormControl>
             <FormControl mr={4}>
               <Ingredients
                 ingredients={updateIngredients}
@@ -237,13 +241,21 @@ const EditCocktail = ({ choosenCocktail }) => {
                 editIngredient={editIngredient}
               />
             </FormControl>
-
             <FormControl mr={4}>
               <Steps steps={steps} handleChange={handleChange} />
               {errorMessage || error ? (
                 <Alert status="error">
                   <AlertIcon />
-                  <AlertTitle>Error!</AlertTitle>
+                  <AlertTitle>
+                    {message !== "Saved Successfully!" ? "Error!" : "Saved"}
+                  </AlertTitle>
+                  <AlertDescription>{message}</AlertDescription>
+                </Alert>
+              ) : null}
+              {message === "Saved Successfully!" ? (
+                <Alert status="error">
+                  <AlertIcon />
+                  <AlertTitle>Saved</AlertTitle>
                   <AlertDescription>{message}</AlertDescription>
                 </Alert>
               ) : null}
