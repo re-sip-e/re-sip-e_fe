@@ -1,5 +1,4 @@
 describe("homepage spec", () => {
-  let name;
   beforeEach(() => {
     cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
       fixture: "../fixtures/threeDrink.json",
@@ -42,6 +41,25 @@ describe("homepage spec", () => {
       );
     cy.get(":nth-child(3) > a > .cocktail > .cocktail-name").contains(
       "Salty Dog"
+    );
+  });
+});
+describe("homepage error handling spec", () => {
+  beforeEach(() => {
+    cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
+      forceNetworkRequest: true,
+    });
+    cy.visit("http://localhost:3000/");
+  });
+  it("it should display a welcome messgae", () => {
+    cy.get(".welcome > .chakra-heading").contains("Welcome to Re*sip*e");
+  });
+  it("it should display a about our app page", () => {
+    cy.get("p[class='story']").contains("We are here to");
+  });
+  it("it should display an error messgae", () => {
+    cy.get(".css-1dklj6k").contains(
+      "Sorry couldn't find these drinks, Try again later!"
     );
   });
 });

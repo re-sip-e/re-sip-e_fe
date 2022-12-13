@@ -31,8 +31,6 @@ const App = () => {
   };
   return loading ? (
     <Spinner size="xl" speed=".8s" />
-  ) : error ? (
-    <Heading>Sorry there was an error</Heading>
   ) : (
     <main className="main">
       <Switch>
@@ -71,10 +69,16 @@ const App = () => {
                 <Heading as="h2" size="2xl">
                   2022's Favorite Drinks
                 </Heading>
-                <CocktailContainer
-                  cocktails={data.threeRandomApiDrinks}
-                  checkBar={checkBar}
-                />
+                {error ? (
+                  <Heading className="home-page-error">
+                    Sorry couldn't find these drinks, Try again later!
+                  </Heading>
+                ) : (
+                  <CocktailContainer
+                    cocktails={data.threeRandomApiDrinks}
+                    checkBar={checkBar}
+                  />
+                )}
               </div>
             </div>
           )}
