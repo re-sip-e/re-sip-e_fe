@@ -3,6 +3,10 @@
     flex-direction: column;
 }
 
+.chakra-heading {
+    padding: 2rem;
+    border: none;
+}
 
 article {
     display: flex;
@@ -47,16 +51,19 @@ input {
 }
 
 
-.cocktail:hover h3 {
+.cocktail:hover {
     background: black;
     opacity: 0.9;
     color: white;
 }
 
 .go-btn {
-    border: 2px solid gray;
     border-radius: .3rem;
     width: 20%;
     padding: .2rem;
     margin-left: 1rem;
+}
+
+.go-btn:hover {
+    background-color: #4ba89a;
 }

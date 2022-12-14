@@ -38,7 +38,7 @@ describe("bar drink info spec", () => {
     cy.get(".steps-header").contains("Steps");
     cy.get(":nth-child(1) > .steps-container").should("have.length", 1);
   });
-  it("should be able to type into all input fields, and delete/add ingredients", () => {
+  it("should be able to type into all input fields, and delete/add ingredients and add the editted drink to their bar", () => {
     cy.get(":nth-child(4) > :nth-child(1)").click();
     cy.get('input[placeholder="Negroni"]').type("Negroni");
     cy.get(

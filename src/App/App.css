@@ -7,33 +7,28 @@
     justify-content: space-between;
     border: solid 2px;
     margin-top: 2vw;
-    
 }
 
 h1 {
   margin: 4rem;
   font-size: 7.5rem;
 }
+
 .chakra-heading {
   margin: 3rem;
 }
 
 .story {
   border: solid 2px;
-  padding: 3rem;
-  width: 18rem;
+  padding: 2rem;
+  width: 22rem;
   margin-right: 11rem;
   margin-top: 12rem;
   margin-bottom: 12rem;
 }
 
-h2 {
-  display: flex;
-  border: solid black;
-    border-radius: 2.5rem;
-    width: 24rem;
+.fav-drinks {
     text-align: center;
-   align-content: center;
 }
 
 .favorite-drinks {
