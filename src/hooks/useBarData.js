@@ -21,5 +21,6 @@ export const useBarData = (id) => {
       id,
     },
   });
+  
   return { data, error, loading };
 };

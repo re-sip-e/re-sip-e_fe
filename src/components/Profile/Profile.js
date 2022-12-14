@@ -1,12 +1,28 @@
 import React from "react";
-import { useUserData } from "../../hooks/profileHooks";
 import NavBar from '../NavBar/NavBar'
 import './Profile.css'
-import logo from "../../assets/joes-bar.png";
-import { Avatar } from "@chakra-ui/react";
+import { Avatar, Heading } from "@chakra-ui/react";
+import { gql, useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
 
-const Profile = ({ id }) => {
-    const { loading, error, data } = useUserData(id)
+
+const GET_SINGLE_USER = gql`
+query {
+    user(id: 1) {
+      id
+      name
+      barCount
+      bars{
+        id
+        name
+        drinkCount
+      }
+    }
+  }`;
+
+const Profile = () => {
+    const { loading, error, data } = useQuery(GET_SINGLE_USER)
+
     if (loading) {
         return <div>Finding the user...</div>
     }
@@ -14,23 +30,54 @@ const Profile = ({ id }) => {
         return <div>No User Found</div>
     }
 
+    const userBarCount = data.user.bars.map(drink => drink.drinkCount)
 
     return (
-        <div className="user-page" key={data.user.id}>
-            <NavBar className="navigation-bar" />
-            <div className="welcome-user">
-                <title className="users-name">Welcome {data.user.name}!</title>
-                <Avatar className="profile-img" name="Joe Schmoe" src="https://bit.ly/ryan-florence" size={"lg"} />
-            </div>
-            <h3 className="users-barCount">You have {data.user.barCount} bars</h3>
-            <div className="users-barInfo">
-                <h2 className="users-bar">Let's take a look at {data.user.bars[0].name}!</h2>
-                <img className="logo-img" src={logo} alt="joes-bar-logo" width={"30px"} />
-                <p className="users-drinkCount">The {data.user.bars[0].name} drink count : {data.user.bars[0].drinkCount}</p>
-            </div>
-        </div>
+        <section className="profile-page">
+            <NavBar />
+            <article className="profile-info">
+                <div className="welcome-user">
+            <Avatar name="Joe Schmoe" src="https://bit.ly/ryan-florence" size={"xl"} />
+                <Heading as="h1" size="4xl" className="welcome-user-msg">
+                    Welcome back, {data.user.name}!
+                </Heading>
+
+                </div>
+                <div className="user-bar-data">
+                    <div className="user-bar-count">
+                        <Heading as="h3" size="2xl" className="num-of-bars">Bars</Heading>
+                        {data.user.barCount}
+                    </div>
+                    <div className="bar-drink-count">
+                        <Heading as="h3" size="2xl" className="num-of-drinks">Number of Drinks</Heading>
+                        {userBarCount}
+                    </div>
+                    <Link to="/bar/1">
+                        <button className="view-bar-btn">View my bar</button>
+                    </Link>
+                </div>
+                <div className="user-data">
+                    <div className="personal-info">
+                        <p>Name: {data.user.name}</p>
+                        <p>Email: JSchmoe23@gmail.com</p>
+                        <p>Location: Denver, CO</p>
+                    </div>
+                </div>
+            </article>
+        </section>
     )
 }
 
 
 export default Profile;
+
+
+// export const useUserData = (id) => {
+
+//     const { loading, error, data } = useQuery(GET_SINGLE_USER, {
+//         variables: {
+//             id,
+//         }
+//     })
+//     return { data, error, loading };
+// };
