@@ -28,7 +28,7 @@ const App = () => {
   return loading ? (
     <Spinner size="xl" speed=".8s" />
   ) : error ? (
-    <Heading>Sorry there was an error</Heading>
+    <Heading className="error-heading">Sorry there was an error. Click <u><a href="http://localhost:3000">here</a></u> to go back home!</Heading>
   ) : (
     <main className="main">
       <Switch>

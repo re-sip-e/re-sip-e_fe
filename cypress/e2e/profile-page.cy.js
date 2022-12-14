@@ -1,55 +1,47 @@
-// describe('profile page', () => {
-//   const loadPage = () => {
-//     cy.visit('http://localhost:3000/profile')
-//   }
-//   it('should display the NavBar for the user', () => {
-//     loadPage()
-//     cy.get('div').should('contain', 'Re*sip*e')
-//   })
-//   it('should display the users username', () => {
-//     loadPage()
-//     cy.get('title').should('contain', 'Joe Schmoe')
-//   })
-//   it('should display the users bar name', () => {
-//     cy.get('h2').should('contain', "Let'\s take a look at Joe's Bar")
-//   })
-//   it('should show a user how many bars a user has', () => {
-//     loadPage()
-//     cy.get('h3').should('contain', 'You have 1 bars')
-//   })
-//   it('should display how many drinks a users bar has', () => {
-//     setTimeout(2000)
-//     cy.get('p').contains(`The Joe'\s Bar drink count :`)
-//   })
-//   it('should show a brief loading screen when page is loading', () => {
-//     cy.visit('http://localhost:3000/profile', {
-//       timeout: 30000
-//     })
-//     cy.get('div').contains('Finding the user...')
-//   })
-//   it('should show an error', () => {
-//     cy.intercept("POST", "https://re-sip-e-be.fly.dev/graphql", {
-//       statusCode: 500,
-//       body: "Test 500 Error",
-//     })
-//     cy.visit("http://localhost:3000/profile")
-//       .wait(3000)
-//       .get("div")
-//       .should(
-//         "contain",
-//         "Sorry there was an error"
-//       );
-//   })
-//   it('Should be able to navigate to the home page', () => {
-//     loadPage()
-//     cy.get('div').contains('Re*sip*e').click().url('should.be', 'http://localhost:3000/')
-//   })
-//   it('Should be able to navigate to the bar page', () => {
-//     loadPage()
-//     cy.get('div').find('img').first().click().url('should.be', 'http://localhost:3000/bar/1')
-//   })
-//   it('Should be able to navigate to the search page', () => {
-//     loadPage()
-//     cy.get('div').find('.search-tab').first().click().url('should.be', 'http://localhost:3000/search')
-//   })
-// })
+describe("Profile Page", () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:3000/profile");
+  });
+
+  it("should display all elements to the DOM", () => {
+    cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
+        statusCode: 200,
+        ok: true,
+        fixture: "userData.json"
+    })
+    cy.get(".alt-header").should("exist");
+    cy.get(".site-logo").should("exist");
+    cy.get(".search-tab").should("exist");
+    cy.get(".bar-tab").should("exist");
+    cy.get(".header-avatar").should("exist");
+    cy.get(".welcome-user-msg").should("exist").should("contain", "Welcome back")
+    cy.get('.welcome-user > .chakra-avatar > .chakra-avatar__img').should("exist")
+    cy.get(".user-bar-data").should("exist")
+    cy.get('.my-bar-info').should("exist").should("contain", "Bar Status")
+    cy.get('.user-bar-count').should("exist")
+    cy.get('.user-bar-count > .chakra-heading').should("exist").should("contain", "Bars")
+    cy.get('.bar-drink-count').should("exist")
+    cy.get('.bar-drink-count > .chakra-heading').should("exist").should("contain", "Number")
+    cy.get("button").should('have.class', "view-bar-btn")
+    cy.get('.personal-info').should("exist")
+    cy.get('.my-info-container > .chakra-heading').should("exist").should("contain", "My Info")
+    cy.get('.personal-info > :nth-child(2)').should("exist").should("contain", "Name")
+    cy.get('.personal-info > :nth-child(3)').should("exist").should("contain", "Email")
+    cy.get('.personal-info > :nth-child(4)').should("exist").should("contain", "Location")
+  });
+
+  it("should take user to their bar page", () => {
+    cy.get(".view-bar-btn").click();
+    cy.visit("http://localhost:3000/bar/1")
+  })
+
+  it("should display an error if no user data was found", () => {
+    cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
+        statusCode: 400,
+        ok: false,
+        fixture: "userData.json"
+    })
+    cy.get(".chakra-heading").should('contain', 'Sorry there was an error. Click here to go back home!')
+  })
+ 
+});

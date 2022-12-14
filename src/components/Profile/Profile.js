@@ -27,7 +27,7 @@ const Profile = () => {
     return <div>Loading your info...</div>;
   }
   if (error) {
-    return <div>No User Found</div>;
+    return <div>No User Found! Click the icon above to go back home.</div>;
   }
 
   const barDrinkCount = data.user.bars.map((drink) => drink.drinkCount);
