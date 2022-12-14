@@ -33,7 +33,10 @@ const App = () => {
   ) : (
     <main className="main">
       <Switch>
-        <Route path="/profile">
+        <Route
+          exact
+          path="/profile"
+        >
           <div className="user-page">
             <User />
           </div>
@@ -59,7 +62,7 @@ const App = () => {
                 <Heading as="h1" size="4xl">
                   Welcome to Re*sip*e
                 </Heading>
-                <p className="story"> 
+                <p className="story">
                   Your bar's new go-to black book solution. <b><i>Re-sip-e</i></b> collects and stores your bar's drink program for seamless connectivity within your team.
                 </p>
               </div>

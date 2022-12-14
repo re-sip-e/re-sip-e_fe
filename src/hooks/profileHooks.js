@@ -22,6 +22,5 @@ export const useUserData = (id) => {
             id,
         }
     })
-    console.log({ loading, error, data })
     return { data, error, loading };
 };
