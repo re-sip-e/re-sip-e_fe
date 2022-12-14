@@ -1,11 +1,12 @@
 import { verifyDocumentType } from "@apollo/client/react/parser";
+import { Children } from "react";
 
 describe("bar drink info spec", () => {
   beforeEach(() => {
     cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
       fixture: "../fixtures/barDrink.json",
     });
-    cy.visit("http://localhost:3000/bar/1/1");
+    cy.visit("https://re-sip-e.netlify.app/bar/1/1");
   });
   it("it should display the drink image", () => {
     cy.get(".cocktail-details-container > img")
@@ -51,12 +52,18 @@ describe("bar drink info spec", () => {
       .type("{backspace}")
       .type("{backspace}")
       .type("Vodka");
-    cy.get(".close-icon-6").click();
+    cy.get(":nth-child(1) > .ingredient > .chakra-icon").click();
     cy.get(".new-ingredient").type("1 Lemon");
-    cy.get(".add-icon").click();
-    cy.get(".steps-text-area").type(" Squeeze Lemon, enjoy!");
+    cy.get(":nth-child(3) > .ingredient > .chakra-icon").click();
+    cy.get(".chakra-textarea").type(" Squeeze Lemon, enjoy!");
   });
-  it("should allow the user to save an edited drink and go back to the page and see the new updates", () => {
+});
+describe("create spec", () => {
+  it.only("should allow the user to save an edited drink and go back to the page and see the new updates", () => {
+    cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
+      fixture: "barDrink.json",
+    });
+    cy.visit("https://re-sip-e.netlify.app/bar/1/1");
     cy.get(":nth-child(4) > :nth-child(1)").contains("Make it my own!").click();
     cy.get('input[placeholder="Negroni"]').type("Negroni");
     cy.get(
@@ -69,26 +76,28 @@ describe("bar drink info spec", () => {
       .type("{backspace}")
       .type("{backspace}")
       .type("Vodka");
-    cy.get(".close-icon-6").click();
+    cy.get(":nth-child(1) > .ingredient > .chakra-icon").click();
     cy.get(".new-ingredient").type("1 Lemon");
-    cy.get(".add-icon").click();
-    cy.get(".steps-text-area").type(" Squeeze Lemon, enjoy!");
-    cy.get(".save-add-button").click();
-    cy.get(".close-button").click();
-
-    cy.visit("http://localhost:3000/bar/1/1");
-    // cy.get(".ingredients-info > :nth-child(2)").contains("1 oz Vodka");
-  });
-});
-
-describe("bar drink error handling spec", () => {
-  it.only("it should show error if the drink info was not sent back", () => {
+    cy.get(":nth-child(3) > .ingredient > .chakra-icon").click();
+    cy.get(".chakra-textarea").type(" Squeeze Lemon, enjoy!");
     cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
-      forceNetworkRequest: true,
-    });
-    cy.visit("http://localhost:3000/11003");
-    cy.get(".cocktail-info-error").contains(
-      "Sorry, couldn't load this drink. Return home."
-    );
+      fixture: "barEditDrink.json",
+    }).as("edditedDrink");
+    cy.get(".chakra-button").contains("Save").click();
+    cy.get(".chakra-button").contains("Cancel").click();
+    cy.visit("https://re-sip-e.netlify.app/bar/1/1");
+    cy.get(".ingredients-info > :nth-child(2)").contains("1.0 oz Vodka");
   });
 });
+
+// describe("bar drink error handling spec", () => {
+//   it("it should show error if the drink info was not sent back", () => {
+//     cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
+//       forceNetworkRequest: true,
+//     });
+//     cy.visit("https://re-sip-e.netlify.app/11003");
+//     cy.get(".cocktail-info-error").contains(
+//       "Sorry, couldn't load this drink. Return home."
+//     );
+//   });
+// });

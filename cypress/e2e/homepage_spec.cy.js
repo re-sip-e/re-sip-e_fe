@@ -51,7 +51,7 @@ describe("homepage error handling spec", () => {
     cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
       forceNetworkRequest: true,
     });
-    cy.visit("http://localhost:3000/");
+    cy.visit("https://re-sip-e.netlify.app");
   });
   it("it should display a welcome messgae", () => {
     cy.get(".welcome > .chakra-heading").contains("Welcome to Re*sip*e");

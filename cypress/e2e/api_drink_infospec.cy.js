@@ -5,7 +5,7 @@ describe("api drink info spec", () => {
     cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
       fixture: "../fixtures/apiDrink.json",
     });
-    cy.visit("http://localhost:3000/11003");
+    cy.visit("https://re-sip-e.netlify.app/11003");
   });
   it("it should display the drink image", () => {
     cy.get(".cocktail-details-container > img")
@@ -40,7 +40,7 @@ describe("api drink error handling spec", () => {
     cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
       forceNetworkRequest: true,
     });
-    cy.visit("http://localhost:3000/11003");
+    cy.visit("https://re-sip-e.netlify.app/11003");
     cy.get(".cocktail-info-error").contains(
       "Sorry, couldn't load this drink. Return home."
     );
