@@ -29,31 +29,20 @@ describe("api drink info spec", () => {
     cy.get(".cocktail-details > .chakra-button").click();
     cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
       operationName: "drinkCreate",
-      input: data,
+      input: "apiDrink.json",
     }).as("addToBar");
     cy.get(".chakra-alert").contains("Added");
   });
 });
 
 describe("api drink error handling spec", () => {
-  it("it should show error if the drink info was not sent back", () => {
+  it("should show an error if failed to show drink", () => {
+    cy.visit("http://localhost:3000/11003");
     cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
-      statusCode: 500,
+      fixture: "apiDrinkError.json",
     });
-    cy.visit("https://re-sip-e.netlify.app/11003");
-    cy.get(".cocktail-info-error").contains(
-      "Sorry, couldn't load this drink. Return home."
+    cy.get(".chakra-heading").contains(
+      "Sorry, couldn't load. Click icon to return home"
     );
   });
-  // it.only("should show an error if failed to add to your bar", () => {
-  //   cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
-  //     fixture: "../fixtures/apiDrink.json",
-  //   });
-  //   cy.visit("http://localhost:3000/11003");
-  //   cy.get(".cocktail-details > .chakra-button").click();
-  //   cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
-  //     error: true,
-  //   });
-  //   cy.get(".chakra-alert").contains("Error occured, try again later!");
-  // });
 });

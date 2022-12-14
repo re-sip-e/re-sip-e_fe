@@ -56,14 +56,4 @@ describe("homepage error handling spec", () => {
   it("it should display a welcome messgae", () => {
     cy.get(".chakra-heading").contains("Sorry there was an error");
   });
-  // it("it should display a about our app page", () => {
-  //   cy.get("p[class='story']").contains(
-  //     "Your bar's new go-to black book solution. Re-sip-e collects and stores your bar's drink program for seamless connectivity within your team."
-  //   );
-  // });
-  // it("it should display an error messgae", () => {
-  //   cy.get(".css-1dklj6k").contains(
-  //     "Sorry couldn't find these drinks, Try again later!"
-  //   );
-  // });
 });

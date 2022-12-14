@@ -1,0 +1,33 @@
+{
+    "data": {
+      "drinkCreate": null
+    },
+    "errors": [
+      {
+        "message": "Error creating drink",
+        "locations": [
+          {
+            "line": 34,
+            "column": 3
+          }
+        ],
+        "path": [
+          "drinkCreate"
+        ],
+        "extensions": {
+          "name": [
+            "can't be blank"
+          ],
+          "steps": [
+            "can't be blank"
+          ],
+          "bar": [
+            "must exist"
+          ],
+          "ingredients.description": [
+            "can't be blank"
+          ]
+        }
+      }
+    ]
+  }
