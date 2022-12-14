@@ -9,7 +9,9 @@ describe("homepage spec", () => {
     cy.get(".welcome > .chakra-heading").contains("Welcome to Re*sip*e");
   });
   it("it should display a about our app page", () => {
-    cy.get("p[class='story']").contains("We are here to");
+    cy.get("p[class='story']").contains(
+      "Your bar's new go-to black book solution. Re-sip-e collects and stores your bar's drink program for seamless connectivity within your team."
+    );
   });
   it("it should display 3 random drinks", () => {
     cy.get(".favorite-drinks > .chakra-heading").contains(
@@ -55,7 +57,9 @@ describe("homepage error handling spec", () => {
     cy.get(".welcome > .chakra-heading").contains("Welcome to Re*sip*e");
   });
   it("it should display a about our app page", () => {
-    cy.get("p[class='story']").contains("We are here to");
+    cy.get("p[class='story']").contains(
+      "Your bar's new go-to black book solution. Re-sip-e collects and stores your bar's drink program for seamless connectivity within your team."
+    );
   });
   it("it should display an error messgae", () => {
     cy.get(".css-1dklj6k").contains(
