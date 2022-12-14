@@ -8,7 +8,7 @@ describe('profile page', () => {
   })
   it('should display the users username', () => {
     loadPage()
-    cy.get('h1').should('contain', 'Joe Schmoe')
+    cy.get('title').should('contain', 'Joe Schmoe')
   })
   it('should display the users bar name', () => {
     cy.get('h2').should('contain', "Let'\s take a look at Joe's Bar")
@@ -19,7 +19,7 @@ describe('profile page', () => {
   })
   it('should display how many drinks a users bar has', () => {
     setTimeout(2000)
-    cy.get('p').contains("The Joe'\s Bar has 4 drinks")
+    cy.get('p').contains(`The Joe'\s Bar drink count :`)
   })
   it('should show a brief loading screen when page is loading', () => {
     cy.visit('http://localhost:3000/profile', {
@@ -39,5 +39,17 @@ describe('profile page', () => {
         "contain",
         "Sorry there was an error"
       );
+  })
+  it('Should be able to navigate to the home page', () => {
+    loadPage()
+    cy.get('div').contains('Re*sip*e').click().url('should.be', 'http://localhost:3000/')
+  })
+  it('Should be able to navigate to the bar page', () => {
+    loadPage()
+    cy.get('div').find('img').first().click().url('should.be', 'http://localhost:3000/bar/1')
+  })
+  it('Should be able to navigate to the search page', () => {
+    loadPage()
+    cy.get('div').find('.search-tab').first().click().url('should.be', 'http://localhost:3000/search')
   })
 })

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-undef */
 import React from "react";
 import { Heading, Avatar } from "@chakra-ui/react";
 import "./Header.css";
@@ -21,7 +20,7 @@ const Header = () => {
             </div>
             <div className="nav-list">
               <NavLink to="/bar/1">
-              <img src={logo} alt="joes-bar-logo" width={"30px"}/>
+                <img src={logo} alt="joes-bar-logo" width={"30px"} />
               </NavLink>
             </div>
             <div className="nav-avatar">
