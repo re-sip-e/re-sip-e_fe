@@ -52,7 +52,7 @@ describe("api drink error handling spec", () => {
   //   cy.visit("http://localhost:3000/11003");
   //   cy.get(".cocktail-details > .chakra-button").click();
   //   cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
-  //     error: "error occured",
+  //     error: true,
   //   });
   //   cy.get(".chakra-alert").contains("Error occured, try again later!");
   // });

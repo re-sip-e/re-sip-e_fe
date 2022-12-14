@@ -272,7 +272,12 @@ const EditCocktail = ({ choosenCocktail }) => {
             >
               {choosenCocktail ? "Save" : "Add drink"}
             </Button>
-            <Button onClick={onClose} colorScheme="blue" variant="outline">
+            <Button
+              className="close-button"
+              onClick={onClose}
+              colorScheme="blue"
+              variant="outline"
+            >
               Cancel
             </Button>
           </ModalFooter>
