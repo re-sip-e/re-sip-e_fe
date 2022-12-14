@@ -1,11 +1,11 @@
 import React from "react";
-import { useUserData } from "../hooks/profileHooks";
+import { useUserData } from "../../hooks/profileHooks";
 import NavBar from '../NavBar/NavBar'
 import './Profile.css'
-import logo from "../assets/joes-bar.png";
+import logo from "../../assets/joes-bar.png";
 import { Avatar } from "@chakra-ui/react";
 
-const User = ({ id }) => {
+const Profile = ({ id }) => {
     const { loading, error, data } = useUserData(id)
     if (loading) {
         return <div>Finding the user...</div>
@@ -13,6 +13,8 @@ const User = ({ id }) => {
     if (error) {
         return <div>No User Found</div>
     }
+
+
     return (
         <div className="user-page" key={data.user.id}>
             <NavBar className="navigation-bar" />
@@ -31,4 +33,4 @@ const User = ({ id }) => {
 }
 
 
-export default User;
+export default Profile;

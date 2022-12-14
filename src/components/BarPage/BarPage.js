@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import NavBar from "../NavBar/NavBar";
-import { useBarData } from "../hooks/useBarData";
+import { useBarData } from "../../hooks/useBarData";
 import { Heading, Button } from "@chakra-ui/react";
 import "./BarPage.css";
 import EditCocktail from "../EditCocktail/EditCocktail";

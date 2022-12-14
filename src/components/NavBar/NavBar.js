@@ -3,8 +3,8 @@ import "./NavBar.css";
 import { IconButton, Avatar } from "@chakra-ui/react";
 import { SearchIcon } from '@chakra-ui/icons';
 import { Link, NavLink } from "react-router-dom";
-import barLogo from "../assets/bar-counter.png";
-import siteLogo from "../assets/re-sip-e.png";
+import barLogo from "../../assets/bar-counter.png";
+import siteLogo from "../../assets/re-sip-e.png";
 
 const NavBar = () => {
   return (

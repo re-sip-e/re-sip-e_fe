@@ -5,7 +5,7 @@ import { useQuery, gql } from "@apollo/client";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import CocktailInfo from "../CocktailInfo/CocktailInfo";
 import { Heading, Spinner } from "@chakra-ui/react";
-import User from "../Profile/Profile";
+import Profile from "../Profile/Profile";
 import SearchPage from "../SearchPage/SearchPage";
 import BarPage from "../BarPage/BarPage";
 import NavBar from "../NavBar/NavBar";
@@ -25,9 +25,6 @@ const App = () => {
   `;
   const { error, data, loading } = useQuery(threeFavorites);
 
-  const setBarToTrue = () => {
-    setCheckBar(true);
-  };
   return loading ? (
     <Spinner size="xl" speed=".8s" />
   ) : error ? (
@@ -40,7 +37,7 @@ const App = () => {
           path="/profile"
         >
           <div className="user-page">
-            <User />
+            <Profile />
           </div>
         </Route>
         <Route exact path="/search">
@@ -59,7 +56,6 @@ const App = () => {
           render={() => (
             <div className="home-page">
               <NavBar />
-              {/* <Header /> */}
               <div className="welcome">
                 <Heading as="h1" size="4xl">
                   Welcome to Re*sip*e
