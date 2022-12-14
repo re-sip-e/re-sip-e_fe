@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useQuery, gql } from "@apollo/client";
-import { useUserData } from "../profileHooks";
+import React from "react";
+import { useUserData } from "../hooks/profileHooks";
 import NavBar from '../NavBar/NavBar'
-
-
+import './Profile.css'
+import logo from "../assets/joes-bar.png";
+import { Avatar } from "@chakra-ui/react";
 
 const User = ({ id }) => {
     const { loading, error, data } = useUserData(id)
@@ -13,14 +13,19 @@ const User = ({ id }) => {
     if (error) {
         return <div>No User Found</div>
     }
-
     return (
-        <div key={data.user.id}>
-            <NavBar />
-            <h1>Welcome {data.user.name}!</h1>
-            <h2>Let's take a look at {data.user.bars[0].name}</h2>
-            <h3>You have {data.user.barCount} bars</h3>
-            <h4>The {data.user.bars[0].name} has {data.user.bars[0].drinkCount}  drinks</h4>
+        <div className="user-page" key={data.user.id}>
+            <NavBar className="navigation-bar" />
+            <div className="welcome-user">
+                <title className="users-name">Welcome {data.user.name}!</title>
+                <Avatar className="profile-img" name="Joe Schmoe" src="https://bit.ly/ryan-florence" size={"lg"} />
+            </div>
+            <h3 className="users-barCount">You have {data.user.barCount} bars</h3>
+            <div className="users-barInfo">
+                <h2 className="users-bar">Let's take a look at {data.user.bars[0].name}!</h2>
+                <img className="logo-img" src={logo} alt="joes-bar-logo" width={"30px"} />
+                <p className="users-drinkCount">The {data.user.bars[0].name} drink count : {data.user.bars[0].drinkCount}</p>
+            </div>
         </div>
     )
 }

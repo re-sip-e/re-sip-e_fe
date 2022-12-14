@@ -4,9 +4,9 @@
 
 .welcome {
   display: flex;
-    justify-content: space-between;
-    border: solid 2px;
-    margin-top: 2vw;
+  justify-content: space-between;
+  border: solid 2px;
+  margin-top: 2vw;
 }
 
 h1 {
@@ -28,7 +28,7 @@ h1 {
 }
 
 .fav-drinks {
-    text-align: center;
+  text-align: center;
 }
 
 .favorite-drinks {
