@@ -61,7 +61,6 @@ const SearchPage = () => {
         <Heading as="h2" size="3xl">
           Search for your favorite cocktails!
         </Heading>
-        <div className="search-msg-box">{searchMsg}</div>
         <form>
           <input
             type="text"
@@ -74,6 +73,7 @@ const SearchPage = () => {
             go
           </button>
         </form>
+        <div className="search-msg-box">{searchMsg}</div>
         {loading ? <div>Loading...</div> : null}
         {data ? (
           <div className="search-results">

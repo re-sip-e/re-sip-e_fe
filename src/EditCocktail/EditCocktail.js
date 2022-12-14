@@ -214,7 +214,7 @@ const EditCocktail = ({ choosenCocktail }) => {
               <FormLabel>Cocktail</FormLabel>
               <Input
                 ref={initialRef}
-                placeholder={
+                value={
                   choosenCocktail ? `${choosenCocktail.name}` : "Cocktail Name"
                 }
                 name="cocktailName"
@@ -225,7 +225,7 @@ const EditCocktail = ({ choosenCocktail }) => {
               <FormLabel>Image URL</FormLabel>
               <Input
                 ref={initialRef}
-                placeholder={
+                value={
                   choosenCocktail ? `${choosenCocktail.imgUrl}` : "Image URL"
                 }
                 name="imgURL"
@@ -264,14 +264,14 @@ const EditCocktail = ({ choosenCocktail }) => {
 
           <ModalFooter>
             <Button
-              colorScheme="blue"
+              colorScheme="teal"
               mr={3}
               variant="outline"
               onClick={(event) => checkInputField(event)}
             >
               {choosenCocktail ? "Save" : "Add drink"}
             </Button>
-            <Button onClick={onClose} colorScheme="blue" variant="outline">
+            <Button onClick={onClose} colorScheme="teal" variant="outline">
               Cancel
             </Button>
           </ModalFooter>

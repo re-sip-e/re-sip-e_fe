@@ -110,10 +110,10 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
           <Heading as="h1" size="4xl">
             {!checkBar ? data.apiDrink.name : data.drink.name}
           </Heading>
-          {drinkAdded.data ? <Alert>Added!</Alert> : null}
-          {deleteSuccess.data ? <Alert>Deleted!</Alert> : null}
+          {drinkAdded.data ? <Alert bgColor={'white'}>Added!</Alert> : null}
+          {deleteSuccess.data ? <Alert  bgColor={'white'}>Deleted!</Alert> : null}
           <div className="ingredients-info">
-            <h3>Ingredients:</h3>
+            Ingredients:
             {data.apiDrink
               ? data.apiDrink.ingredients.map((ingredient) => {
                   return <p>{ingredient.description}</p>;
@@ -122,19 +122,19 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
                   return <p>{ingredient.description}</p>;
                 })}
           </div>
-          <Heading as="h2" size="1xl" className="steps">{`Steps: ${
+          <p className='steps'>{`Steps: ${
             !checkBar ? data.apiDrink.steps : data.drink.steps
-          }`}</Heading>
+          }`}</p>
 
           {checkBar ? (
             <div>
               <EditCocktail choosenCocktail={data.drink} />
               <a href="/bar/1">
-                <Button onClick={() => deleteBarDrink()}>Delete Drink</Button>
+                <Button onClick={() => deleteBarDrink()} size={'lg'} color='white' bgColor="#37867B" _hover={{background: "#307168"}}>Delete Drink</Button>
               </a>
             </div>
           ) : (
-            <Button onClick={() => addToBar()}>Add to my bar!</Button>
+            <Button onClick={() => addToBar()} size={'lg'} color='white' bgColor="#37867B" _hover={{background: "#307168"}}>Add to my bar!</Button>
           )}
         </div>
       </div>

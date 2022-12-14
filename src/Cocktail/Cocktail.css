@@ -2,22 +2,26 @@
     height: 25rem;
     width: 20rem;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     margin: 3rem;
+    padding-bottom: 3.5rem;
 }
+
 h3 {
     background: #fff;
-   width: 3rem;
+    width: 3rem;
+    color: #37867B;
 }
 
 
 .cocktail:hover h3 {
-    background: black;
-    opacity: 0.9;
+    background: #37867B;
+    opacity: 0.8;
     color: white;
 }
 
 .cocktail-name {
+    font-weight: bold;
     background: #fff;
     opacity: 0.9;
     width: 100%;
