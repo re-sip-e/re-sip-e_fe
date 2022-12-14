@@ -1,0 +1,24 @@
+{
+    "data": {
+      "apiDrinks": [
+        {
+          "id": "11003",
+          "name": "Negroni",
+          "steps": "Stir into glass over ice, garnish and serve.",
+          "imgUrl": "https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg"
+        },
+        {
+          "id": "17248",
+          "name": "French Negroni",
+          "steps": "Add ice to a shaker and pour in all ingredients.\nUsing a bar spoon, stir 40 to 45 revolutions or until thoroughly chilled.\nStrain into a martini glass or over ice into a rocks glass. Garnish with orange twist.",
+          "imgUrl": "https://www.thecocktaildb.com/images/media/drink/x8lhp41513703167.jpg"
+        },
+        {
+          "id": "178340",
+          "name": "Garibaldi Negroni",
+          "steps": "These are the steps for a Garibaldi Negroni.",
+          "imgUrl": "https://www.thecocktaildb.com/images/media/drink/kb4bjg1604179771.jpg"
+        }
+      ]
+    }
+  }
