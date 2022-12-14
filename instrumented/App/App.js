@@ -13,7 +13,7 @@ import NavBar from "../NavBar/NavBar";
 const App = () => {
   const [checkBar, setCheckBar] = useState(false);
   const [inBar, setInBar] = useState(true);
-  // const [drinkInBar, setDrinkInBar] = useState(true);
+
   const threeFavorites = gql`
     query {
       threeRandomApiDrinks {
@@ -25,18 +25,12 @@ const App = () => {
   `;
   const { error, data, loading } = useQuery(threeFavorites);
 
-  const setBarToTrue = () => {
-    setCheckBar(true);
-  };
   return loading ? (
     <Spinner size="xl" speed=".8s" />
   ) : (
     <main className="main">
       <Switch>
-        <Route
-          exact
-          path="/profile"
-        >
+        <Route exact path="/profile">
           <div className="user-page">
             <User />
           </div>
@@ -57,13 +51,17 @@ const App = () => {
           render={() => (
             <div className="home-page">
               <NavBar />
-              {/* <Header /> */}
               <div className="welcome">
                 <Heading as="h1" size="4xl">
                   Welcome to Re*sip*e
                 </Heading>
                 <p className="story">
-                  Your bar's new go-to black book solution. <b><i>Re-sip-e</i></b> collects and stores your bar's drink program for seamless connectivity within your team.
+                  Your bar's new go-to black book solution.{" "}
+                  <b>
+                    <i>Re-sip-e</i>
+                  </b>{" "}
+                  collects and stores your bar's drink program for seamless
+                  connectivity within your team.
                 </p>
               </div>
               <div className="favorite-drinks">

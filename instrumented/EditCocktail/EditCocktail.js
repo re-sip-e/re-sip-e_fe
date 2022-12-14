@@ -179,7 +179,13 @@ const EditCocktail = ({ choosenCocktail }) => {
   };
 
   const checkInputField = (event) => {
-    if (updateIngredients.length === 0 || steps === "") {
+    let checkIngredients = [];
+    updateIngredients.forEach((ingredient) => {
+      if (!ingredient._destroy) {
+        checkIngredients.push(ingredient);
+      }
+    });
+    if (checkIngredients.length === 0 || steps === "") {
       setError(true);
       setMessage("Please fill out all fields!");
     } else if (!cocktailName) {

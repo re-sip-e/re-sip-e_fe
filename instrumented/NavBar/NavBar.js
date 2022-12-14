@@ -33,7 +33,12 @@ const NavBar = () => {
             </div>
             <div className="bar-tab">
               <a href="https://re-sip-e.netlify.app/bar/1">
-                <img src={barLogo} alt="joes-bar-logo" width={"45rem"} />
+                <img
+                  src={barLogo}
+                  alt="joes-bar-logo"
+                  width={"45rem"}
+                  className="joes-bar"
+                />
               </a>
             </div>
             <div className="header-avatar">

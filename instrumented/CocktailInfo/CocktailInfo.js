@@ -106,7 +106,7 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
       <NavBar />
       {error ? (
         <Heading className="cocktail-info-error">
-          Sorry, couldn't load this drink. Return home.
+          Sorry, couldn't load. Click icon to return home.
         </Heading>
       ) : (
         <div className="cocktail-details-container">

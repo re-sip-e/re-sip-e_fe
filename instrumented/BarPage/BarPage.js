@@ -14,27 +14,26 @@ const BarPage = ({ id }) => {
     return <div>Loading...</div>;
   }
 
-  if (error) {
-    return <div>Oops! Something went wrong</div>;
-  }
-
-  const getBarDrinks = (
-    <CocktailContainer cocktails={data.bar.drinks} checkBar={checkBar} />
-  );
-
+  console.log(error);
   return (
     <section className="bar-page">
       <NavBar />
-      <Heading as={"h2"} size="4xl" className="bar-link">
-        {data.bar.name}
-      </Heading>
-      <div className="add-btn-box">
-        <EditCocktail choosenCocktail={null} />
-        <Link to="/search">
-          <Button colorScheme="gray">Add by searching</Button>
-        </Link>
-      </div>
-      {getBarDrinks}
+      {error ? (
+        <Heading>Oops! Something went wrong</Heading>
+      ) : (
+        <div>
+          <Heading as={"h2"} size="4xl" className="bar-link">
+            {data.bar.name}
+          </Heading>
+          <div className="add-btn-box">
+            <EditCocktail choosenCocktail={null} />
+            <Link to="/search">
+              <Button colorScheme="gray">Add by searching</Button>
+            </Link>
+          </div>
+          <CocktailContainer cocktails={data.bar.drinks} checkBar={checkBar} />
+        </div>
+      )}
     </section>
   );
 };
