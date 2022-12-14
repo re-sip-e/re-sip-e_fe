@@ -1,12 +1,18 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Cocktail.css";
 
-const Cocktail = ({ cocktail }) => {
+const Cocktail = ({ cocktail, checkBar }) => {
+  const [link, setLink] = useState("");
+  useEffect(() => {
+    if (checkBar) {
+      setLink(`/bar/1/${cocktail.id}`);
+    } else {
+      setLink(`/${cocktail.id}`);
+    }
+  });
   return (
-    <Link
-      to={`/${cocktail.id}`}
-      style={{ textDecoration: "none", color: "inherit" }}
-    >
+    <Link to={link} style={{ textDecoration: "none", color: "inherit" }}>
       <div
         className="cocktail"
         style={{
@@ -14,10 +20,11 @@ const Cocktail = ({ cocktail }) => {
           backgroundSize: "cover",
         }}
       >
-        <h3>{cocktail.name}</h3>
+
+          <h3 className="cocktail-name">{cocktail.name}</h3>
+    
       </div>
     </Link>
-
   );
 };
 

@@ -18,7 +18,7 @@ const User = ({ id }) => {
             <NavBar className="navigation-bar" />
             <div className="welcome-user">
                 <title className="users-name">Welcome {data.user.name}!</title>
-                <Avatar className="profile-img" name="Joe Schmoe" src="https://bit.ly/code-beast" />
+                <Avatar className="profile-img" name="Joe Schmoe" src="https://bit.ly/ryan-florence" size={"lg"} />
             </div>
             <h3 className="users-barCount">You have {data.user.barCount} bars</h3>
             <div className="users-barInfo">

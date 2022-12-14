@@ -7,7 +7,6 @@
   justify-content: space-between;
   border: solid 2px;
   margin-top: 2vw;
-
 }
 
 h1 {
@@ -21,18 +20,19 @@ h1 {
 
 .story {
   border: solid 2px;
-  padding: 3rem;
-  width: 18rem;
+  padding: 2rem;
+  width: 22rem;
   margin-right: 11rem;
   margin-top: 12rem;
   margin-bottom: 12rem;
 }
 
-.heading {
-  display: flex;
-  border: solid black;
-  border-radius: 2.5rem;
-  width: 24rem;
+.fav-drinks {
   text-align: center;
-  align-content: center;
+}
+
+.favorite-drinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

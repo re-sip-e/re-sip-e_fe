@@ -1,73 +1,142 @@
-import { cocktails } from "../mockData";
 import NavBar from "../NavBar/NavBar";
+import { Link } from "react-router-dom";
 import "./CocktailInfo.css";
-import { Heading, Spinner } from "@chakra-ui/react";
-import { useQuery, gql, useLazyQuery } from "@apollo/client";
-import React, { useEffect, useState } from "react";
+import { Alert, Button, Heading, Spinner } from "@chakra-ui/react";
+import { useQuery, gql, useMutation } from "@apollo/client";
+import React, { useState } from "react";
 import EditCocktail from "../EditCocktail/EditCocktail";
-import axios from "axios";
-import { from } from "@apollo/client";
-import { RefetchQueriesFunction } from "@apollo/client";
-import { RefetchQueriesResult } from "@apollo/client";
 
-const CocktailInfo = ({ cocktailId }) => {
-  const [choosenCocktail, setCocktail] = useState({});
-
-  const getOneCocktail = gql`
+const CocktailInfo = ({ cocktailId, checkBar }) => {
+  const apiDrink = gql`
+        query {
+          apiDrink(id: ${cocktailId}){
+            id
+            name
+            steps
+            imgUrl
+            ingredients {
+             description 
+            }
+          }
+        }
+          `;
+  const barDrink = gql`
     query {
-      apiDrink(id: ${cocktailId}){
-        id
-        name
-        steps
-        imgUrl
-        ingredients {
+      drink(id: ${cocktailId}) {
+            id
+            name
+            imgUrl
+            steps
+            bar {
+              id
+              name
+            }
+            ingredients {
+              id
+              description
+            }
+        }
+      }
+    
+          `;
+
+  const SEND_NEW_DRINK = gql`
+    mutation ($input: DrinkCreateInput!) {
+      drinkCreate(input: $input) {
+        drink {
+          id
           name
-          quantity
+          steps
+          imgUrl
+          ingredients {
+            id
+            description
+          }
         }
       }
     }
-      `;
+  `;
 
-  const { loading, error, data } = useQuery(getOneCocktail);
-  console.log(data)
+  const DELETE_DRINK = gql`
+    mutation ($input: DeleteDrinkInput!) {
+      deleteDrink(input: $input) {
+        success
+        errors
+      }
+    }
+  `;
 
-  const updateCocktail = (id) => {
-    const ingredientIndex = choosenCocktail.ingredients.map((ingredient) => {
-      return ingredient.id;
+  const { loading, error, data } = useQuery(checkBar ? barDrink : apiDrink);
+  const [addDrink, drinkAdded] = useMutation(SEND_NEW_DRINK);
+  const [deleteDrink, deleteSuccess] = useMutation(DELETE_DRINK);
+  console.log(drinkAdded.data);
+  const addToBar = () => {
+    const removeTypeName = data.apiDrink.ingredients.map((ingredient) => {
+      return {
+        ...ingredient,
+        __typename: undefined,
+      };
     });
-    choosenCocktail.ingredients.splice(ingredientIndex.indexOf(id), 1);
-    setCocktail({ choosenCocktail });
+    const newDrinkToAdd = {
+      name: data.apiDrink.name,
+      steps: data.apiDrink.steps,
+      imgUrl: data.apiDrink.imgUrl,
+      barId: 1,
+      ingredients: removeTypeName,
+    };
+    addDrink({
+      variables: {
+        input: { drinkInput: newDrinkToAdd },
+      },
+    });
   };
 
-  const updateSteps = (steps) => {
-    const stepsString = steps.join(", ");
-    console.log(choosenCocktail.steps);
-    choosenCocktail.steps = stepsString;
-    setCocktail({ choosenCocktail });
+  const deleteBarDrink = () => {
+    deleteDrink({
+      variables: {
+        input: { id: data.drink.id },
+      },
+    });
   };
 
-  console.log(data);
   return loading ? (
     <Spinner />
   ) : (
     <div>
       <NavBar />
-      <div className="cocktail-details">
-        <Heading as="h1" size="4xl">
-          {data.apiDrink.name}
-        </Heading>
-        <h2>{`Steps: ${data.apiDrink.steps}`}</h2>
-        <img src={data.apiDrink.imgUrl} />
-        <h3>
-          {data.apiDrink.ingredients.map((ingredient) => {
-            return `  ${ingredient.quantity} of ${ingredient.name} `;
-          })}
-        </h3>
-        <EditCocktail
-          choosenCocktail={data.apiDrink}
-          updateCocktail={updateCocktail}
-          updateSteps={updateSteps}
-        />
+      <div className="cocktail-details-container">
+        <img src={!checkBar ? data.apiDrink.imgUrl : data.drink.imgUrl} />
+        <div className="cocktail-details">
+          <Heading as="h1" size="4xl">
+            {!checkBar ? data.apiDrink.name : data.drink.name}
+          </Heading>
+          {drinkAdded.data ? <Alert>Added!</Alert> : null}
+          {deleteSuccess.data ? <Alert>Deleted!</Alert> : null}
+          <div className="ingredients-info">
+            <h3>Ingredients:</h3>
+            {data.apiDrink
+              ? data.apiDrink.ingredients.map((ingredient) => {
+                  return <p>{ingredient.description}</p>;
+                })
+              : data.drink.ingredients.map((ingredient) => {
+                  return <p>{ingredient.description}</p>;
+                })}
+          </div>
+          <Heading as="h2" size="1xl" className="steps">{`Steps: ${
+            !checkBar ? data.apiDrink.steps : data.drink.steps
+          }`}</Heading>
+
+          {checkBar ? (
+            <div>
+              <EditCocktail choosenCocktail={data.drink} />
+              <a href="/bar/1">
+                <Button onClick={() => deleteBarDrink()}>Delete Drink</Button>
+              </a>
+            </div>
+          ) : (
+            <Button onClick={() => addToBar()}>Add to my bar!</Button>
+          )}
+        </div>
       </div>
     </div>
   );

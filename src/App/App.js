@@ -3,17 +3,17 @@ import { useState } from "react";
 import "./App.css";
 import { useQuery, gql } from "@apollo/client";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
-import { cocktails } from "../mockData";
 import CocktailInfo from "../CocktailInfo/CocktailInfo";
 import { Heading, Spinner } from "@chakra-ui/react";
-import Header from "../Header/Header";
 import User from "../Profile/Profile";
-import { users } from "../mockUsers";
 import SearchPage from "../SearchPage/SearchPage";
 import BarPage from "../BarPage/BarPage";
-
+import NavBar from "../NavBar/NavBar";
 
 const App = () => {
+  const [checkBar, setCheckBar] = useState(false);
+  const [inBar, setInBar] = useState(true);
+  // const [drinkInBar, setDrinkInBar] = useState(true);
   const threeFavorites = gql`
     query {
       threeRandomApiDrinks {
@@ -25,10 +25,13 @@ const App = () => {
   `;
   const { error, data, loading } = useQuery(threeFavorites);
 
+  const setBarToTrue = () => {
+    setCheckBar(true);
+  };
   return loading ? (
     <Spinner size="xl" speed=".8s" />
   ) : error ? (
-    <h1>Sorry there was an error</h1>
+    <Heading>Sorry there was an error</Heading>
   ) : (
     <main className="main">
       <Switch>
@@ -55,22 +58,24 @@ const App = () => {
           path="/"
           render={() => (
             <div className="home-page">
-              <Header />
+              <NavBar />
+              {/* <Header /> */}
               <div className="welcome">
                 <Heading as="h1" size="4xl">
                   Welcome to Re*sip*e
                 </Heading>
                 <p className="story">
-                  We are here to help bars and bartender have easy access to their
-                  cocktails recipe making it fast and efficient to find the right
-                  drink!
+                  Your bar's new go-to black book solution. <b><i>Re-sip-e</i></b> collects and stores your bar's drink program for seamless connectivity within your team.
                 </p>
               </div>
               <div className="favorite-drinks">
-                <Heading className="heading" as="h2" size="2xl">
+                <Heading as="h2" size="2xl" className="fav-drinks">
                   2022's Favorite Drinks
                 </Heading>
-                <CocktailContainer cocktails={data.threeRandomApiDrinks} />
+                <CocktailContainer
+                  cocktails={data.threeRandomApiDrinks}
+                  checkBar={checkBar}
+                />
               </div>
             </div>
           )}
@@ -80,7 +85,16 @@ const App = () => {
           path="/:id"
           render={({ match }) => (
             <div className="cocktail-info">
-              <CocktailInfo cocktailId={match.params.id} />
+              <CocktailInfo cocktailId={match.params.id} checkBar={checkBar} />
+            </div>
+          )}
+        ></Route>
+        <Route
+          exact
+          path="/bar/1/:id"
+          render={({ match }) => (
+            <div className="cocktail-info">
+              <CocktailInfo cocktailId={match.params.id} checkBar={inBar} />
             </div>
           )}
         ></Route>

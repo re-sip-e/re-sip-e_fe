@@ -15,13 +15,11 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-  <ApolloProvider client={client}>
-    <ChakraProvider>
-      <ApolloProvider client={client}>
-        <App />
-      </ApolloProvider>
-    </ChakraProvider>
-  </ApolloProvider>
+      <ChakraProvider>
+        <ApolloProvider client={client}>
+          <App />
+        </ApolloProvider>
+      </ChakraProvider>
   </BrowserRouter>
 );
 

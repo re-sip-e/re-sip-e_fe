@@ -2,8 +2,16 @@
  height: 100%;
  width: 100%;
 }
+
+.bar-link {
+    margin: auto;
+    margin-left: 35%;
+
+}
+
 .add-btn-box {
     display: flex;
     justify-content: space-evenly;
     padding: 4rem;
 }
+
