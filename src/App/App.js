@@ -9,6 +9,7 @@ import User from "../Profile/Profile";
 import SearchPage from "../SearchPage/SearchPage";
 import BarPage from "../BarPage/BarPage";
 import NavBar from "../NavBar/NavBar";
+import siteLogo from "../assets/re-sip-e.png";
 
 const App = () => {
   const [checkBar, setCheckBar] = useState(false);
@@ -58,11 +59,11 @@ const App = () => {
               <NavBar />
               {/* <Header /> */}
               <div className="welcome">
-                <Heading as="h1" size="4xl">
-                  Welcome to Re*sip*e
-                </Heading>
+                <div className="welcome-logo">
+                  <img src={siteLogo} alt="re-sip-e logo" height="700" width="700" />
+                </div>
                 <p className="story"> 
-                  Your bar's new go-to black book solution. <b><i>Re-sip-e</i></b> collects and stores your bar's drink program for seamless connectivity within your team.
+                  Your bar's new go-to black book solution. <b><i>RE-SIP-E</i></b> collects and stores your bar's drink program for seamless connectivity within your team.
                 </p>
               </div>
               <div className="favorite-drinks">

@@ -1,6 +1,8 @@
 .bar-page {
  height: 100%;
  width: 100%;
+ color: #2C7A7B;
+
 }
 
 .bar-link {
@@ -9,9 +11,16 @@
 
 }
 
+.bar-info {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: rgb(255, 255, 255, .4);
+}
+
 .add-btn-box {
     display: flex;
     justify-content: space-evenly;
-    padding: 4rem;
+    padding: 1rem;
+    flex-wrap: wrap;
 }
 

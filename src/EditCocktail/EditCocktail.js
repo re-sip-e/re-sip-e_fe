@@ -195,7 +195,7 @@ const EditCocktail = ({ choosenCocktail }) => {
   console.log(message);
   return (
     <>
-      <Button onClick={onOpen}>
+      <Button size={'lg'} color='white' bgColor="#37867B" _hover={{background: "#307168"}} onClick={onOpen}>
         {choosenCocktail ? "Make it my own!" : "Add New Drink"}
       </Button>
 

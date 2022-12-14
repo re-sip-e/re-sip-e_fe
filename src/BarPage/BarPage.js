@@ -25,16 +25,18 @@ const BarPage = ({ id }) => {
   return (
     <section className="bar-page">
       <NavBar />
-      <Heading as={"h2"} size="4xl" className="bar-link">
-        {data.bar.name}
-      </Heading>
-      <div className="add-btn-box">
-        <EditCocktail choosenCocktail={null} />
-        <Link to="/search">
-          <Button colorScheme="gray">Add by searching</Button>
-        </Link>
+      <div className="bar-info">
+        <Heading as={"h2"} size="4xl" className="bar-link">
+          {data.bar.name}
+        </Heading>
+        <div className="add-btn-box">
+          <EditCocktail choosenCocktail={null} />
+          <Link to="/search">
+            <Button size={'lg'} color='white' bgColor="#37867B" _hover={{background: "#307168"}}>Add by searching</Button>
+          </Link>
+        </div>
+        {getBarDrinks}
       </div>
-      {getBarDrinks}
     </section>
   );
 };

@@ -12,7 +12,6 @@ article {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black;
     padding: 2rem;
     width: 100%;
 }
@@ -29,6 +28,7 @@ form {
     display: flex;
 
 }
+
 h3 {
     background: #fff;
     opacity: 0.9;
@@ -40,6 +40,7 @@ input {
     border: 2px solid black;
     border-radius: .3rem;
 }
+
 .search-results {
     display: flex;
     flex-wrap: row;
@@ -49,7 +50,6 @@ input {
     height: 25rem;
     width: 20rem;
 }
-
 
 .cocktail:hover {
     background: black;
