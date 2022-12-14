@@ -1,6 +1,3 @@
-# Re-sip-e! 
-<a name="readme-top"></a>
-
 <!-- HEADER -->
 <h1 align="center">Re-sip-e!</h1>
 
