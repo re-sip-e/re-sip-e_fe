@@ -38,7 +38,7 @@ describe("api drink info spec", () => {
 describe("api drink error handling spec", () => {
   it("it should show error if the drink info was not sent back", () => {
     cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
-      forceNetworkRequest: true,
+      statusCode: 500,
     });
     cy.visit("https://re-sip-e.netlify.app/11003");
     cy.get(".cocktail-info-error").contains(

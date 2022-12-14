@@ -58,8 +58,8 @@ describe("bar drink info spec", () => {
     cy.get(".chakra-textarea").type(" Squeeze Lemon, enjoy!");
   });
 });
-describe("create spec", () => {
-  it.only("should allow the user to save an edited drink and go back to the page and see the new updates", () => {
+describe("edditing drink spec", () => {
+  it("should allow the user to save an edited drink and go back to the page and see the new updates", () => {
     cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
       fixture: "barDrink.json",
     });
@@ -90,14 +90,17 @@ describe("create spec", () => {
   });
 });
 
-// describe("bar drink error handling spec", () => {
-//   it("it should show error if the drink info was not sent back", () => {
-//     cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
-//       forceNetworkRequest: true,
-//     });
-//     cy.visit("https://re-sip-e.netlify.app/11003");
-//     cy.get(".cocktail-info-error").contains(
-//       "Sorry, couldn't load this drink. Return home."
-//     );
-//   });
-// });
+describe("bar drink error handling spec", () => {
+  it("it should show error if the use sent back empty information", () => {
+    cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
+      fixture: "barDrink.json",
+    });
+    cy.visit("http://localhost:3000/bar/1/1");
+    cy.get(":nth-child(4) > :nth-child(1)").contains("Make it my own!").click();
+    cy.get(":nth-child(1) > .ingredient > .chakra-icon").click();
+    cy.get(":nth-child(2) > .ingredient > .chakra-icon").click();
+    cy.get(":nth-child(3) > .ingredient > .chakra-icon").click();
+    cy.get(".chakra-button").contains("Save").click();
+    cy.get(".chakra-alert").contains("Error!");
+  });
+});
