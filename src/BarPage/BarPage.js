@@ -25,7 +25,7 @@ const BarPage = ({ id }) => {
   return (
     <section className="bar-page">
       <NavBar />
-      <Heading as={"h2"} size="3xl">
+      <Heading as={"h2"} size="4xl" className="bar-link">
         {data.bar.name}
       </Heading>
       <div className="add-btn-box">

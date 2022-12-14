@@ -11,18 +11,27 @@
     border: 2px solid black;
 }
 
+.site-logo {
+    padding: 2rem;
+    margin: auto;
+    margin-top: 3%;
+}
+
 .second-header {
     align-items: center;
     padding: 3rem;
 }
 
 .bar-tab {
-    border: 1px solid black;
     padding: .35rem;
     border-radius: .6rem;
     margin-right: 1.25rem;
-    margin-left: 1.25rem;
-    font-size: x-small;
+    margin-left: 1.45rem;
+    margin-top: .12rem;
+}
+
+.bar-tab:hover {
+    background-color:#4ba89a;
 }
 
 .bar-icon-box {
@@ -33,10 +42,6 @@
     margin-top: .2rem;
 }
 
-h4 {
-    border: 2px solid black;
-    padding: .75rem;
-}
 
 .nav-list:hover {
     background-color: black;
