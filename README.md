@@ -42,6 +42,10 @@ This application helps bars easily maintain, modify, and search through their co
 <h3 align="center">Modifying Cocktails:</h3>
 <p align="center"><img width="500" src="" alt=""></p>
 
+<h3 align="center">Search Cocktails:</h3>
+<p align="center"><img width="500" src="" alt=""></p>
+
+
 <br />
 
 ## Technologies
@@ -80,9 +84,10 @@ This application helps bars easily maintain, modify, and search through their co
         <td align="center"> Lee Young: <a href="https://github.com/leoy23">GitHub</a> | <a href="https://www.linkedin.com/in/leah-young-fe/">LinkedIn</a</td>
         <td align="center"> Michael Martinelli: <a href="https://github.com/mmartinelli22">GitHub</a> | <a href="https://www.linkedin.com/in/michael-martinelli-7230b5237/">LinkedIn</a></td>
     </tr>
- <td align="center"><img src="https://avatars.githubusercontent.com/u/106054421?v=4" alt="Lee Young GitHub"
- width="150" height="auto" /></td>
+
  <td align="center"><img src="https://avatars.githubusercontent.com/u/106850657?v=4" alt="Piper Jarrett GitHub"
+ width="150" height="auto" /></td>
+ <td align="center"><img src="https://avatars.githubusercontent.com/u/106054421?v=4" alt="Lee Young GitHub"
  width="150" height="auto" /></td>
  <td align="center"><img src="https://avatars.githubusercontent.com/u/97009704?v=4" alt="Michael Martinelli GitHub"
  width="150" height="auto" /></td>

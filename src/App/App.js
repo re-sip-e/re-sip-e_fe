@@ -36,7 +36,10 @@ const App = () => {
   ) : (
     <main className="main">
       <Switch>
-        <Route path="/profile">
+        <Route
+          exact
+          path="/profile"
+        >
           <div className="user-page">
             <User />
           </div>
