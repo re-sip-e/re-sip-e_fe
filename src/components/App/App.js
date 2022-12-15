@@ -66,7 +66,7 @@ const App = () => {
               </div>
               <div className="favorite-drinks">
                 <Heading as="h2" size="2xl" className="fav-drinks">
-                  2022's Favorite Drinks
+                   Mix It Up With These Drinks!
                 </Heading>
                 {error ? (
                   <Heading className="home-page-error">
