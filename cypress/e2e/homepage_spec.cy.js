@@ -5,12 +5,15 @@ describe("homepage spec", () => {
     });
     cy.visit("https://re-sip-e.netlify.app");
   });
-  it("it should display a welcome messgae", () => {
-    cy.get(".welcome > .chakra-heading").contains("Welcome to Re*sip*e");
+  it("it should display our logo messgae", () => {
+    cy.get(".welcome-logo > img")
+      .should("have.attr", "src")
+      .should("include", "/static/media/re-sip-e.b51d707f7193e63ea7a3.png");
   });
+
   it("it should display a about our app page", () => {
-    cy.get("p[class='story']").contains(
-      "Your bar's new go-to black book solution. Re-sip-e collects and stores your bar's drink program for seamless connectivity within your team."
+    cy.get(".story").contains(
+      "Your bar's new go-to black book solution. RE-SIP-E collects and stores your bar's drink program for seamless connectivity within your team."
     );
   });
   it("it should display 3 random drinks", () => {

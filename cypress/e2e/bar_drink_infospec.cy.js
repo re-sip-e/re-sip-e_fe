@@ -18,19 +18,19 @@ describe("bar drink info spec", () => {
   });
   it("it should display the drink name, ingredients and steps", () => {
     cy.get(".css-1i61012").contains("Negroni");
-    cy.get("h3").contains("Ingredients:");
-    cy.get(".ingredients-info > :nth-child(2)").contains("1 oz Gin");
-    cy.get(".ingredients-info > :nth-child(3)").contains("1 oz Campari");
-    cy.get(".ingredients-info > :nth-child(4)").contains("1 oz Sweet Vermouth");
+    cy.get(".ingredients-info").contains("Ingredients:");
+    cy.get(".ingredients-info > :nth-child(1)").contains("1 oz Gin");
+    cy.get(".ingredients-info > :nth-child(2)").contains("1 oz Campari");
+    cy.get(".ingredients-info > :nth-child(3)").contains("1 oz Sweet Vermouth");
     cy.get(".steps").contains("Stir into glass over ice, garnish and serve.");
   });
   it("should have a button to edit a drink and a modal should show", () => {
     cy.get(":nth-child(4) > :nth-child(1)").contains("Make it my own!").click();
     cy.get("label").contains("Cocktail");
-    cy.get('input[placeholder="Negroni"]');
+    cy.get('input[value="Negroni"]');
     cy.get("label").contains("Image URL");
     cy.get(
-      'input[placeholder="https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg"]'
+      'input[value="https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg"]'
     );
     cy.get(".ingredients-header").contains("Ingredients");
     cy.get(":nth-child(1) > .ingredient").should("have.length", 1);
@@ -41,9 +41,9 @@ describe("bar drink info spec", () => {
   });
   it("should be able to type into all input fields, and delete/add ingredients and add the editted drink to their bar", () => {
     cy.get(":nth-child(4) > :nth-child(1)").click();
-    cy.get('input[placeholder="Negroni"]').type("Negroni");
+    cy.get('input[value="Negroni"]').type("Negroni");
     cy.get(
-      'input[placeholder="https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg"]'
+      'input[value="https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg"]'
     ).type(
       "https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg"
     );
@@ -65,9 +65,9 @@ describe("edditing drink spec", () => {
     });
     cy.visit("https://re-sip-e.netlify.app/bar/1/1");
     cy.get(":nth-child(4) > :nth-child(1)").contains("Make it my own!").click();
-    cy.get('input[placeholder="Negroni"]').type("Negroni");
+    cy.get('input[value="Negroni"]').type("Negroni");
     cy.get(
-      'input[placeholder="https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg"]'
+      'input[value="https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg"]'
     ).type(
       "https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg"
     );
@@ -86,7 +86,7 @@ describe("edditing drink spec", () => {
     cy.get(".chakra-button").contains("Save").click();
     cy.get(".chakra-button").contains("Cancel").click();
     cy.visit("https://re-sip-e.netlify.app/bar/1/1");
-    cy.get(".ingredients-info > :nth-child(2)").contains("1.0 oz Vodka");
+    cy.get(".ingredients-info > :nth-child(1)").contains("1.0 oz Vodka");
   });
 });
 

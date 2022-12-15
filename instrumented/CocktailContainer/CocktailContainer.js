@@ -1,7 +1,6 @@
 import Cocktail from "../Cocktail/Cocktail";
 import "./CocktailContainer.css";
 const CocktailContainer = ({ cocktails, checkBar }) => {
-  console.log(cocktails);
   const allCocktails = cocktails.map((cocktail) => {
     return (
       <div key={cocktail.id}>

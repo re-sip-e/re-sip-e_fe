@@ -69,7 +69,6 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
   const { loading, error, data } = useQuery(checkBar ? barDrink : apiDrink);
   const [addDrink, drinkAdded] = useMutation(SEND_NEW_DRINK);
   const [deleteDrink, deleteSuccess] = useMutation(DELETE_DRINK);
-  console.log(drinkAdded.data);
   const addToBar = () => {
     const removeTypeName = data.apiDrink.ingredients.map((ingredient) => {
       return {
@@ -100,7 +99,7 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
   };
 
   return loading ? (
-    <Spinner />
+    <Spinner className="loader"/>
   ) : (
     <div>
       <NavBar />

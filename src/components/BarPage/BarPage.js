@@ -13,12 +13,18 @@ const BarPage = ({ id }) => {
   if (loading) {
     return (
       <main className="main">
-        <div className="loader"><Spinner size="xl" speed=".8s" color="white" /></div>
+        <div className="loader">
+          <Spinner className="loader" size="xl" speed=".8s" color="white" />
+        </div>
       </main>
     );
   }
 
-  console.log(error);
+  if (error) {
+    return <div>Oops! Something went wrong</div>;
+  }
+
+
   return (
     <section className="bar-page">
       <NavBar />
@@ -26,17 +32,24 @@ const BarPage = ({ id }) => {
         <Heading>Oops! Something went wrong</Heading>
       ) : (
         <div className="bar-info">
-        <Heading as={"h2"} size="4xl" className="bar-link">
-          {data.bar.name}
-        </Heading>
-        <div className="add-btn-box">
-          <EditCocktail choosenCocktail={null} />
-          <Link to="/search">
-            <Button size={'lg'} color='white' bgColor="#37867B" _hover={{background: "#307168"}}>Add by searching</Button>
-          </Link>
+          <Heading as={"h2"} size="4xl" className="bar-link">
+            {data.bar.name}
+          </Heading>
+          <div className="add-btn-box">
+            <EditCocktail choosenCocktail={null} />
+            <Link to="/search">
+              <Button
+                size={"lg"}
+                color="white"
+                bgColor="#37867B"
+                _hover={{ background: "#307168" }}
+              >
+                Add by searching
+              </Button>
+            </Link>
+          </div>
+          <CocktailContainer cocktails={data.bar.drinks} checkBar={checkBar} />
         </div>
-        <CocktailContainer cocktails={data.bar.drinks} checkBar={checkBar} />
-      </div>
       )}
     </section>
   );

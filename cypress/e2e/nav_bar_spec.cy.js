@@ -24,7 +24,7 @@ describe("empty spec", () => {
     });
   });
   it("it should have a search icon that links to the bar page", () => {
-    cy.get(".bar-tab > a > img")
+    cy.get(".bar-tab > a > .chakra-button")
       .click()
       .url()
       .should("include", "https://re-sip-e.netlify.app/bar/1");

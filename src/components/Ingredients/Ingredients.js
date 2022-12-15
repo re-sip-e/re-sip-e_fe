@@ -9,6 +9,7 @@ const Ingredients = ({
   handleChange,
   addIngredient,
   editIngredient,
+  newIngredient,
 }) => {
   const allIngredients = ingredients.map((ingredient) => {
     return (
@@ -31,6 +32,7 @@ const Ingredients = ({
             placeholder="Add New Ingredient"
             name="newIngredient"
             onChange={(event) => handleChange(event)}
+            value={newIngredient}
             className="add-input"
           />
           <AddIcon onClick={() => addIngredient()} boxSize={10}/>

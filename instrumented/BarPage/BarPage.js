@@ -14,7 +14,7 @@ const BarPage = ({ id }) => {
     return <div>Loading...</div>;
   }
 
-  console.log(error);
+
   return (
     <section className="bar-page">
       <NavBar />

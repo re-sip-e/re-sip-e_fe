@@ -144,6 +144,7 @@ const EditCocktail = ({ choosenCocktail }) => {
         },
       ]);
     }
+    setNewIngredient("");
   };
 
   const submitEdit = () => {
@@ -198,10 +199,19 @@ const EditCocktail = ({ choosenCocktail }) => {
       submitEdit();
     }
   };
-  console.log(message);
+
+  const reload = () => {
+    window.location.reload();
+  };
   return (
     <>
-      <Button size={'lg'} color='white' bgColor="#37867B" _hover={{background: "#307168"}} onClick={onOpen}>
+      <Button
+        size={"lg"}
+        color="white"
+        bgColor="#37867B"
+        _hover={{ background: "#307168" }}
+        onClick={onOpen}
+      >
         {choosenCocktail ? "Make it my own!" : "Add New Drink"}
       </Button>
 
@@ -213,16 +223,16 @@ const EditCocktail = ({ choosenCocktail }) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader className="edit-modal-label">Edit Cocktail</ModalHeader>
+          <ModalHeader className="edit-modal-label">
+            {choosenCocktail ? "Edit Cocktail" : "Create New Drink"}
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
               <FormLabel className="cocktail-label">Cocktail</FormLabel>
               <Input
                 ref={initialRef}
-                value={
-                  choosenCocktail ? `${choosenCocktail.name}` : "Cocktail Name"
-                }
+                value={choosenCocktail ? `${cocktailName}` : null}
                 name="cocktailName"
                 onChange={(event) => handleChange(event)}
                 className="cocktail-input"
@@ -232,9 +242,7 @@ const EditCocktail = ({ choosenCocktail }) => {
               <FormLabel className="image-url-label">Image URL</FormLabel>
               <Input
                 ref={initialRef}
-                value={
-                  choosenCocktail ? `${choosenCocktail.imgUrl}` : "Image URL"
-                }
+                value={choosenCocktail ? `${newImgUrl}` : null}
                 name="imgURL"
                 onChange={(event) => handleChange(event)}
                 className="img-input"
@@ -247,6 +255,7 @@ const EditCocktail = ({ choosenCocktail }) => {
                 handleChange={handleChange}
                 addIngredient={addIngredient}
                 editIngredient={editIngredient}
+                newIngredient={newIngredient}
               />
             </FormControl>
             <FormControl mr={4}>
@@ -261,7 +270,7 @@ const EditCocktail = ({ choosenCocktail }) => {
                 </Alert>
               ) : null}
               {message === "Saved Successfully!" ? (
-                <Alert status="error">
+                <Alert status="error" backgroundColor={"#90EE90"}>
                   <AlertIcon />
                   <AlertTitle>Saved</AlertTitle>
                   <AlertDescription>{message}</AlertDescription>
@@ -280,7 +289,14 @@ const EditCocktail = ({ choosenCocktail }) => {
             >
               {choosenCocktail ? "Save" : "Add drink"}
             </Button>
-            <Button onClick={onClose} colorScheme="teal" variant="outline">
+            <Button
+              onClick={() => {
+                onClose();
+                reload();
+              }}
+              colorScheme="teal"
+              variant="outline"
+            >
               Cancel
             </Button>
           </ModalFooter>
