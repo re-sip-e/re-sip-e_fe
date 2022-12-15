@@ -11,7 +11,6 @@
     justify-content: space-between;
     border-bottom: 3px solid #2C7A7B;
     flex-wrap: wrap;
-
     background-color: rgb(255, 255, 255, .4);
     /* background-color: #f7f7f7; */
     /* box-shadow: 3px 3px 3px rgb(172, 172, 172); */
@@ -28,6 +27,7 @@
     align-items: center;
     padding: 3rem;
     flex-wrap: wrap;
+    margin-right: 60px;
 }
 
 .second-header-list {
@@ -66,7 +66,8 @@
 }
 
 .header-avatar {
-    margin-left: 1rem;
-    margin-top: 3px;
+    position: absolute;
+    top: 68px;
+    right: 50px;
 }
 
