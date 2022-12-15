@@ -1,0 +1,30 @@
+{
+    "data": {
+      "drinkUpdate": null
+    },
+    "errors": [
+      {
+        "message": "Error updating drink",
+        "locations": [
+          {
+            "line": 33,
+            "column": 3
+          }
+        ],
+        "path": [
+          "drinkUpdate"
+        ],
+        "extensions": {
+          "name": [
+            "can't be blank"
+          ],
+          "steps": [
+            "can't be blank"
+          ],
+          "ingredients.description": [
+            "can't be blank"
+          ]
+        }
+      }
+    ]
+  }

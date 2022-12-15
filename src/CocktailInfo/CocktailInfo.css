@@ -54,3 +54,7 @@ h1 {
 .chakra-button {
     margin: 2rem;
 }
+
+.cocktail-info-error {
+    border: none;
+}
