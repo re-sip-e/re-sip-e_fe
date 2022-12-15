@@ -111,6 +111,6 @@ This application helps bars easily maintain, modify, and search through their co
 [HTML-shield]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
 [Cypress-shield]: https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e
 [NPM-shield]: https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white
-[GraphQL-shield]: (https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white) 
+[GraphQL-shield]: (https://camo.githubusercontent.com/9ad071f3788625b60549260fb99aeb8516ce3ae6ed2506e88663a2b6375c7d34/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d4772617068514c2d4531303039383f7374796c653d666f722d7468652d6261646765266c6f676f3d6772617068716c266c6f676f436f6c6f723d7768697465) 
 [CircleCI-shield]: (https://img.shields.io/badge/circleci-343434?style=for-the-badge&logo=circleci&logoColor=white) 
 [Miro-shield]: (https://img.shields.io/badge/Miro-050038?style=for-the-badge&logo=Miro&logoColor=white)
