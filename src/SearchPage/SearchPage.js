@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchPage.css";
 import NavBar from "../NavBar/NavBar";
-import { Heading } from "@chakra-ui/react";
+import { Heading, Spinner } from "@chakra-ui/react";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import { gql, useQuery } from "@apollo/client";
 
@@ -61,7 +61,6 @@ const SearchPage = () => {
         <Heading as="h2" size="3xl">
           Search for your favorite cocktails!
         </Heading>
-        <div className="search-msg-box">{searchMsg}</div>
         <form>
           <input
             type="text"
@@ -74,7 +73,8 @@ const SearchPage = () => {
             go
           </button>
         </form>
-        {loading ? <div>Loading...</div> : null}
+        <div className="search-msg-box">{searchMsg}</div>
+        {loading ? <div><Spinner size="xl" speed=".8s" color="white" /></div> : null}
         {data ? (
           <div className="search-results">
             <CocktailContainer cocktails={data.apiDrinks} />

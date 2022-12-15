@@ -11,10 +11,7 @@ const IngredientCard = ({ ingredient, deleteIngredient, editIngredient }) => {
           onChange={(event) => editIngredient(event, ingredient.id)}
         />
       </p>
-      <CloseIcon
-        className={`close-icon-${ingredient.id}`}
-        onClick={() => deleteIngredient(ingredient.id)}
-      />
+      <CloseIcon onClick={() => deleteIngredient(ingredient.id)} boxSize={10}/>
     </div>
   ) : null;
 };

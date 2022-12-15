@@ -5,36 +5,65 @@
 .welcome {
   display: flex;
   justify-content: space-between;
-  border: solid 2px;
-  margin-top: 2vw;
-}
-
-h1 {
-  margin: 4rem;
-  font-size: 7.5rem;
+  margin: 1rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  flex-wrap: wrap;
+  background-color: rgb(255, 255, 255, .4);
+  
 }
 
 .chakra-heading {
-  margin: 3rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background-color: transparent;
 }
 
 .story {
-  border: solid 2px;
   padding: 2rem;
-  width: 22rem;
-  margin-right: 11rem;
-  margin-top: 12rem;
-  margin-bottom: 12rem;
+  width: 28rem;
+  height: 16rem;
+  margin: auto;
+  color: #2C7A7B;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.welcome-logo {
+  margin: auto;
+  color: #2C7A7B;
+  font-weight: bold;
 }
 
 .fav-drinks {
-  text-align: center;
+    text-align: center;
+    color: #2C7A7B;
 }
 
 .favorite-drinks {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background-color: rgb(255, 255, 255, .4);
+}
+
+main {
+  background-image: url(../assets/bg2.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+.loader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
 }
 
 .home-page-error {
