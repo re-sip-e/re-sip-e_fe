@@ -1,0 +1,22 @@
+{
+    "data": {
+      "apiDrinks": [
+        {
+          "id": "11003",
+          "name": "Negroni",
+          "steps": "Stir into glass over ice, garnish and serve.",
+          "imgUrl": "https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg",
+          "ingredients": [
+              {
+                "description": "1 oz Gin"
+              },
+              {
+                "description": "1 oz Campari"
+              }
+         
+          ]
+        }
+ 
+      ]
+    }
+}
