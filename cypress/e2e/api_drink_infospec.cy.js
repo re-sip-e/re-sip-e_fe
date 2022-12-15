@@ -17,10 +17,10 @@ describe("api drink info spec", () => {
   });
   it("it should display the drink name, ingredients and steps", () => {
     cy.get(".css-1i61012").contains("Negroni");
-    cy.get("h3").contains("Ingredients:");
-    cy.get(".ingredients-info > :nth-child(2)").contains("1 oz Gin");
-    cy.get(".ingredients-info > :nth-child(3)").contains("1 oz Campari");
-    cy.get(".ingredients-info > :nth-child(4)").contains("1 oz Sweet Vermouth");
+    cy.get(".ingredients-info").contains("Ingredients:");
+    cy.get(".ingredients-info > :nth-child(1)").contains("1 oz Gin");
+    cy.get(".ingredients-info > :nth-child(2)").contains("1 oz Campari");
+    cy.get(".ingredients-info > :nth-child(3)").contains("1 oz Sweet Vermouth");
     cy.get(".steps").contains(
       "Steps: Stir into glass over ice, garnish and serve."
     );
@@ -41,8 +41,6 @@ describe("api drink error handling spec", () => {
     cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
       fixture: "apiDrinkError.json",
     });
-    cy.get(".chakra-heading").contains(
-      "Sorry, couldn't load. Click icon to return home"
-    );
+    cy.get(".chakra-heading").contains("Sorry there was an error");
   });
 });
