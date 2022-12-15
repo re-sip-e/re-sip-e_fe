@@ -1,7 +1,5 @@
-
 import "./Steps.css";
 import { Textarea } from "@chakra-ui/react";
-
 
 const Steps = ({ steps, handleChange }) => {
   return (
@@ -11,12 +9,12 @@ const Steps = ({ steps, handleChange }) => {
         <div className="saved-steps">
           <Textarea
             name="steps"
+            className="steps-text-area"
             value={steps}
             onChange={(event) => handleChange(event)}
             className="steps-input"
           />
         </div>
-    
       </div>
     </div>
   );

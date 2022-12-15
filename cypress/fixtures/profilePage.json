@@ -1,0 +1,14 @@
+{"data": {
+    "user": {
+      "id": "1",
+      "name": "Joe Schmoe",
+      "barCount": 1,
+      "bars":[
+        {
+          "id": "1",
+          "name": "Joe's Bar",
+          "drinkCount": 5
+        }
+      ]
+    }
+  }}

@@ -1,0 +1,21 @@
+{
+    "data": {
+      "threeRandomApiDrinks": [
+        {
+          "id": "178345",
+          "name": "Hot Toddy",
+          "imgUrl": "https://www.thecocktaildb.com/images/media/drink/ggx0lv1613942306.jpg"
+        },
+        {
+          "id": "17180",
+          "name": "Aviation",
+          "imgUrl": "https://www.thecocktaildb.com/images/media/drink/trbplb1606855233.jpg"
+        },
+        {
+          "id": "12107",
+          "name": "Salty Dog",
+          "imgUrl": "https://www.thecocktaildb.com/images/media/drink/4vfge01504890216.jpg"
+        }
+      ]
+    }
+  }

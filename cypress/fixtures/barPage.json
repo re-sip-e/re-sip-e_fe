@@ -1,0 +1,26 @@
+{
+    "data": {
+      "drinks": [
+        {
+          "id": "1",
+          "name": "Negroni",
+          "steps": "Stir into glass over ice, garnish and serve.",
+          "imgUrl": "https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg",
+          "bar": {
+            "id": "1",
+            "name": "Joe's Bar"
+          },
+          "ingredients": [
+            {
+              "id": "5",
+              "name": "1 oz Gin"
+            },
+            {
+              "id": "8",
+              "name": "1 oz Campari"
+            }
+          ]
+        }
+      ]
+    }
+  }

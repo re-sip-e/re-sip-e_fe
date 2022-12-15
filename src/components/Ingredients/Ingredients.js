@@ -33,7 +33,7 @@ const Ingredients = ({
             onChange={(event) => handleChange(event)}
             className="add-input"
           />
-          <AddIcon onClick={() => addIngredient()} />
+          <AddIcon onClick={() => addIngredient()} boxSize={10}/>
         </div>
       </div>
     </div>

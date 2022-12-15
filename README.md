@@ -42,6 +42,10 @@ This application helps bars easily maintain, modify, and search through their co
 <h3 align="center">Modifying Cocktails:</h3>
 <p align="center"><img width="500" src="" alt=""></p>
 
+<h3 align="center">Search Cocktails:</h3>
+<p align="center"><img width="500" src="" alt=""></p>
+
+
 <br />
 
 ## Technologies

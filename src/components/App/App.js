@@ -9,11 +9,12 @@ import Profile from "../Profile/Profile";
 import SearchPage from "../SearchPage/SearchPage";
 import BarPage from "../BarPage/BarPage";
 import NavBar from "../NavBar/NavBar";
+import siteLogo from "../assets/re-sip-e.png";
 
 const App = () => {
   const [checkBar, setCheckBar] = useState(false);
   const [inBar, setInBar] = useState(true);
-  // const [drinkInBar, setDrinkInBar] = useState(true);
+
   const threeFavorites = gql`
     query {
       threeRandomApiDrinks {
@@ -26,16 +27,15 @@ const App = () => {
   const { error, data, loading } = useQuery(threeFavorites);
 
   return loading ? (
-    <Spinner size="xl" speed=".8s" />
+    <main className="main">
+      <div className="loader"><Spinner size="xl" speed=".8s" color="white" /></div>
+    </main>
   ) : error ? (
     <Heading className="error-heading">Sorry there was an error. Click <u><a href="http://localhost:3000">here</a></u> to go back home!</Heading>
   ) : (
     <main className="main">
       <Switch>
-        <Route
-          exact
-          path="/profile"
-        >
+        <Route exact path="/profile">
           <div className="user-page">
             <Profile />
           </div>
@@ -57,21 +57,27 @@ const App = () => {
             <div className="home-page">
               <NavBar />
               <div className="welcome">
-                <Heading as="h1" size="4xl">
-                  Welcome to Re*sip*e
-                </Heading>
-                <p className="story">
-                  Your bar's new go-to black book solution. <b><i>Re-sip-e</i></b> collects and stores your bar's drink program for seamless connectivity within your team.
+                <div className="welcome-logo">
+                  <img src={siteLogo} alt="re-sip-e logo" height="700" width="700" />
+                </div>
+                <p className="story"> 
+                  Your bar's new go-to black book solution. <b><i>RE-SIP-E</i></b> collects and stores your bar's drink program for seamless connectivity within your team.
                 </p>
               </div>
               <div className="favorite-drinks">
                 <Heading as="h2" size="2xl" className="fav-drinks">
                   2022's Favorite Drinks
                 </Heading>
-                <CocktailContainer
-                  cocktails={data.threeRandomApiDrinks}
-                  checkBar={checkBar}
-                />
+                {error ? (
+                  <Heading className="home-page-error">
+                    Sorry couldn't find these drinks, Try again later!
+                  </Heading>
+                ) : (
+                  <CocktailContainer
+                    cocktails={data.threeRandomApiDrinks}
+                    checkBar={checkBar}
+                  />
+                )}
               </div>
             </div>
           )}

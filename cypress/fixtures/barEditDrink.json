@@ -1,0 +1,26 @@
+{
+    "data":{
+      
+        "drink":{
+          "id": "1",
+          "name": "Negroni",
+          "steps": "Stir into glass over ice, garnish and serve. Squeeze lemon, enjoy!",
+          "imgUrl": "https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg",
+          "ingredients": [
+            {
+              "id": "5",
+              "description": "1.0 oz Vodka"
+            },
+            {
+              "id": "7",
+              "description": "1.5 oz Sweet Vermouth"
+            },
+            {
+              "id": "8",
+              "description": "1 Lemon"
+            }
+          ]
+        }
+      
+    }
+  }
