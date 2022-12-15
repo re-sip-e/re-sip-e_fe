@@ -1,3 +1,5 @@
+<a name="readme-top"></a>
+
 <!-- HEADER -->
 <h1 align="center"><b>Re-sip-e! / FE Client</b></h1>
 
@@ -27,7 +29,7 @@
     <li>
         <a href="#features">Features</a>
         <ul>
-            <li><a href="#Future Extensions">Future Extensions</a>
+            <li><a href="#future-extensions">Future Extensions</a>
         </ul>
     </li>
     <li><a href="#contributors">Conributors</a></li>
@@ -37,7 +39,19 @@
 ## Introduction
 
 This application helps bars easily maintain, modify, and search through their collection of drinks. It was created with both a front-end and back-end team of Turing students utilizing React, Ruby on Rails, and GraphQL. 
-<br />
+
+## Our Team
+
+Frontend Team
+  - [Piper Jarrett](https://github.com/piperjarrett)
+  - [Lee Young](https://github.com/Leoy23)
+  - [Michael Martinelli](https://github.com/mmartinelli22)
+
+Backend Team
+  - [Thomas Musselman](https://github.com/musselmanth)
+  - [Aleisha Mork](https://github.com/aleish-m)
+  - [Ryan Smith](https://github.com/RyanChrisSmith)
+  - [Riley McCullough](https://github.com/Rileybmcc)
 
 ## Technologies
 ![React][React-shield]
@@ -63,7 +77,7 @@ This application helps bars easily maintain, modify, and search through their co
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Features
-<br>
+<br />
 
 <h3 align="center">Home Display:</h3>
 <p align="center"><img width="500" src="https://user-images.githubusercontent.com/106054421/207938182-080deb0e-ded5-4bc1-988e-10331cf76072.jpg" alt="home display"></p>
@@ -78,10 +92,20 @@ This application helps bars easily maintain, modify, and search through their co
 <p align="center"><img width="500" src="https://user-images.githubusercontent.com/106054421/207938211-bde6a312-e127-419c-abc6-23343496518d.jpg" alt="search page"></p>
 <p align="center"><img width="500" src="https://user-images.githubusercontent.com/106054421/207938409-bf40037d-b4a4-433c-a2ca-a158c59ac36c.jpg" alt="search page"></p>
 
-
-<br />
+- Users can view cocktail favorites on the main page display
+- Users can view each cocktail's information including:
+  - Name
+  - Ingredients
+  - Recipe
+- Users can add/modify drinks within their bar database
+- Users can search for drinks based on their names
+- Users can view their profile page with details regarding their affiliated bars and drinks associated with each bar 
 
 ## Future Extensions
+
+- Add a "Collection" page for users to store their own drinks
+- Add a "Login" feature to allow for a more customized experience
+  - Adding differentiation between employees and admin
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -111,6 +135,6 @@ This application helps bars easily maintain, modify, and search through their co
 [HTML-shield]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
 [Cypress-shield]: https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e
 [NPM-shield]: https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white
-[GraphQL-shield]: (https://camo.githubusercontent.com/9ad071f3788625b60549260fb99aeb8516ce3ae6ed2506e88663a2b6375c7d34/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d4772617068514c2d4531303039383f7374796c653d666f722d7468652d6261646765266c6f676f3d6772617068716c266c6f676f436f6c6f723d7768697465) 
-[CircleCI-shield]: (https://img.shields.io/badge/circleci-343434?style=for-the-badge&logo=circleci&logoColor=white) 
-[Miro-shield]: (https://img.shields.io/badge/Miro-050038?style=for-the-badge&logo=Miro&logoColor=white)
+[GraphQL-shield]: https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white
+[CircleCI-shield]: https://img.shields.io/badge/circleci-343434?style=for-the-badge&logo=circleci&logoColor=white
+[Miro-shield]: https://img.shields.io/badge/Miro-050038?style=for-the-badge&logo=Miro&logoColor=white
