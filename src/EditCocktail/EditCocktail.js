@@ -144,6 +144,7 @@ const EditCocktail = ({ choosenCocktail }) => {
         },
       ]);
     }
+    setNewIngredient("");
   };
 
   const submitEdit = () => {
@@ -239,6 +240,7 @@ const EditCocktail = ({ choosenCocktail }) => {
                 handleChange={handleChange}
                 addIngredient={addIngredient}
                 editIngredient={editIngredient}
+                newIngredient={newIngredient}
               />
             </FormControl>
             <FormControl mr={4}>
