@@ -270,7 +270,7 @@ const EditCocktail = ({ choosenCocktail }) => {
                 </Alert>
               ) : null}
               {message === "Saved Successfully!" ? (
-                <Alert status="error">
+                <Alert status="error" backgroundColor={"#90EE90"}>
                   <AlertIcon />
                   <AlertTitle>Saved</AlertTitle>
                   <AlertDescription>{message}</AlertDescription>
