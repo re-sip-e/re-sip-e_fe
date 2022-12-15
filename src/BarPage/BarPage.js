@@ -35,7 +35,7 @@ const BarPage = ({ id }) => {
             <Button size={'lg'} color='white' bgColor="#37867B" _hover={{background: "#307168"}}>Add by searching</Button>
           </Link>
         </div>
-        {getBarDrinks}
+        <CocktailContainer cocktails={data.bar.drinks} checkBar={checkBar} />
       </div>
       )}
     </section>
