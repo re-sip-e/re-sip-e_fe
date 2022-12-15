@@ -9,6 +9,11 @@
     margin-right: 8rem;
 }
 
+h2 {
+    color: teal;
+    text-shadow: .5px 1px 1px #000;
+}
+
 .user-data-container {
     display: flex;
     justify-content: space-between;
@@ -21,14 +26,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid;
     box-sizing: border-box;
     width: 22rem;
     padding: 2rem;
+    background-color: rgb(255, 255, 255, .4);
+    max-width: 40rem;
+    border-radius: 5rem;
 }
 
 .user-bar-count {
-    border: 1px solid;
+    border: 2px solid teal;
     border-radius: 55%;
     margin-bottom: 2rem;
     text-align: center;
@@ -37,17 +44,23 @@
 
 
 .bar-drink-count {
-    border: 1px solid;
+    border: 2px solid teal;
     border-radius: 55%;
     text-align: center;
 }
 
+.view-bar-btn {
+    margin-top: 1rem;
+}
+
 .personal-info {
-    border: 2px solid;
     width: 54%;
     padding: 5rem;
     box-sizing: border-box;
     text-align: center;
+    background-color: rgb(255, 255, 255, .4);
+    max-width: 40rem;
+    border-radius: 5rem;
 }
 
 .my-info,
