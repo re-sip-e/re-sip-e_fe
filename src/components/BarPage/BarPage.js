@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import NavBar from "../NavBar/NavBar";
@@ -24,11 +24,7 @@ const BarPage = ({ id }) => {
     return <div>Oops! Something went wrong</div>;
   }
 
-  // useEffect(() => {
-  //   useBarData(1);
-  // }, [message]);
 
-  console.log(data.bar.drinks);
   return (
     <section className="bar-page">
       <NavBar />

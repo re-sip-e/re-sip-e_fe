@@ -198,7 +198,6 @@ const EditCocktail = ({ choosenCocktail }) => {
       submitEdit();
     }
   };
-  console.log(message);
   return (
     <>
       <Button onClick={onOpen}>

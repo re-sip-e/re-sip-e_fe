@@ -12,7 +12,6 @@ const Steps = ({ steps, handleChange }) => {
             className="steps-text-area"
             value={steps}
             onChange={(event) => handleChange(event)}
-            className="steps-input"
           />
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import "./NavBar.css";
-import { IconButton, Avatar, Image, Button} from "@chakra-ui/react";
+import { Avatar, Image, Button} from "@chakra-ui/react";
 import { SearchIcon } from '@chakra-ui/icons';
 import { Link, NavLink } from "react-router-dom";
 import barLogo from "../../assets/bar-counter-color.svg";

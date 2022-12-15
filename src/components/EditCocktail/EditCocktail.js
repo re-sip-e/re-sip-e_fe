@@ -199,7 +199,7 @@ const EditCocktail = ({ choosenCocktail }) => {
       submitEdit();
     }
   };
-  console.log(message);
+
   const reload = () => {
     window.location.reload();
   };

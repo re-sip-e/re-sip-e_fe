@@ -30,7 +30,6 @@ const SearchPage = () => {
       query: drinkToFind,
     },
   });
-  console.log({ error, data, loading });
 
   const handleChange = (e) => {
     e.preventDefault();
