@@ -9,7 +9,7 @@ import Profile from "../Profile/Profile";
 import SearchPage from "../SearchPage/SearchPage";
 import BarPage from "../BarPage/BarPage";
 import NavBar from "../NavBar/NavBar";
-import siteLogo from "../assets/re-sip-e.png";
+import siteLogo from "../../assets/re-sip-e.png";
 
 const App = () => {
   const [checkBar, setCheckBar] = useState(false);
