@@ -21,7 +21,7 @@ const BarPage = ({ id }) => {
   const getBarDrinks = (
     <CocktailContainer cocktails={data.bar.drinks} checkBar={checkBar} />
   );
-
+  console.log(data);
   return (
     <section className="bar-page">
       <NavBar />

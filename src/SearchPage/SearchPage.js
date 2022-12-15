@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SearchPage.css";
 import NavBar from "../NavBar/NavBar";
 import { Heading } from "@chakra-ui/react";
@@ -30,28 +30,25 @@ const SearchPage = () => {
       query: drinkToFind,
     },
   });
-  console.log({error, data, loading})
-
+  console.log({ error, data, loading });
 
   const handleChange = (e) => {
     e.preventDefault();
     setSearch(e.target.value);
   };
 
-  const handleError = () => {
-    if (data.apiDrinks.length === 0) {
-      setSearchMsg("Sorry we don't serve that drink here. Search for another!")
+  useEffect(() => {
+    if (!loading && data?.apiDrinks.length === 0) {
+      setSearchMsg("Sorry we don't serve that drink here. Search for another!");
     } else {
-      setSearchMsg(
-        "Type in the name of a cocktail and get mixing!"
-      );
+      setSearchMsg("Type in the name of a cocktail and get mixing!");
     }
-  }
+  }, [loading]);
+
 
   const handleClick = (e) => {
     e.preventDefault();
     setDrinkToFind(search);
-    handleError();
   };
 
   return (
