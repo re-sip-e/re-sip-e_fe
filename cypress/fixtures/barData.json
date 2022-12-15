@@ -1,0 +1,16 @@
+{
+    "data": {
+      "bar": {
+        "id": "1",
+        "name": "Joe's Bar",
+        "drinkCount": "1",
+        "drinks": [{
+          "id": "1",
+          "name": "Negroni",
+          "imgUrl": "https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg"
+      }]
+      }
+    }
+  }
+
+  

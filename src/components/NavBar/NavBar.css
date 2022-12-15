@@ -1,0 +1,72 @@
+.head-2 {
+    display: flex;
+}
+
+.alt-header {
+    padding: 1rem;
+}
+
+
+.alt-header-box {
+    justify-content: space-between;
+    border-bottom: 3px solid #2C7A7B;
+    flex-wrap: wrap;
+
+    background-color: rgb(255, 255, 255, .4);
+    /* background-color: #f7f7f7; */
+    /* box-shadow: 3px 3px 3px rgb(172, 172, 172); */
+}
+
+
+.site-logo {
+    padding: 0.5rem;
+    margin: auto;
+    margin-top: 10%;
+}
+
+.second-header {
+    align-items: center;
+    padding: 3rem;
+    flex-wrap: wrap;
+}
+
+.second-header-list {
+    flex-wrap: wrap;
+}
+
+.css-faeixo:hover {
+    background-color: white;
+}
+
+/* .bar-tab a img {
+    width: 16px;
+    height: 16px;
+}
+
+.bar-tab:hover {
+    background-color:#4ba89a;
+} */
+
+.bar-icon-box {
+    text-align: center;
+}
+
+.chakra-button {
+    margin-top: .2rem;
+}
+
+
+.nav-list:hover {
+    background-color: black;
+    color: white;
+}
+
+.header-avatar img {
+    border: 3px solid #2C7A7B;
+}
+
+.header-avatar {
+    margin-left: 1rem;
+    margin-top: 3px;
+}
+

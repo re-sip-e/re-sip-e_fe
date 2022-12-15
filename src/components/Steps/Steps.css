@@ -1,0 +1,38 @@
+.steps-container {
+    border: 2px solid;
+    border-color: #2C7A7B;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: var(--chakra-radii-md);
+}
+
+.saved-steps {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.new-step {
+    display: flex;
+    align-items: center;
+}
+
+h5 {
+    display: block;
+    text-align: start;
+    font-size: var(--chakra-fontSizes-md);
+    -webkit-margin-end: var(--chakra-space-3);
+    margin-inline-end: var(--chakra-space-3);
+    margin-bottom: var(--chakra-space-2);
+    font-weight: var(--chakra-fontWeights-medium);
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    opacity: 1;
+}
+
+.chakra-textarea {
+    width: 20rem;
+    height: 20rem
+}
