@@ -134,7 +134,7 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
               </a>
             </div>
           ) : (
-            <Button onClick={() => addToBar()}>Add to my bar!</Button>
+            <Button className="add-to-bar-btn" onClick={() => addToBar()}>Add to my bar!</Button>
           )}
         </div>
       </div>

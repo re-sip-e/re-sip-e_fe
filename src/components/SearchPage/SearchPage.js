@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchPage.css";
 import NavBar from "../NavBar/NavBar";
-import { Heading } from "@chakra-ui/react";
+import { Heading, Button } from "@chakra-ui/react";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import { gql, useQuery } from "@apollo/client";
 
@@ -69,6 +69,7 @@ const SearchPage = () => {
             name="cocktail"
             value={search}
             onChange={(e) => handleChange(e)}
+            className="search-input-field"
           />
           <button onClick={(e) => handleClick(e)} className="go-btn">
             go

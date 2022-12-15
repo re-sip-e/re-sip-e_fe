@@ -1,0 +1,16 @@
+{
+    "data":{
+      "apiDrink": null},
+      "errors": [
+        {
+          "message": "the server responded with status 5xx",
+          "locations": [
+            {
+              "line": 2,
+              "column": 3
+            }
+          ],
+          "path": [ "apiDrink" ]
+        }
+      ]
+    }

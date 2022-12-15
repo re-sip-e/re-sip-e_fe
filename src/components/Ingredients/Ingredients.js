@@ -31,6 +31,7 @@ const Ingredients = ({
             placeholder="Add New Ingredient"
             name="newIngredient"
             onChange={(event) => handleChange(event)}
+            className="add-input"
           />
           <AddIcon onClick={() => addIngredient()} />
         </div>

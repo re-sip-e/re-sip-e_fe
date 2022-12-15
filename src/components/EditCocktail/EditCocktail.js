@@ -207,11 +207,11 @@ const EditCocktail = ({ choosenCocktail }) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Edit Cocktail</ModalHeader>
+          <ModalHeader className="edit-modal-label">Edit Cocktail</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <FormLabel>Cocktail</FormLabel>
+              <FormLabel className="cocktail-label">Cocktail</FormLabel>
               <Input
                 ref={initialRef}
                 placeholder={
@@ -219,10 +219,11 @@ const EditCocktail = ({ choosenCocktail }) => {
                 }
                 name="cocktailName"
                 onChange={(event) => handleChange(event)}
+                className="cocktail-input"
               />
             </FormControl>
             <FormControl>
-              <FormLabel>Image URL</FormLabel>
+              <FormLabel className="image-url-label">Image URL</FormLabel>
               <Input
                 ref={initialRef}
                 placeholder={
@@ -230,6 +231,7 @@ const EditCocktail = ({ choosenCocktail }) => {
                 }
                 name="imgURL"
                 onChange={(event) => handleChange(event)}
+                className="img-input"
               />
             </FormControl>
             <FormControl mr={4}>

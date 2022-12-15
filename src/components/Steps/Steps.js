@@ -13,6 +13,7 @@ const Steps = ({ steps, handleChange }) => {
             name="steps"
             value={steps}
             onChange={(event) => handleChange(event)}
+            className="steps-input"
           />
         </div>
     

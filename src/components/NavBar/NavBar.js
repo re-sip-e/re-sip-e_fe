@@ -17,11 +17,11 @@ const NavBar = () => {
           <div className="second-header-list head-2">
             <div className="search-tab">
               <NavLink to="/search">
-              <IconButton aria-label='Search database' icon={<SearchIcon boxSize={10} />} boxSize={14} />
+              <IconButton aria-label='Search database' icon={<SearchIcon boxSize={10} />} boxSize={14} className="search-btn"/>
               </NavLink>
             </div>
             <div className="bar-tab">
-              <a href="https://re-sip-e.netlify.app/bar/1">
+              <a href="http://localhost:3000/bar/1">
                 <img src={barLogo} alt="joes-bar-logo" width={"45rem"}/>
                </a>
             </div>

@@ -28,6 +28,9 @@ describe('Search Page', () => {
   //   cy.visit("http://localhost:3000/search")
   //   cy.get("input").type("potato")
   //   cy.get(".go-btn").click();
+  // cy.intercept("https://re-sip-e-be.fly.dev/graphql", {
+  //     fixture: "searchError.json"
+  //   })
   //   cy.get('.search-msg-box').should("contain", "Sorry, we don't serve that drink here. Search for another...")
   // })
 
