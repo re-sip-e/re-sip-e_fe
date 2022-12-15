@@ -30,7 +30,9 @@ const App = () => {
     setCheckBar(true);
   };
   return loading ? (
-    <Spinner size="xl" speed=".8s" />
+    <main className="main">
+      <div className="loader"><Spinner size="xl" speed=".8s" color="white" /></div>
+    </main>
   ) : error ? (
     <Heading>Sorry there was an error</Heading>
   ) : (

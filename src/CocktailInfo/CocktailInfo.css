@@ -13,10 +13,11 @@
 }
 
 .cocktail-details-container img {
-    height: 45rem;
+    max-height: 30rem;
     border-radius: 5rem;
     margin: 1.5rem;
 }
+
 .ingredients-info {
     display: flex;
     flex-direction: column;
@@ -45,7 +46,7 @@ h1 {
     align-items: center;
     padding: 2rem;
     background-color: rgb(255, 255, 255, .4);
-    max-width: 50rem;
+    max-width: 40rem;
     border-radius: 5rem;
 }
 

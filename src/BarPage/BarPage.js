@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import NavBar from "../NavBar/NavBar";
 import { useBarData } from "../hooks/useBarData";
-import { Heading, Button } from "@chakra-ui/react";
+import { Heading, Button, Spinner } from "@chakra-ui/react";
 import "./BarPage.css";
 import EditCocktail from "../EditCocktail/EditCocktail";
 
@@ -11,7 +11,11 @@ const BarPage = ({ id }) => {
   const { loading, error, data } = useBarData(id);
   const [checkBar, setCheckBar] = useState(true);
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <main className="main">
+        <div className="loader"><Spinner size="xl" speed=".8s" color="white" /></div>
+      </main>
+    );
   }
 
   if (error) {
