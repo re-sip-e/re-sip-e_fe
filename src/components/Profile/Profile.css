@@ -1,0 +1,62 @@
+.profile-info {
+   /* border: 2px solid; */
+   background-color: rgb(255, 255, 255, .4);
+}
+
+.welcome-user {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-right: 8rem;
+    color: #2C7A7B;
+    /* background-color: rgb(255, 255, 255, .4); */
+}
+
+.user-data-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 8rem;
+}
+
+.user-bar-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255, .4);
+    border-radius: 5rem;
+    box-sizing: border-box;
+    width: 22rem;
+    padding: 2rem;
+}
+
+.user-bar-count {
+    border: 1px solid;
+    border-radius: 55%;
+    margin-bottom: 2rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+
+.bar-drink-count {
+    border: 1px solid;
+    border-radius: 55%;
+    text-align: center;
+}
+
+.personal-info {
+    background-color: rgb(255, 255, 255, .4);
+    border-radius: 5rem;
+    width: 54%;
+    padding: 5rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.my-info,
+.my-bar-info {
+    text-align: center;
+}
+
