@@ -11,7 +11,6 @@
     justify-content: space-between;
     border-bottom: 3px solid #2C7A7B;
     flex-wrap: wrap;
-    position: relative;
     background-color: rgb(255, 255, 255, .4);
     /* background-color: #f7f7f7; */
     /* box-shadow: 3px 3px 3px rgb(172, 172, 172); */
@@ -68,7 +67,7 @@
 
 .header-avatar {
     position: absolute;
-    top: 52px;
+    top: 68px;
     right: 50px;
 }
 
