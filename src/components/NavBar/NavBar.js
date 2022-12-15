@@ -32,17 +32,17 @@ const NavBar = () => {
                 <Button aria-label='View my bar' rightIcon={<Image src={barLogo} boxSize={10}/>} size={'lg'} height='65px' width='240px' color='white' bgColor="#37867B" _hover={{background: "#307168"}}>View My Bar</Button>
               </a>
             </div>
-            <div className="header-avatar">
-              <NavLink to="/profile">
-                <Avatar
-                  name="Joe Schmoe"
-                  src="https://bit.ly/ryan-florence"
-                  size={"lg"}
-                />
-              </NavLink>
             </div>
-          </div>
         </nav>
+        <div className="header-avatar">
+          <NavLink to="/profile">
+            <Avatar
+              name="Joe Schmoe"
+              src="https://bit.ly/ryan-florence"
+              size={"lg"}
+            />
+          </NavLink>
+        </div>
       </div>
     </section>
   );
