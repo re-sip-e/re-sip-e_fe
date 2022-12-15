@@ -1,0 +1,23 @@
+{
+    "data": {
+      "apiDrink": {
+        "id": "11003",
+        "name": "Negroni",
+        "imgUrl": "https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg",
+        "steps": "Stir into glass over ice, garnish and serve.",
+        "ingredients": [
+          {
+            "description": "1 oz Gin"
+          },
+          {
+            "description": "1 oz Campari"
+          },
+          {
+            "description": "1 oz Sweet Vermouth"
+          }
+        ]
+      }
+    }
+  }
+
+  

@@ -66,3 +66,6 @@ main {
   height: 100vh;
 }
 
+.home-page-error {
+  border: none;
+}

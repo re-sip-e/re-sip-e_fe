@@ -201,7 +201,7 @@ const EditCocktail = ({ choosenCocktail }) => {
   console.log(message);
   return (
     <>
-      <Button size={'lg'} color='white' bgColor="#37867B" _hover={{background: "#307168"}} onClick={onOpen}>
+      <Button onClick={onOpen}>
         {choosenCocktail ? "Make it my own!" : "Add New Drink"}
       </Button>
 
@@ -220,7 +220,7 @@ const EditCocktail = ({ choosenCocktail }) => {
               <FormLabel>Cocktail</FormLabel>
               <Input
                 ref={initialRef}
-                value={
+                placeholder={
                   choosenCocktail ? `${choosenCocktail.name}` : "Cocktail Name"
                 }
                 name="cocktailName"
@@ -231,7 +231,7 @@ const EditCocktail = ({ choosenCocktail }) => {
               <FormLabel>Image URL</FormLabel>
               <Input
                 ref={initialRef}
-                value={
+                placeholder={
                   choosenCocktail ? `${choosenCocktail.imgUrl}` : "Image URL"
                 }
                 name="imgURL"
@@ -270,7 +270,7 @@ const EditCocktail = ({ choosenCocktail }) => {
 
           <ModalFooter>
             <Button
-              colorScheme="teal"
+              colorScheme="blue"
               mr={3}
               variant="outline"
               onClick={(event) => checkInputField(event)}
@@ -278,7 +278,12 @@ const EditCocktail = ({ choosenCocktail }) => {
             >
               {choosenCocktail ? "Save" : "Add drink"}
             </Button>
-            <Button onClick={onClose} colorScheme="teal" variant="outline">
+            <Button
+              className="close-button"
+              onClick={onClose}
+              colorScheme="blue"
+              variant="outline"
+            >
               Cancel
             </Button>
           </ModalFooter>

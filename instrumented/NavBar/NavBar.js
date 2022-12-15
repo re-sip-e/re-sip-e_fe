@@ -1,10 +1,10 @@
 import React from "react";
 import "./NavBar.css";
-import { IconButton, Avatar, Image, Button} from "@chakra-ui/react";
-import { SearchIcon } from '@chakra-ui/icons';
+import { IconButton, Avatar } from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
 import { Link, NavLink } from "react-router-dom";
-import barLogo from "../assets/bar-counter-color.svg";
-import siteLogo from "../assets/re-sip-e-sm-logo.png";
+import barLogo from "../assets/bar-counter.png";
+import siteLogo from "../assets/re-sip-e.png";
 
 const NavBar = () => {
   return (
@@ -23,12 +23,22 @@ const NavBar = () => {
           <div className="second-header-list head-2">
             <div className="search-tab">
               <NavLink to="/search">
-                <Button aria-label='Search database' rightIcon={<SearchIcon boxSize={14} />} size={'lg'} height='65px' width='240px' color='white' bgColor="#37867B" _hover={{background: "#307168"}}>Find Cocktails</Button>
+                <IconButton
+                  aria-label="Search database"
+                  icon={<SearchIcon boxSize={10} />}
+                  boxSize={14}
+                  className="search-icon"
+                />
               </NavLink>
             </div>
             <div className="bar-tab">
-              <a href="/bar/1">
-                <Button aria-label='View my bar' rightIcon={<Image src={barLogo} boxSize={10}/>} size={'lg'} height='65px' width='240px' color='white' bgColor="#37867B" _hover={{background: "#307168"}}>View My Bar</Button>
+              <a href="https://re-sip-e.netlify.app/bar/1">
+                <img
+                  src={barLogo}
+                  alt="joes-bar-logo"
+                  width={"45rem"}
+                  className="joes-bar"
+                />
               </a>
             </div>
             <div className="header-avatar">

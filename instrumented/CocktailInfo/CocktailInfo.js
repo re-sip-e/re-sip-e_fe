@@ -109,38 +109,50 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
           Sorry, couldn't load. Click icon to return home.
         </Heading>
       ) : (
-      <div className="cocktail-details-container">
-        <img src={!checkBar ? data.apiDrink.imgUrl : data.drink.imgUrl} />
-        <div className="cocktail-details">
-          <Heading as="h1" size="4xl">
-            {!checkBar ? data.apiDrink.name : data.drink.name}
-          </Heading>
-          {drinkAdded.data ? <Alert bgColor={'white'}>Added!</Alert> : null}
-          {deleteSuccess.data ? <Alert  bgColor={'white'}>Deleted!</Alert> : null}
-          <div className="ingredients-info">
-            Ingredients:
-            {data.apiDrink
-              ? data.apiDrink.ingredients.map((ingredient) => {
-                  return <p>{ingredient.description}</p>;
-                })
-              : data.drink.ingredients.map((ingredient) => {
-                  return <p>{ingredient.description}</p>;
-                })}
-          </div>
-          <p className='steps'>
-            {`Steps: ${!checkBar ? data.apiDrink.steps : data.drink.steps}`}
-          </p>
-
-          {checkBar ? (
-            <div>
-              <EditCocktail choosenCocktail={data.drink} />
-              <a href="/bar/1">
-                <Button onClick={() => deleteBarDrink()} size={'lg'} color='white' bgColor="#37867B" _hover={{background: "#307168"}}>Delete Drink</Button>
-              </a>
+        <div className="cocktail-details-container">
+          <img src={!checkBar ? data.apiDrink.imgUrl : data.drink.imgUrl} />
+          <div className="cocktail-details">
+            <Heading as="h1" size="4xl">
+              {!checkBar ? data.apiDrink.name : data.drink.name}
+            </Heading>
+            {drinkAdded.called && drinkAdded.data ? (
+              <Alert>Added!</Alert>
+            ) : drinkAdded.called && drinkAdded.error ? (
+              <Alert>Error occured, try again later!</Alert>
+            ) : null}
+            {deleteSuccess.data ? <Alert>Deleted!</Alert> : null}
+            <div className="ingredients-info">
+              <h3>Ingredients:</h3>
+              {data.apiDrink
+                ? data.apiDrink.ingredients.map((ingredient) => {
+                    return (
+                      <p key={ingredient.description}>
+                        {ingredient.description}
+                      </p>
+                    );
+                  })
+                : data.drink.ingredients.map((ingredient) => {
+                    return (
+                      <p key={ingredient.description}>
+                        {ingredient.description}
+                      </p>
+                    );
+                  })}
             </div>
-          ) : (
-            <Button onClick={() => addToBar()} size={'lg'} color='white' bgColor="#37867B" _hover={{background: "#307168"}}>Add to my bar!</Button>
-          )}
+            <Heading as="h2" size="1xl" className="steps">{`Steps: ${
+              !checkBar ? data.apiDrink.steps : data.drink.steps
+            }`}</Heading>
+
+            {checkBar ? (
+              <div>
+                <EditCocktail choosenCocktail={data.drink} />
+                <a href="/bar/1">
+                  <Button onClick={() => deleteBarDrink()}>Delete Drink</Button>
+                </a>
+              </div>
+            ) : (
+              <Button onClick={() => addToBar()}>Add to my bar!</Button>
+            )}
           </div>
         </div>
       )}
