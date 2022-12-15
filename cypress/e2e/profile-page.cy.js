@@ -4,7 +4,7 @@ describe('profile page', () => {
   }
   it('should display the NavBar for the user', () => {
     loadPage()
-    cy.get('div').should('contain', 'Re*sip*e')
+    cy.get('section').find(".site-logo")
   })
   it('should display the users username', () => {
     loadPage()
@@ -42,7 +42,7 @@ describe('profile page', () => {
   })
   it('Should be able to navigate to the home page', () => {
     loadPage()
-    cy.get('div').contains('Re*sip*e').click().url('should.be', 'http://localhost:3000/')
+    cy.get('div').find('.site-logo').click().url('should.be', 'http://localhost:3000/')
   })
   it('Should be able to navigate to the bar page', () => {
     loadPage()
