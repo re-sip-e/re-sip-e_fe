@@ -27,7 +27,7 @@
     align-items: center;
     padding: 3rem;
     flex-wrap: wrap;
-    margin-right: 80px;
+    margin-right: 60px;
 }
 
 .second-header-list {
@@ -68,6 +68,6 @@
 .header-avatar {
     position: absolute;
     top: 68px;
-    right: 68px;
+    right: 50px;
 }
 
