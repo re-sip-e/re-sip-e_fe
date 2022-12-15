@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import NavBar from "../NavBar/NavBar";
@@ -23,12 +23,11 @@ const BarPage = ({ id }) => {
   if (error) {
     return <div>Oops! Something went wrong</div>;
   }
-  const getAddedDrink = () => {
-    window.location.reload();
-  };
-  const getBarDrinks = (
-    <CocktailContainer cocktails={data.bar.drinks} checkBar={checkBar} />
-  );
+
+  // useEffect(() => {
+  //   useBarData(1);
+  // }, [message]);
+
   console.log(data.bar.drinks);
   return (
     <section className="bar-page">
@@ -41,10 +40,7 @@ const BarPage = ({ id }) => {
             {data.bar.name}
           </Heading>
           <div className="add-btn-box">
-            <EditCocktail
-              choosenCocktail={null}
-              getAddedDrink={getAddedDrink}
-            />
+            <EditCocktail choosenCocktail={null} />
             <Link to="/search">
               <Button
                 size={"lg"}

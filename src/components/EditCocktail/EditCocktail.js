@@ -22,7 +22,7 @@ import Ingredients from "../Ingredients/Ingredients";
 import Steps from "../Steps/Steps";
 import { useMutation, gql } from "@apollo/client";
 
-const EditCocktail = ({ choosenCocktail, getAddedDrink }) => {
+const EditCocktail = ({ choosenCocktail }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
@@ -200,6 +200,9 @@ const EditCocktail = ({ choosenCocktail, getAddedDrink }) => {
     }
   };
   console.log(message);
+  const reload = () => {
+    window.location.reload();
+  };
   return (
     <>
       <Button
@@ -220,7 +223,9 @@ const EditCocktail = ({ choosenCocktail, getAddedDrink }) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader className="edit-modal-label">Edit Cocktail</ModalHeader>
+          <ModalHeader className="edit-modal-label">
+            {choosenCocktail ? "Edit Cocktail" : "Create New Drink"}
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
@@ -284,7 +289,14 @@ const EditCocktail = ({ choosenCocktail, getAddedDrink }) => {
             >
               {choosenCocktail ? "Save" : "Add drink"}
             </Button>
-            <Button onClick={onClose} colorScheme="teal" variant="outline">
+            <Button
+              onClick={() => {
+                onClose();
+                reload();
+              }}
+              colorScheme="teal"
+              variant="outline"
+            >
               Cancel
             </Button>
           </ModalFooter>
