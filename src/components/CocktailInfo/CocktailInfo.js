@@ -1,9 +1,8 @@
 import NavBar from "../NavBar/NavBar";
-import { Link } from "react-router-dom";
 import "./CocktailInfo.css";
 import { Alert, Button, Heading, Spinner } from "@chakra-ui/react";
 import { useQuery, gql, useMutation } from "@apollo/client";
-import React, { useState } from "react";
+import React from "react";
 import EditCocktail from "../EditCocktail/EditCocktail";
 
 const CocktailInfo = ({ cocktailId, checkBar }) => {
@@ -100,7 +99,7 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
   };
 
   return loading ? (
-    <Spinner />
+    <Spinner className="loader"/>
   ) : (
     <div>
       <NavBar />

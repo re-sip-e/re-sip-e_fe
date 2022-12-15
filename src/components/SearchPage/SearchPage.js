@@ -45,7 +45,6 @@ const SearchPage = () => {
     }
   }, [loading]);
 
-
   const handleClick = (e) => {
     e.preventDefault();
     setDrinkToFind(search);
@@ -71,8 +70,12 @@ const SearchPage = () => {
             go
           </button>
         </form>
-        <div className="search-msg-box">{searchMsg}</div>
-        {loading ? <div><Spinner size="xl" speed=".8s" color="white" /></div> : null}
+        <p className="search-msg-box">{searchMsg}</p>
+        {loading ? (
+          <div>
+            <Spinner className="loader" size="xl" speed=".8s" color="white" />
+          </div>
+        ) : null}
         {data ? (
           <div className="search-results">
             <CocktailContainer cocktails={data.apiDrinks} />

@@ -8,6 +8,13 @@
     border: none;
 }
 
+.loader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+  }
+  
 .search-form-container {
     display: flex;
     flex-direction: column;

@@ -22,7 +22,7 @@ import Ingredients from "../Ingredients/Ingredients";
 import Steps from "../Steps/Steps";
 import { useMutation, gql } from "@apollo/client";
 
-const EditCocktail = ({ choosenCocktail }) => {
+const EditCocktail = ({ choosenCocktail, getAddedDrink }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
@@ -202,7 +202,13 @@ const EditCocktail = ({ choosenCocktail }) => {
   console.log(message);
   return (
     <>
-      <Button size={'lg'} color='white' bgColor="#37867B" _hover={{background: "#307168"}} onClick={onOpen}>
+      <Button
+        size={"lg"}
+        color="white"
+        bgColor="#37867B"
+        _hover={{ background: "#307168" }}
+        onClick={onOpen}
+      >
         {choosenCocktail ? "Make it my own!" : "Add New Drink"}
       </Button>
 
@@ -221,9 +227,7 @@ const EditCocktail = ({ choosenCocktail }) => {
               <FormLabel className="cocktail-label">Cocktail</FormLabel>
               <Input
                 ref={initialRef}
-                value={
-                  choosenCocktail ? `${choosenCocktail.name}` : "Cocktail Name"
-                }
+                value={choosenCocktail ? `${cocktailName}` : null}
                 name="cocktailName"
                 onChange={(event) => handleChange(event)}
                 className="cocktail-input"
@@ -233,9 +237,7 @@ const EditCocktail = ({ choosenCocktail }) => {
               <FormLabel className="image-url-label">Image URL</FormLabel>
               <Input
                 ref={initialRef}
-                value={
-                  choosenCocktail ? `${choosenCocktail.imgUrl}` : "Image URL"
-                }
+                value={choosenCocktail ? `${newImgUrl}` : null}
                 name="imgURL"
                 onChange={(event) => handleChange(event)}
                 className="img-input"

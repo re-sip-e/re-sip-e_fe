@@ -1,6 +1,6 @@
 {
-  "/Users/piperjarrett/mod3/re-sip-e_fe/src/Cocktail/Cocktail.js": {
-    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/Cocktail/Cocktail.js",
+  "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/Cocktail/Cocktail.js": {
+    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/Cocktail/Cocktail.js",
     "statementMap": {
       "0": {
         "start": {
@@ -162,7 +162,7 @@
       }
     },
     "s": {
-      "0": 1,
+      "0": 6,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -181,10 +181,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "c6c9caa48673fd1eda5a8f70b7068b42d21d26c3"
+    "hash": "c256badc8e736d75541bd858767eacf6743a5bb0"
   },
-  "/Users/piperjarrett/mod3/re-sip-e_fe/src/CocktailContainer/CocktailContainer.js": {
-    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/CocktailContainer/CocktailContainer.js",
+  "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/CocktailContainer/CocktailContainer.js": {
+    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/CocktailContainer/CocktailContainer.js",
     "statementMap": {
       "0": {
         "start": {
@@ -289,7 +289,7 @@
     },
     "branchMap": {},
     "s": {
-      "0": 1,
+      "0": 6,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -301,28 +301,28 @@
     },
     "b": {},
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "5b00af795f99c7af7738133f72be808f2a5fc8ca"
+    "hash": "54ff6963f7bb2d876f02eb5ac8773fdc3cfaa4df"
   },
-  "/Users/piperjarrett/mod3/re-sip-e_fe/src/NavBar/NavBar.js": {
-    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/NavBar/NavBar.js",
+  "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/NavBar/NavBar.js": {
+    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/NavBar/NavBar.js",
     "statementMap": {
       "0": {
         "start": {
-          "line": 9,
+          "line": 10,
           "column": 15
         },
         "end": {
-          "line": 48,
+          "line": 49,
           "column": 1
         }
       },
       "1": {
         "start": {
-          "line": 10,
+          "line": 11,
           "column": 2
         },
         "end": {
-          "line": 47,
+          "line": 48,
           "column": 4
         }
       }
@@ -332,41 +332,41 @@
         "name": "(anonymous_0)",
         "decl": {
           "start": {
-            "line": 9,
+            "line": 10,
             "column": 15
           },
           "end": {
-            "line": 9,
+            "line": 10,
             "column": 16
           }
         },
         "loc": {
           "start": {
-            "line": 9,
+            "line": 10,
             "column": 21
           },
           "end": {
-            "line": 48,
+            "line": 49,
             "column": 1
           }
         },
-        "line": 9
+        "line": 10
       }
     },
     "branchMap": {},
     "s": {
-      "0": 1,
-      "1": 0
+      "0": 6,
+      "1": 3
     },
     "f": {
-      "0": 0
+      "0": 3
     },
     "b": {},
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "452dbd6fdd30bb9c5cf5b834a7438543eebc8a03"
+    "hash": "cd7b4f352c76aec58438243a303acdbd21af47f8"
   },
-  "/Users/piperjarrett/mod3/re-sip-e_fe/src/IngredientsCard/IngredientsCard.js": {
-    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/IngredientsCard/IngredientsCard.js",
+  "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/IngredientsCard/IngredientsCard.js": {
+    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/IngredientsCard/IngredientsCard.js",
     "statementMap": {
       "0": {
         "start": {
@@ -522,7 +522,7 @@
       }
     },
     "s": {
-      "0": 1,
+      "0": 6,
       "1": 0,
       "2": 0,
       "3": 0
@@ -539,10 +539,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "0e6c5cff363b169dd11eb35e8fd15c7c9f59c09d"
+    "hash": "ea21babb393cceab2ccdb8ef1f710d2e265687fb"
   },
-  "/Users/piperjarrett/mod3/re-sip-e_fe/src/Ingredients/Ingredients.js": {
-    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/Ingredients/Ingredients.js",
+  "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/Ingredients/Ingredients.js": {
+    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/Ingredients/Ingredients.js",
     "statementMap": {
       "0": {
         "start": {
@@ -550,7 +550,7 @@
           "column": 20
         },
         "end": {
-          "line": 42,
+          "line": 43,
           "column": 1
         }
       },
@@ -580,7 +580,7 @@
           "column": 2
         },
         "end": {
-          "line": 41,
+          "line": 42,
           "column": 4
         }
       },
@@ -596,11 +596,11 @@
       },
       "5": {
         "start": {
-          "line": 37,
+          "line": 38,
           "column": 34
         },
         "end": {
-          "line": 37,
+          "line": 38,
           "column": 49
         }
       }
@@ -624,7 +624,7 @@
             "column": 6
           },
           "end": {
-            "line": 42,
+            "line": 43,
             "column": 1
           }
         },
@@ -682,30 +682,30 @@
         "name": "(anonymous_3)",
         "decl": {
           "start": {
-            "line": 37,
+            "line": 38,
             "column": 28
           },
           "end": {
-            "line": 37,
+            "line": 38,
             "column": 29
           }
         },
         "loc": {
           "start": {
-            "line": 37,
+            "line": 38,
             "column": 34
           },
           "end": {
-            "line": 37,
+            "line": 38,
             "column": 49
           }
         },
-        "line": 37
+        "line": 38
       }
     },
     "branchMap": {},
     "s": {
-      "0": 1,
+      "0": 6,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -720,10 +720,10 @@
     },
     "b": {},
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "fc63f808dbf8762efbbe73a4bd9d5374532b6134"
+    "hash": "2807bd5bb497efb06463ee652d35adfe74d6aada"
   },
-  "/Users/piperjarrett/mod3/re-sip-e_fe/src/Steps/Steps.js": {
-    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/Steps/Steps.js",
+  "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/Steps/Steps.js": {
+    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/Steps/Steps.js",
     "statementMap": {
       "0": {
         "start": {
@@ -731,7 +731,7 @@
           "column": 14
         },
         "end": {
-          "line": 20,
+          "line": 21,
           "column": 1
         }
       },
@@ -741,7 +741,7 @@
           "column": 2
         },
         "end": {
-          "line": 19,
+          "line": 20,
           "column": 4
         }
       },
@@ -775,7 +775,7 @@
             "column": 43
           },
           "end": {
-            "line": 20,
+            "line": 21,
             "column": 1
           }
         },
@@ -808,7 +808,7 @@
     },
     "branchMap": {},
     "s": {
-      "0": 1,
+      "0": 6,
       "1": 0,
       "2": 0
     },
@@ -818,10 +818,10 @@
     },
     "b": {},
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "126d69f4dd1f66b102dd9ea0ec84527d9687a972"
+    "hash": "4ebb69613041cf3c21400078fb70e011faa1211f"
   },
-  "/Users/piperjarrett/mod3/re-sip-e_fe/src/EditCocktail/EditCocktail.js": {
-    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/EditCocktail/EditCocktail.js",
+  "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/EditCocktail/EditCocktail.js": {
+    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/EditCocktail/EditCocktail.js",
     "statementMap": {
       "0": {
         "start": {
@@ -829,7 +829,7 @@
           "column": 21
         },
         "end": {
-          "line": 291,
+          "line": 295,
           "column": 1
         }
       },
@@ -1589,37 +1589,37 @@
           "column": 2
         },
         "end": {
-          "line": 290,
+          "line": 294,
           "column": 4
         }
       },
       "77": {
         "start": {
-          "line": 228,
+          "line": 232,
           "column": 37
         },
         "end": {
-          "line": 228,
+          "line": 232,
           "column": 56
         }
       },
       "78": {
         "start": {
-          "line": 239,
+          "line": 242,
           "column": 37
         },
         "end": {
-          "line": 239,
+          "line": 242,
           "column": 56
         }
       },
       "79": {
         "start": {
-          "line": 278,
+          "line": 282,
           "column": 34
         },
         "end": {
-          "line": 278,
+          "line": 282,
           "column": 56
         }
       }
@@ -1640,10 +1640,10 @@
         "loc": {
           "start": {
             "line": 25,
-            "column": 46
+            "column": 61
           },
           "end": {
-            "line": 291,
+            "line": 295,
             "column": 1
           }
         },
@@ -1941,73 +1941,73 @@
         "name": "(anonymous_13)",
         "decl": {
           "start": {
-            "line": 228,
+            "line": 232,
             "column": 26
           },
           "end": {
-            "line": 228,
+            "line": 232,
             "column": 27
           }
         },
         "loc": {
           "start": {
-            "line": 228,
+            "line": 232,
             "column": 37
           },
           "end": {
-            "line": 228,
+            "line": 232,
             "column": 56
           }
         },
-        "line": 228
+        "line": 232
       },
       "14": {
         "name": "(anonymous_14)",
         "decl": {
           "start": {
-            "line": 239,
+            "line": 242,
             "column": 26
           },
           "end": {
-            "line": 239,
+            "line": 242,
             "column": 27
           }
         },
         "loc": {
           "start": {
-            "line": 239,
+            "line": 242,
             "column": 37
           },
           "end": {
-            "line": 239,
+            "line": 242,
             "column": 56
           }
         },
-        "line": 239
+        "line": 242
       },
       "15": {
         "name": "(anonymous_15)",
         "decl": {
           "start": {
-            "line": 278,
+            "line": 282,
             "column": 23
           },
           "end": {
-            "line": 278,
+            "line": 282,
             "column": 24
           }
         },
         "loc": {
           "start": {
-            "line": 278,
+            "line": 282,
             "column": 34
           },
           "end": {
-            "line": 278,
+            "line": 282,
             "column": 56
           }
         },
-        "line": 278
+        "line": 282
       }
     },
     "branchMap": {
@@ -2518,11 +2518,11 @@
       "14": {
         "loc": {
           "start": {
-            "line": 206,
+            "line": 212,
             "column": 9
           },
           "end": {
-            "line": 206,
+            "line": 212,
             "column": 62
           }
         },
@@ -2530,107 +2530,107 @@
         "locations": [
           {
             "start": {
-              "line": 206,
+              "line": 212,
               "column": 27
             },
             "end": {
-              "line": 206,
+              "line": 212,
               "column": 44
             }
           },
           {
             "start": {
-              "line": 206,
+              "line": 212,
               "column": 47
             },
             "end": {
-              "line": 206,
+              "line": 212,
               "column": 62
             }
           }
         ],
-        "line": 206
+        "line": 212
       },
       "15": {
         "loc": {
           "start": {
-            "line": 225,
-            "column": 18
+            "line": 230,
+            "column": 23
           },
           "end": {
-            "line": 225,
-            "column": 79
+            "line": 230,
+            "column": 65
           }
         },
         "type": "cond-expr",
         "locations": [
           {
             "start": {
-              "line": 225,
-              "column": 36
+              "line": 230,
+              "column": 41
             },
             "end": {
-              "line": 225,
-              "column": 61
+              "line": 230,
+              "column": 58
             }
           },
           {
             "start": {
-              "line": 225,
-              "column": 64
+              "line": 230,
+              "column": 61
             },
             "end": {
-              "line": 225,
-              "column": 79
+              "line": 230,
+              "column": 65
             }
           }
         ],
-        "line": 225
+        "line": 230
       },
       "16": {
         "loc": {
           "start": {
-            "line": 236,
-            "column": 18
+            "line": 240,
+            "column": 23
           },
           "end": {
-            "line": 236,
-            "column": 77
+            "line": 240,
+            "column": 62
           }
         },
         "type": "cond-expr",
         "locations": [
           {
             "start": {
-              "line": 236,
-              "column": 36
+              "line": 240,
+              "column": 41
             },
             "end": {
-              "line": 236,
-              "column": 63
+              "line": 240,
+              "column": 55
             }
           },
           {
             "start": {
-              "line": 236,
-              "column": 66
+              "line": 240,
+              "column": 58
             },
             "end": {
-              "line": 236,
-              "column": 77
+              "line": 240,
+              "column": 62
             }
           }
         ],
-        "line": 236
+        "line": 240
       },
       "17": {
         "loc": {
           "start": {
-            "line": 254,
+            "line": 258,
             "column": 15
           },
           "end": {
-            "line": 262,
+            "line": 266,
             "column": 22
           }
         },
@@ -2638,35 +2638,35 @@
         "locations": [
           {
             "start": {
-              "line": 255,
+              "line": 259,
               "column": 16
             },
             "end": {
-              "line": 261,
+              "line": 265,
               "column": 24
             }
           },
           {
             "start": {
-              "line": 262,
+              "line": 266,
               "column": 18
             },
             "end": {
-              "line": 262,
+              "line": 266,
               "column": 22
             }
           }
         ],
-        "line": 254
+        "line": 258
       },
       "18": {
         "loc": {
           "start": {
-            "line": 254,
+            "line": 258,
             "column": 15
           },
           "end": {
-            "line": 254,
+            "line": 258,
             "column": 36
           }
         },
@@ -2674,35 +2674,35 @@
         "locations": [
           {
             "start": {
-              "line": 254,
+              "line": 258,
               "column": 15
             },
             "end": {
-              "line": 254,
+              "line": 258,
               "column": 27
             }
           },
           {
             "start": {
-              "line": 254,
+              "line": 258,
               "column": 31
             },
             "end": {
-              "line": 254,
+              "line": 258,
               "column": 36
             }
           }
         ],
-        "line": 254
+        "line": 258
       },
       "19": {
         "loc": {
           "start": {
-            "line": 258,
+            "line": 262,
             "column": 21
           },
           "end": {
-            "line": 258,
+            "line": 262,
             "column": 75
           }
         },
@@ -2710,35 +2710,35 @@
         "locations": [
           {
             "start": {
-              "line": 258,
+              "line": 262,
               "column": 57
             },
             "end": {
-              "line": 258,
+              "line": 262,
               "column": 65
             }
           },
           {
             "start": {
-              "line": 258,
+              "line": 262,
               "column": 68
             },
             "end": {
-              "line": 258,
+              "line": 262,
               "column": 75
             }
           }
         ],
-        "line": 258
+        "line": 262
       },
       "20": {
         "loc": {
           "start": {
-            "line": 263,
+            "line": 267,
             "column": 15
           },
           "end": {
-            "line": 269,
+            "line": 273,
             "column": 22
           }
         },
@@ -2746,35 +2746,35 @@
         "locations": [
           {
             "start": {
-              "line": 264,
+              "line": 268,
               "column": 16
             },
             "end": {
-              "line": 268,
+              "line": 272,
               "column": 24
             }
           },
           {
             "start": {
-              "line": 269,
+              "line": 273,
               "column": 18
             },
             "end": {
-              "line": 269,
+              "line": 273,
               "column": 22
             }
           }
         ],
-        "line": 263
+        "line": 267
       },
       "21": {
         "loc": {
           "start": {
-            "line": 281,
+            "line": 285,
             "column": 15
           },
           "end": {
-            "line": 281,
+            "line": 285,
             "column": 53
           }
         },
@@ -2782,30 +2782,30 @@
         "locations": [
           {
             "start": {
-              "line": 281,
+              "line": 285,
               "column": 33
             },
             "end": {
-              "line": 281,
+              "line": 285,
               "column": 39
             }
           },
           {
             "start": {
-              "line": 281,
+              "line": 285,
               "column": 42
             },
             "end": {
-              "line": 281,
+              "line": 285,
               "column": 53
             }
           }
         ],
-        "line": 281
+        "line": 285
       }
     },
     "s": {
-      "0": 1,
+      "0": 6,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -2995,219 +2995,219 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "5118bd55e025c0c2f39db42673652b15ae71c344"
+    "hash": "060823fd8adf355dcb444d8b288255a2abf4c115"
   },
-  "/Users/piperjarrett/mod3/re-sip-e_fe/src/CocktailInfo/CocktailInfo.js": {
-    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/CocktailInfo/CocktailInfo.js",
+  "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/CocktailInfo/CocktailInfo.js": {
+    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/CocktailInfo/CocktailInfo.js",
     "statementMap": {
       "0": {
         "start": {
-          "line": 9,
+          "line": 8,
           "column": 21
         },
         "end": {
-          "line": 149,
+          "line": 148,
           "column": 1
         }
       },
       "1": {
         "start": {
-          "line": 10,
+          "line": 9,
           "column": 19
         },
         "end": {
-          "line": 22,
+          "line": 21,
           "column": 11
         }
       },
       "2": {
         "start": {
-          "line": 23,
+          "line": 22,
           "column": 19
         },
         "end": {
-          "line": 41,
+          "line": 40,
           "column": 11
         }
       },
       "3": {
         "start": {
-          "line": 43,
+          "line": 42,
           "column": 25
         },
         "end": {
-          "line": 58,
+          "line": 57,
           "column": 3
         }
       },
       "4": {
         "start": {
-          "line": 60,
+          "line": 59,
           "column": 23
         },
         "end": {
-          "line": 67,
+          "line": 66,
           "column": 3
         }
       },
       "5": {
         "start": {
-          "line": 69,
+          "line": 68,
           "column": 35
         },
         "end": {
-          "line": 69,
+          "line": 68,
           "column": 75
         }
       },
       "6": {
         "start": {
-          "line": 70,
+          "line": 69,
           "column": 33
         },
         "end": {
-          "line": 70,
+          "line": 69,
           "column": 60
         }
       },
       "7": {
         "start": {
-          "line": 71,
+          "line": 70,
           "column": 39
         },
         "end": {
-          "line": 71,
+          "line": 70,
           "column": 64
         }
       },
       "8": {
         "start": {
-          "line": 72,
+          "line": 71,
           "column": 2
         },
         "end": {
-          "line": 72,
+          "line": 71,
           "column": 31
         }
       },
       "9": {
         "start": {
-          "line": 73,
+          "line": 72,
           "column": 19
         },
         "end": {
-          "line": 92,
+          "line": 91,
           "column": 3
         }
       },
       "10": {
         "start": {
-          "line": 74,
+          "line": 73,
           "column": 27
         },
         "end": {
-          "line": 79,
+          "line": 78,
           "column": 6
         }
       },
       "11": {
         "start": {
-          "line": 75,
+          "line": 74,
           "column": 6
         },
         "end": {
-          "line": 78,
+          "line": 77,
           "column": 8
         }
       },
       "12": {
         "start": {
-          "line": 80,
+          "line": 79,
           "column": 26
         },
         "end": {
-          "line": 86,
+          "line": 85,
           "column": 5
         }
       },
       "13": {
         "start": {
-          "line": 87,
+          "line": 86,
           "column": 4
         },
         "end": {
-          "line": 91,
+          "line": 90,
           "column": 7
         }
       },
       "14": {
         "start": {
-          "line": 94,
+          "line": 93,
           "column": 25
         },
         "end": {
-          "line": 100,
+          "line": 99,
           "column": 3
         }
       },
       "15": {
         "start": {
-          "line": 95,
+          "line": 94,
           "column": 4
         },
         "end": {
-          "line": 99,
+          "line": 98,
           "column": 7
         }
       },
       "16": {
         "start": {
-          "line": 102,
+          "line": 101,
           "column": 2
         },
         "end": {
-          "line": 148,
+          "line": 147,
           "column": 4
         }
       },
       "17": {
         "start": {
-          "line": 124,
+          "line": 123,
           "column": 18
         },
         "end": {
-          "line": 124,
+          "line": 123,
           "column": 57
         }
       },
       "18": {
         "start": {
-          "line": 127,
+          "line": 126,
           "column": 18
         },
         "end": {
-          "line": 127,
+          "line": 126,
           "column": 57
         }
       },
       "19": {
         "start": {
-          "line": 138,
+          "line": 137,
           "column": 39
         },
         "end": {
-          "line": 138,
+          "line": 137,
           "column": 55
         }
       },
       "20": {
         "start": {
-          "line": 142,
-          "column": 35
+          "line": 141,
+          "column": 62
         },
         "end": {
-          "line": 142,
-          "column": 45
+          "line": 141,
+          "column": 72
         }
       }
     },
@@ -3216,204 +3216,204 @@
         "name": "(anonymous_0)",
         "decl": {
           "start": {
-            "line": 9,
+            "line": 8,
             "column": 21
           },
           "end": {
-            "line": 9,
+            "line": 8,
             "column": 22
           }
         },
         "loc": {
           "start": {
-            "line": 9,
+            "line": 8,
             "column": 51
           },
           "end": {
-            "line": 149,
+            "line": 148,
             "column": 1
           }
         },
-        "line": 9
+        "line": 8
       },
       "1": {
         "name": "(anonymous_1)",
         "decl": {
           "start": {
-            "line": 73,
+            "line": 72,
             "column": 19
           },
           "end": {
-            "line": 73,
+            "line": 72,
             "column": 20
           }
         },
         "loc": {
           "start": {
-            "line": 73,
+            "line": 72,
             "column": 25
           },
           "end": {
-            "line": 92,
+            "line": 91,
             "column": 3
           }
         },
-        "line": 73
+        "line": 72
       },
       "2": {
         "name": "(anonymous_2)",
         "decl": {
           "start": {
-            "line": 74,
+            "line": 73,
             "column": 57
           },
           "end": {
-            "line": 74,
+            "line": 73,
             "column": 58
           }
         },
         "loc": {
           "start": {
-            "line": 74,
+            "line": 73,
             "column": 73
           },
           "end": {
-            "line": 79,
+            "line": 78,
             "column": 5
           }
         },
-        "line": 74
+        "line": 73
       },
       "3": {
         "name": "(anonymous_3)",
         "decl": {
           "start": {
-            "line": 94,
+            "line": 93,
             "column": 25
           },
           "end": {
-            "line": 94,
+            "line": 93,
             "column": 26
           }
         },
         "loc": {
           "start": {
-            "line": 94,
+            "line": 93,
             "column": 31
           },
           "end": {
-            "line": 100,
+            "line": 99,
             "column": 3
           }
         },
-        "line": 94
+        "line": 93
       },
       "4": {
         "name": "(anonymous_4)",
         "decl": {
           "start": {
-            "line": 123,
+            "line": 122,
             "column": 46
           },
           "end": {
-            "line": 123,
+            "line": 122,
             "column": 47
           }
         },
         "loc": {
           "start": {
-            "line": 123,
+            "line": 122,
             "column": 62
           },
           "end": {
-            "line": 125,
+            "line": 124,
             "column": 17
           }
         },
-        "line": 123
+        "line": 122
       },
       "5": {
         "name": "(anonymous_5)",
         "decl": {
           "start": {
-            "line": 126,
+            "line": 125,
             "column": 43
           },
           "end": {
-            "line": 126,
+            "line": 125,
             "column": 44
           }
         },
         "loc": {
           "start": {
-            "line": 126,
+            "line": 125,
             "column": 59
           },
           "end": {
-            "line": 128,
+            "line": 127,
             "column": 17
           }
         },
-        "line": 126
+        "line": 125
       },
       "6": {
         "name": "(anonymous_6)",
         "decl": {
           "start": {
-            "line": 138,
+            "line": 137,
             "column": 33
           },
           "end": {
-            "line": 138,
+            "line": 137,
             "column": 34
           }
         },
         "loc": {
           "start": {
-            "line": 138,
+            "line": 137,
             "column": 39
           },
           "end": {
-            "line": 138,
+            "line": 137,
             "column": 55
           }
         },
-        "line": 138
+        "line": 137
       },
       "7": {
         "name": "(anonymous_7)",
         "decl": {
           "start": {
-            "line": 142,
-            "column": 29
+            "line": 141,
+            "column": 56
           },
           "end": {
-            "line": 142,
-            "column": 30
+            "line": 141,
+            "column": 57
           }
         },
         "loc": {
           "start": {
-            "line": 142,
-            "column": 35
+            "line": 141,
+            "column": 62
           },
           "end": {
-            "line": 142,
-            "column": 45
+            "line": 141,
+            "column": 72
           }
         },
-        "line": 142
+        "line": 141
       }
     },
     "branchMap": {
       "0": {
         "loc": {
           "start": {
-            "line": 69,
+            "line": 68,
             "column": 44
           },
           "end": {
-            "line": 69,
+            "line": 68,
             "column": 74
           }
         },
@@ -3421,35 +3421,35 @@
         "locations": [
           {
             "start": {
-              "line": 69,
+              "line": 68,
               "column": 55
             },
             "end": {
-              "line": 69,
+              "line": 68,
               "column": 63
             }
           },
           {
             "start": {
-              "line": 69,
+              "line": 68,
               "column": 66
             },
             "end": {
-              "line": 69,
+              "line": 68,
               "column": 74
             }
           }
         ],
-        "line": 69
+        "line": 68
       },
       "1": {
         "loc": {
           "start": {
-            "line": 102,
+            "line": 101,
             "column": 9
           },
           "end": {
-            "line": 148,
+            "line": 147,
             "column": 3
           }
         },
@@ -3457,35 +3457,35 @@
         "locations": [
           {
             "start": {
-              "line": 103,
+              "line": 102,
               "column": 4
             },
             "end": {
-              "line": 103,
-              "column": 15
+              "line": 102,
+              "column": 33
             }
           },
           {
             "start": {
-              "line": 105,
+              "line": 104,
               "column": 4
             },
             "end": {
-              "line": 147,
+              "line": 146,
               "column": 10
             }
           }
         ],
-        "line": 102
+        "line": 101
       },
       "2": {
         "loc": {
           "start": {
-            "line": 107,
+            "line": 106,
             "column": 7
           },
           "end": {
-            "line": 146,
+            "line": 145,
             "column": 7
           }
         },
@@ -3493,35 +3493,35 @@
         "locations": [
           {
             "start": {
-              "line": 108,
+              "line": 107,
               "column": 8
             },
             "end": {
-              "line": 110,
+              "line": 109,
               "column": 18
             }
           },
           {
             "start": {
-              "line": 112,
+              "line": 111,
               "column": 6
             },
             "end": {
-              "line": 145,
+              "line": 144,
               "column": 14
             }
           }
         ],
-        "line": 107
+        "line": 106
       },
       "3": {
         "loc": {
           "start": {
-            "line": 113,
+            "line": 112,
             "column": 18
           },
           "end": {
-            "line": 113,
+            "line": 112,
             "column": 70
           }
         },
@@ -3529,35 +3529,35 @@
         "locations": [
           {
             "start": {
-              "line": 113,
+              "line": 112,
               "column": 30
             },
             "end": {
-              "line": 113,
+              "line": 112,
               "column": 50
             }
           },
           {
             "start": {
-              "line": 113,
+              "line": 112,
               "column": 53
             },
             "end": {
-              "line": 113,
+              "line": 112,
               "column": 70
             }
           }
         ],
-        "line": 113
+        "line": 112
       },
       "4": {
         "loc": {
           "start": {
-            "line": 116,
+            "line": 115,
             "column": 13
           },
           "end": {
-            "line": 116,
+            "line": 115,
             "column": 61
           }
         },
@@ -3565,35 +3565,35 @@
         "locations": [
           {
             "start": {
-              "line": 116,
+              "line": 115,
               "column": 25
             },
             "end": {
-              "line": 116,
+              "line": 115,
               "column": 43
             }
           },
           {
             "start": {
-              "line": 116,
+              "line": 115,
               "column": 46
             },
             "end": {
-              "line": 116,
+              "line": 115,
               "column": 61
             }
           }
         ],
-        "line": 116
+        "line": 115
       },
       "5": {
         "loc": {
           "start": {
-            "line": 118,
+            "line": 117,
             "column": 11
           },
           "end": {
-            "line": 118,
+            "line": 117,
             "column": 75
           }
         },
@@ -3601,35 +3601,35 @@
         "locations": [
           {
             "start": {
-              "line": 118,
+              "line": 117,
               "column": 29
             },
             "end": {
-              "line": 118,
+              "line": 117,
               "column": 68
             }
           },
           {
             "start": {
-              "line": 118,
+              "line": 117,
               "column": 71
             },
             "end": {
-              "line": 118,
+              "line": 117,
               "column": 75
             }
           }
         ],
-        "line": 118
+        "line": 117
       },
       "6": {
         "loc": {
           "start": {
-            "line": 119,
+            "line": 118,
             "column": 11
           },
           "end": {
-            "line": 119,
+            "line": 118,
             "column": 81
           }
         },
@@ -3637,35 +3637,35 @@
         "locations": [
           {
             "start": {
-              "line": 119,
+              "line": 118,
               "column": 32
             },
             "end": {
-              "line": 119,
+              "line": 118,
               "column": 74
             }
           },
           {
             "start": {
-              "line": 119,
+              "line": 118,
               "column": 77
             },
             "end": {
-              "line": 119,
+              "line": 118,
               "column": 81
             }
           }
         ],
-        "line": 119
+        "line": 118
       },
       "7": {
         "loc": {
           "start": {
-            "line": 122,
+            "line": 121,
             "column": 13
           },
           "end": {
-            "line": 128,
+            "line": 127,
             "column": 18
           }
         },
@@ -3673,35 +3673,35 @@
         "locations": [
           {
             "start": {
-              "line": 123,
+              "line": 122,
               "column": 16
             },
             "end": {
-              "line": 125,
+              "line": 124,
               "column": 18
             }
           },
           {
             "start": {
-              "line": 126,
+              "line": 125,
               "column": 16
             },
             "end": {
-              "line": 128,
+              "line": 127,
               "column": 18
             }
           }
         ],
-        "line": 122
+        "line": 121
       },
       "8": {
         "loc": {
           "start": {
-            "line": 131,
+            "line": 130,
             "column": 23
           },
           "end": {
-            "line": 131,
+            "line": 130,
             "column": 73
           }
         },
@@ -3709,35 +3709,35 @@
         "locations": [
           {
             "start": {
-              "line": 131,
+              "line": 130,
               "column": 35
             },
             "end": {
-              "line": 131,
+              "line": 130,
               "column": 54
             }
           },
           {
             "start": {
-              "line": 131,
+              "line": 130,
               "column": 57
             },
             "end": {
-              "line": 131,
+              "line": 130,
               "column": 73
             }
           }
         ],
-        "line": 131
+        "line": 130
       },
       "9": {
         "loc": {
           "start": {
-            "line": 134,
+            "line": 133,
             "column": 11
           },
           "end": {
-            "line": 143,
+            "line": 142,
             "column": 11
           }
         },
@@ -3745,30 +3745,30 @@
         "locations": [
           {
             "start": {
-              "line": 135,
+              "line": 134,
               "column": 12
             },
             "end": {
-              "line": 140,
+              "line": 139,
               "column": 18
             }
           },
           {
             "start": {
-              "line": 142,
+              "line": 141,
               "column": 12
             },
             "end": {
-              "line": 142,
-              "column": 147
+              "line": 141,
+              "column": 174
             }
           }
         ],
-        "line": 134
+        "line": 133
       }
     },
     "s": {
-      "0": 1,
+      "0": 6,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -3843,163 +3843,109 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "ee68ca2bc950d1482e0b97c9e4f30640ee95b160"
+    "hash": "2395782bd1aeab67d4a23f9dcd4ffea785a306f7"
   },
-  "/Users/piperjarrett/mod3/re-sip-e_fe/src/hooks/profileHooks.js": {
-    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/hooks/profileHooks.js",
-    "statementMap": {
-      "0": {
-        "start": {
-          "line": 4,
-          "column": 24
-        },
-        "end": {
-          "line": 16,
-          "column": 4
-        }
-      },
-      "1": {
-        "start": {
-          "line": 18,
-          "column": 27
-        },
-        "end": {
-          "line": 26,
-          "column": 1
-        }
-      },
-      "2": {
-        "start": {
-          "line": 20,
-          "column": 37
-        },
-        "end": {
-          "line": 24,
-          "column": 6
-        }
-      },
-      "3": {
-        "start": {
-          "line": 25,
-          "column": 4
-        },
-        "end": {
-          "line": 25,
-          "column": 36
-        }
-      }
-    },
-    "fnMap": {
-      "0": {
-        "name": "(anonymous_0)",
-        "decl": {
-          "start": {
-            "line": 18,
-            "column": 27
-          },
-          "end": {
-            "line": 18,
-            "column": 28
-          }
-        },
-        "loc": {
-          "start": {
-            "line": 18,
-            "column": 35
-          },
-          "end": {
-            "line": 26,
-            "column": 1
-          }
-        },
-        "line": 18
-      }
-    },
-    "branchMap": {},
-    "s": {
-      "0": 1,
-      "1": 1,
-      "2": 0,
-      "3": 0
-    },
-    "f": {
-      "0": 0
-    },
-    "b": {},
-    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "0025486950ca66ca9832b24f46d8e98d6b5fc036"
-  },
-  "/Users/piperjarrett/mod3/re-sip-e_fe/src/Profile/Profile.js": {
-    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/Profile/Profile.js",
+  "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/Profile/Profile.js": {
+    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/Profile/Profile.js",
     "statementMap": {
       "0": {
         "start": {
           "line": 8,
-          "column": 13
+          "column": 24
         },
         "end": {
-          "line": 31,
+          "line": 21,
           "column": 1
         }
       },
       "1": {
         "start": {
-          "line": 9,
-          "column": 37
+          "line": 23,
+          "column": 16
         },
         "end": {
-          "line": 9,
-          "column": 52
+          "line": 84,
+          "column": 1
         }
       },
       "2": {
         "start": {
-          "line": 10,
-          "column": 4
+          "line": 24,
+          "column": 35
         },
         "end": {
-          "line": 12,
-          "column": 5
+          "line": 24,
+          "column": 60
         }
       },
       "3": {
         "start": {
-          "line": 11,
-          "column": 8
+          "line": 26,
+          "column": 2
         },
         "end": {
-          "line": 11,
-          "column": 45
+          "line": 28,
+          "column": 3
         }
       },
       "4": {
         "start": {
-          "line": 13,
+          "line": 27,
           "column": 4
         },
         "end": {
-          "line": 15,
-          "column": 5
+          "line": 27,
+          "column": 43
         }
       },
       "5": {
         "start": {
-          "line": 14,
-          "column": 8
+          "line": 29,
+          "column": 2
         },
         "end": {
-          "line": 14,
-          "column": 39
+          "line": 31,
+          "column": 3
         }
       },
       "6": {
         "start": {
-          "line": 16,
+          "line": 30,
           "column": 4
         },
         "end": {
           "line": 30,
-          "column": 5
+          "column": 75
+        }
+      },
+      "7": {
+        "start": {
+          "line": 33,
+          "column": 24
+        },
+        "end": {
+          "line": 33,
+          "column": 71
+        }
+      },
+      "8": {
+        "start": {
+          "line": 33,
+          "column": 54
+        },
+        "end": {
+          "line": 33,
+          "column": 70
+        }
+      },
+      "9": {
+        "start": {
+          "line": 35,
+          "column": 2
+        },
+        "end": {
+          "line": 83,
+          "column": 4
         }
       }
     },
@@ -4008,128 +3954,156 @@
         "name": "(anonymous_0)",
         "decl": {
           "start": {
-            "line": 8,
-            "column": 13
+            "line": 23,
+            "column": 16
           },
           "end": {
-            "line": 8,
-            "column": 14
+            "line": 23,
+            "column": 17
           }
         },
         "loc": {
           "start": {
-            "line": 8,
-            "column": 25
+            "line": 23,
+            "column": 22
           },
           "end": {
-            "line": 31,
+            "line": 84,
             "column": 1
           }
         },
-        "line": 8
+        "line": 23
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": {
+            "line": 33,
+            "column": 43
+          },
+          "end": {
+            "line": 33,
+            "column": 44
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 33,
+            "column": 54
+          },
+          "end": {
+            "line": 33,
+            "column": 70
+          }
+        },
+        "line": 33
       }
     },
     "branchMap": {
       "0": {
         "loc": {
           "start": {
-            "line": 10,
-            "column": 4
+            "line": 26,
+            "column": 2
           },
           "end": {
-            "line": 12,
-            "column": 5
+            "line": 28,
+            "column": 3
           }
         },
         "type": "if",
         "locations": [
           {
             "start": {
-              "line": 10,
-              "column": 4
+              "line": 26,
+              "column": 2
             },
             "end": {
-              "line": 12,
-              "column": 5
+              "line": 28,
+              "column": 3
             }
           },
           {
             "start": {
-              "line": 10,
-              "column": 4
+              "line": 26,
+              "column": 2
             },
             "end": {
-              "line": 12,
-              "column": 5
+              "line": 28,
+              "column": 3
             }
           }
         ],
-        "line": 10
+        "line": 26
       },
       "1": {
         "loc": {
           "start": {
-            "line": 13,
-            "column": 4
+            "line": 29,
+            "column": 2
           },
           "end": {
-            "line": 15,
-            "column": 5
+            "line": 31,
+            "column": 3
           }
         },
         "type": "if",
         "locations": [
           {
             "start": {
-              "line": 13,
-              "column": 4
+              "line": 29,
+              "column": 2
             },
             "end": {
-              "line": 15,
-              "column": 5
+              "line": 31,
+              "column": 3
             }
           },
           {
             "start": {
-              "line": 13,
-              "column": 4
+              "line": 29,
+              "column": 2
             },
             "end": {
-              "line": 15,
-              "column": 5
+              "line": 31,
+              "column": 3
             }
           }
         ],
-        "line": 13
+        "line": 29
       }
     },
     "s": {
-      "0": 1,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0
+      "0": 6,
+      "1": 6,
+      "2": 6,
+      "3": 6,
+      "4": 3,
+      "5": 3,
+      "6": 0,
+      "7": 3,
+      "8": 3,
+      "9": 3
     },
     "f": {
-      "0": 0
+      "0": 6,
+      "1": 3
     },
     "b": {
       "0": [
-        0,
-        0
+        3,
+        3
       ],
       "1": [
         0,
-        0
+        3
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "de4deb01d0ec5698aff269179aff010cbdc5675a"
+    "hash": "a41bd59128a1dc0f991ade38ae8c5dd8bcf8b6dd"
   },
-  "/Users/piperjarrett/mod3/re-sip-e_fe/src/SearchPage/SearchPage.js": {
-    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/SearchPage/SearchPage.js",
+  "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/SearchPage/SearchPage.js": {
+    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/SearchPage/SearchPage.js",
     "statementMap": {
       "0": {
         "start": {
@@ -4147,7 +4121,7 @@
           "column": 19
         },
         "end": {
-          "line": 83,
+          "line": 87,
           "column": 1
         }
       },
@@ -4273,51 +4247,51 @@
       },
       "14": {
         "start": {
-          "line": 49,
+          "line": 48,
           "column": 22
         },
         "end": {
-          "line": 52,
+          "line": 51,
           "column": 3
         }
       },
       "15": {
         "start": {
-          "line": 50,
+          "line": 49,
           "column": 4
         },
         "end": {
-          "line": 50,
+          "line": 49,
           "column": 23
         }
       },
       "16": {
         "start": {
-          "line": 51,
+          "line": 50,
           "column": 4
         },
         "end": {
-          "line": 51,
+          "line": 50,
           "column": 27
         }
       },
       "17": {
         "start": {
-          "line": 54,
+          "line": 53,
           "column": 2
         },
         "end": {
-          "line": 82,
+          "line": 86,
           "column": 4
         }
       },
       "18": {
         "start": {
-          "line": 67,
+          "line": 66,
           "column": 29
         },
         "end": {
-          "line": 67,
+          "line": 66,
           "column": 44
         }
       },
@@ -4351,7 +4325,7 @@
             "column": 25
           },
           "end": {
-            "line": 83,
+            "line": 87,
             "column": 1
           }
         },
@@ -4409,49 +4383,49 @@
         "name": "(anonymous_3)",
         "decl": {
           "start": {
-            "line": 49,
+            "line": 48,
             "column": 22
           },
           "end": {
-            "line": 49,
+            "line": 48,
             "column": 23
           }
         },
         "loc": {
           "start": {
-            "line": 49,
+            "line": 48,
             "column": 29
           },
           "end": {
-            "line": 52,
+            "line": 51,
             "column": 3
           }
         },
-        "line": 49
+        "line": 48
       },
       "4": {
         "name": "(anonymous_4)",
         "decl": {
           "start": {
-            "line": 67,
+            "line": 66,
             "column": 22
           },
           "end": {
-            "line": 67,
+            "line": 66,
             "column": 23
           }
         },
         "loc": {
           "start": {
-            "line": 67,
+            "line": 66,
             "column": 29
           },
           "end": {
-            "line": 67,
+            "line": 66,
             "column": 44
           }
         },
-        "line": 67
+        "line": 66
       },
       "5": {
         "name": "(anonymous_5)",
@@ -4558,30 +4532,30 @@
             "column": 9
           },
           "end": {
-            "line": 74,
-            "column": 84
+            "line": 78,
+            "column": 16
           }
         },
         "type": "cond-expr",
         "locations": [
           {
             "start": {
-              "line": 74,
-              "column": 19
+              "line": 75,
+              "column": 10
             },
             "end": {
-              "line": 74,
-              "column": 77
+              "line": 77,
+              "column": 16
             }
           },
           {
             "start": {
-              "line": 74,
-              "column": 80
+              "line": 78,
+              "column": 12
             },
             "end": {
-              "line": 74,
-              "column": 84
+              "line": 78,
+              "column": 16
             }
           }
         ],
@@ -4590,11 +4564,11 @@
       "3": {
         "loc": {
           "start": {
-            "line": 75,
+            "line": 79,
             "column": 9
           },
           "end": {
-            "line": 79,
+            "line": 83,
             "column": 16
           }
         },
@@ -4602,31 +4576,31 @@
         "locations": [
           {
             "start": {
-              "line": 76,
+              "line": 80,
               "column": 10
             },
             "end": {
-              "line": 78,
+              "line": 82,
               "column": 16
             }
           },
           {
             "start": {
-              "line": 79,
+              "line": 83,
               "column": 12
             },
             "end": {
-              "line": 79,
+              "line": 83,
               "column": 16
             }
           }
         ],
-        "line": 75
+        "line": 79
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
+      "0": 6,
+      "1": 6,
       "2": 0,
       "3": 0,
       "4": 0,
@@ -4673,7 +4647,7 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "bc9d8bd53ef53c344e08327f063bb6ca8562a86a"
+    "hash": "17b2930f06f79f14c47c812eef7182520114a04d"
   },
   "/Users/piperjarrett/mod3/re-sip-e_fe/src/hooks/useBarData.js": {
     "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/hooks/useBarData.js",
@@ -4694,7 +4668,7 @@
           "column": 26
         },
         "end": {
-          "line": 25,
+          "line": 26,
           "column": 1
         }
       },
@@ -4710,11 +4684,11 @@
       },
       "3": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 2
         },
         "end": {
-          "line": 24,
+          "line": 25,
           "column": 34
         }
       }
@@ -4738,7 +4712,7 @@
             "column": 34
           },
           "end": {
-            "line": 25,
+            "line": 26,
             "column": 1
           }
         },
@@ -4747,20 +4721,20 @@
     },
     "branchMap": {},
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 0,
-      "3": 0
+      "0": 6,
+      "1": 6,
+      "2": 1,
+      "3": 1
     },
     "f": {
-      "0": 0
+      "0": 1
     },
     "b": {},
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "6a17d4238dd3309b00ed17962f8b542bc1b057cc"
+    "hash": "f1efebbcf3f538ad73bd6065e822d8d7d984e8aa"
   },
-  "/Users/piperjarrett/mod3/re-sip-e_fe/src/BarPage/BarPage.js": {
-    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/BarPage/BarPage.js",
+  "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/BarPage/BarPage.js": {
+    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/BarPage/BarPage.js",
     "statementMap": {
       "0": {
         "start": {
@@ -4768,7 +4742,7 @@
           "column": 16
         },
         "end": {
-          "line": 50,
+          "line": 64,
           "column": 1
         }
       },
@@ -4798,7 +4772,7 @@
           "column": 2
         },
         "end": {
-          "line": 19,
+          "line": 21,
           "column": 3
         }
       },
@@ -4808,47 +4782,77 @@
           "column": 4
         },
         "end": {
-          "line": 18,
+          "line": 20,
           "column": 6
         }
       },
       "5": {
         "start": {
-          "line": 21,
+          "line": 23,
           "column": 2
         },
         "end": {
-          "line": 23,
+          "line": 25,
           "column": 3
         }
       },
       "6": {
         "start": {
-          "line": 22,
+          "line": 24,
           "column": 4
         },
         "end": {
-          "line": 22,
+          "line": 24,
           "column": 49
         }
       },
       "7": {
         "start": {
           "line": 26,
-          "column": 4
+          "column": 24
         },
         "end": {
-          "line": 26,
-          "column": 73
+          "line": 28,
+          "column": 3
         }
       },
       "8": {
         "start": {
-          "line": 29,
+          "line": 27,
+          "column": 4
+        },
+        "end": {
+          "line": 27,
+          "column": 29
+        }
+      },
+      "9": {
+        "start": {
+          "line": 30,
+          "column": 4
+        },
+        "end": {
+          "line": 30,
+          "column": 73
+        }
+      },
+      "10": {
+        "start": {
+          "line": 32,
           "column": 2
         },
         "end": {
-          "line": 49,
+          "line": 32,
+          "column": 31
+        }
+      },
+      "11": {
+        "start": {
+          "line": 33,
+          "column": 2
+        },
+        "end": {
+          "line": 63,
           "column": 4
         }
       }
@@ -4872,11 +4876,35 @@
             "column": 28
           },
           "end": {
-            "line": 50,
+            "line": 64,
             "column": 1
           }
         },
         "line": 10
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": {
+            "line": 26,
+            "column": 24
+          },
+          "end": {
+            "line": 26,
+            "column": 25
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 26,
+            "column": 30
+          },
+          "end": {
+            "line": 28,
+            "column": 3
+          }
+        },
+        "line": 26
       }
     },
     "branchMap": {
@@ -4887,7 +4915,7 @@
             "column": 2
           },
           "end": {
-            "line": 19,
+            "line": 21,
             "column": 3
           }
         },
@@ -4899,7 +4927,7 @@
               "column": 2
             },
             "end": {
-              "line": 19,
+              "line": 21,
               "column": 3
             }
           },
@@ -4909,7 +4937,7 @@
               "column": 2
             },
             "end": {
-              "line": 19,
+              "line": 21,
               "column": 3
             }
           }
@@ -4919,11 +4947,11 @@
       "1": {
         "loc": {
           "start": {
-            "line": 21,
+            "line": 23,
             "column": 2
           },
           "end": {
-            "line": 23,
+            "line": 25,
             "column": 3
           }
         },
@@ -4931,35 +4959,35 @@
         "locations": [
           {
             "start": {
-              "line": 21,
+              "line": 23,
               "column": 2
             },
             "end": {
-              "line": 23,
+              "line": 25,
               "column": 3
             }
           },
           {
             "start": {
-              "line": 21,
+              "line": 23,
               "column": 2
             },
             "end": {
-              "line": 23,
+              "line": 25,
               "column": 3
             }
           }
         ],
-        "line": 21
+        "line": 23
       },
       "2": {
         "loc": {
           "start": {
-            "line": 32,
+            "line": 36,
             "column": 7
           },
           "end": {
-            "line": 47,
+            "line": 61,
             "column": 7
           }
         },
@@ -4967,45 +4995,49 @@
         "locations": [
           {
             "start": {
-              "line": 33,
+              "line": 37,
               "column": 8
             },
             "end": {
-              "line": 33,
+              "line": 37,
               "column": 53
             }
           },
           {
             "start": {
-              "line": 35,
+              "line": 39,
               "column": 8
             },
             "end": {
-              "line": 46,
-              "column": 12
+              "line": 60,
+              "column": 14
             }
           }
         ],
-        "line": 32
+        "line": 36
       }
     },
     "s": {
-      "0": 1,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
+      "0": 6,
+      "1": 1,
+      "2": 1,
+      "3": 1,
+      "4": 1,
       "5": 0,
       "6": 0,
       "7": 0,
-      "8": 0
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0
     },
     "f": {
-      "0": 0
+      "0": 1,
+      "1": 0
     },
     "b": {
       "0": [
-        0,
+        1,
         0
       ],
       "1": [
@@ -5018,10 +5050,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "fb3dd279f426ee4c8f9f9a87ca6e9ef39f78c1bc"
+    "hash": "527b2eeabe907c1f58c0e2c69a1a890b4dbce819"
   },
-  "/Users/piperjarrett/mod3/re-sip-e_fe/src/App/App.js": {
-    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/App/App.js",
+  "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/App/App.js": {
+    "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/components/App/App.js",
     "statementMap": {
       "0": {
         "start": {
@@ -5303,7 +5335,7 @@
             },
             "end": {
               "line": 34,
-              "column": 47
+              "column": 145
             }
           },
           {
@@ -5357,32 +5389,32 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 2,
-      "2": 2,
-      "3": 2,
-      "4": 2,
-      "5": 2,
-      "6": 0,
+      "0": 6,
+      "1": 10,
+      "2": 10,
+      "3": 10,
+      "4": 10,
+      "5": 10,
+      "6": 1,
       "7": 0,
       "8": 0,
       "9": 0
     },
     "f": {
-      "0": 2,
-      "1": 0,
+      "0": 10,
+      "1": 1,
       "2": 0,
       "3": 0,
       "4": 0
     },
     "b": {
       "0": [
-        1,
-        1
+        6,
+        4
       ],
       "1": [
         1,
-        0
+        3
       ],
       "2": [
         0,
@@ -5390,7 +5422,7 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "21373b6c7b2b8fb2e50ed9eb0d5a875b76e0ae11"
+    "hash": "b9a7b7049e1fb327b002b351bfe880f9e0e9edf9"
   },
   "/Users/piperjarrett/mod3/re-sip-e_fe/src/reportWebVitals.js": {
     "path": "/Users/piperjarrett/mod3/re-sip-e_fe/src/reportWebVitals.js",
@@ -5601,8 +5633,8 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
+      "0": 6,
+      "1": 6,
       "2": 0,
       "3": 0,
       "4": 0,
@@ -5611,16 +5643,16 @@
       "7": 0
     },
     "f": {
-      "0": 1,
+      "0": 6,
       "1": 0
     },
     "b": {
       "0": [
         0,
-        1
+        6
       ],
       "1": [
-        1,
+        6,
         0
       ]
     },
@@ -5674,10 +5706,10 @@
     "fnMap": {},
     "branchMap": {},
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1
+      "0": 6,
+      "1": 6,
+      "2": 6,
+      "3": 6
     },
     "f": {},
     "b": {},

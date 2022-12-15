@@ -100,7 +100,7 @@ const CocktailInfo = ({ cocktailId, checkBar }) => {
   };
 
   return loading ? (
-    <Spinner />
+    <Spinner className="loader"/>
   ) : (
     <div>
       <NavBar />
