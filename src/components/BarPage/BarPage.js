@@ -3,13 +3,26 @@ import { Link } from "react-router-dom";
 import CocktailContainer from "../CocktailContainer/CocktailContainer";
 import NavBar from "../NavBar/NavBar";
 import { useBarData } from "../../hooks/useBarData";
-import { Heading, Button, Spinner } from "@chakra-ui/react";
+import { Heading, Button, Spinner, Input, filter } from "@chakra-ui/react";
 import "./BarPage.css";
 import EditCocktail from "../EditCocktail/EditCocktail";
 
 const BarPage = ({ id }) => {
   const { loading, error, data } = useBarData(id);
   const [checkBar, setCheckBar] = useState(true);
+
+  const [filteredDrinks, setFilteredDrink] = useState([]);
+
+  const filterDrinks = (event) => {
+    const filterByName = data.bar.drinks.filter((drink) => {
+      return drink.name
+        .toLowerCase()
+        .includes(event.target.value.toLowerCase());
+    });
+    filterByName.length
+      ? setFilteredDrink(filterByName)
+      : setFilteredDrink("None");
+  };
   if (loading) {
     return (
       <main className="main">
@@ -23,7 +36,6 @@ const BarPage = ({ id }) => {
   if (error) {
     return <div>Oops! Something went wrong</div>;
   }
-
 
   return (
     <section className="bar-page">
@@ -48,7 +60,25 @@ const BarPage = ({ id }) => {
               </Button>
             </Link>
           </div>
-          <CocktailContainer cocktails={data.bar.drinks} checkBar={checkBar} />
+          <Input
+            placeholder="Search Your Drinks"
+            width="20rem"
+            onChange={(event) => filterDrinks(event)}
+          />
+          {typeof filteredDrinks === "string" ? (
+            <div>
+              <Heading as={"h4"}>
+                The drink you are looking for is not in your bar
+              </Heading>
+            </div>
+          ) : (
+            <CocktailContainer
+              cocktails={
+                filteredDrinks.length ? filteredDrinks : data.bar.drinks
+              }
+              checkBar={checkBar}
+            />
+          )}
         </div>
       )}
     </section>
