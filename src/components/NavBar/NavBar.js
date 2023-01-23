@@ -34,7 +34,7 @@ const NavBar = () => {
             </div>
             <div className="resource-tab">
               <a href="/resources">
-                <Button aria-label='resource page' size={'lg'} height='65px' width='240px' color='white' bgColor="#37867B" _hover={{background: "#307168"}}>Bar Resources</Button>
+                <Button aria-label='resource page' size={'lg'} height='65px' width='240px' color='white' bgColor="#37867B" _hover={{background: "#307168"}}>Resources</Button>
               </a>
             </div>
             </div>
