@@ -9,6 +9,7 @@ import Profile from "../Profile/Profile";
 import SearchPage from "../SearchPage/SearchPage";
 import BarPage from "../BarPage/BarPage";
 import NavBar from "../NavBar/NavBar";
+import Resources from "../Resources/Resources";
 import siteLogo from "../../assets/re-sip-e.png";
 
 const App = () => {
@@ -35,6 +36,9 @@ const App = () => {
   ) : (
     <main className="main">
       <Switch>
+      <Route exact path="/resources">
+            <Resources />
+        </Route>
         <Route exact path="/profile">
           <div className="user-page">
             <Profile />
