@@ -2,10 +2,12 @@ import React from "react";
 import "./Resources.css";
 import { Button, Heading } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import  NavBar  from '../NavBar/NavBar';
 
 const Resources = () => {
   return (
     <section className="resources">
+      <NavBar />
       <div className="resources-container">
         <Heading
           as={"h2"}
