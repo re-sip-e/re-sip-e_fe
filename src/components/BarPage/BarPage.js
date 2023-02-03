@@ -11,6 +11,7 @@ const BarPage = ({ id }) => {
   const { loading, error, data } = useBarData(id);
   const [checkBar, setCheckBar] = useState(true);
   const [filteredDrinks, setFilteredDrink] = useState([]);
+
   let sortedDrinks;
   const filterDrinks = (event) => {
     const filterByName = sortedDrinks.filter((drink) => {

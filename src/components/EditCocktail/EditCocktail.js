@@ -200,9 +200,6 @@ const EditCocktail = ({ choosenCocktail }) => {
     }
   };
 
-  const reload = () => {
-    window.location.reload();
-  };
   return (
     <>
       <Button
@@ -292,7 +289,6 @@ const EditCocktail = ({ choosenCocktail }) => {
             <Button
               onClick={() => {
                 onClose();
-                reload();
               }}
               colorScheme="teal"
               variant="outline"
